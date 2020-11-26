@@ -8,7 +8,8 @@ const Nav = () => {
         state: false,
         home: false,
         cal: false,
-        contacts: false
+        contacts: false,
+        settings: false
     });
 
     const [prev, setPrev] = useState(expand.category)
