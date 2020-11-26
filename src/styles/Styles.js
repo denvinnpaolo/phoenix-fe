@@ -1,24 +1,17 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
-    font-size: 1.6rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    color: black;
+    // border: 1px solid black;
+    // // font-size: 1.6rem;
+    // display: flex;
+    // align-items: center;
+    // width: 100%;
+    // height: 100vh;
+    // color: black;
 `;
 
 export const NavContainer = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    position: absolute;
-    width: 20%;
-    height: 100%;
-    h4 {
-    font-size: 2.5rem;
-    }
+    // height: 100%;
 `;
 
 export const IconContainer = styled.div`

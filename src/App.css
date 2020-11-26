@@ -1,11 +1,47 @@
-.logo {
-  height: 80px;
-  width: 100%;
-  /* border: 1px solid black; */
+
+#nav-container {
+  display: flex;
+  height: 100vh;
 }
 
-
-
-.icon-btn {
-  margin-top: 40px;
+#side-nav {
+  background-color: #3f7d9f;
+  height: 100%;
+  width: 5%;
 }
+
+#top {
+  height: 15%;
+}
+
+#mid {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#btm {
+  height: 15%;
+}
+
+#expanded {
+  background-color: #4b9bc3;
+  height: 100%;
+  width: 20%;
+}
+
+.active {
+  border-left: 4px solid yellow;
+  background-color: #4b9bc3;
+}
+
+.icons {
+  display: flex;
+  height: 10%;
+  align-items: center;
+  justify-content: flex-end;
+  width: 95%;
+}
+
