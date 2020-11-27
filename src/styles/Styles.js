@@ -10,9 +10,6 @@ export const AppContainer = styled.div`
     // color: black;
 `;
 
-export const NavContainer = styled.div`
-    // height: 100%;
-`;
 
 export const IconContainer = styled.div`
     display: flex;
@@ -44,7 +41,7 @@ export const BtmIconCont = styled.div`
 `;
 
 export const LoginForm = styled.form`
-  background-color: #165d35;
+  background-color: #288B50;
   display: flex;
   flex-direction: column;
   align-items: center;

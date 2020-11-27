@@ -1,4 +1,4 @@
-
+/* DASHBOARD NAVIGATION */
 #nav-container {
   display: flex;
   height: 100vh;
@@ -65,3 +65,57 @@
   width: 95%;
 }
 
+/* LANDING PAGE NAVIGATION */
+#nav-container {
+  background-color: #288B50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+}
+
+#nav-btns {
+  display:flex;
+  width: 20%;
+  justify-content: space-evenly;
+}
+
+.lnd-nav-btn {
+  color: white;
+}
+
+/* LOGIN */
+
+#login-container {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+
+#login-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#login-input-main {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+#login-form {
+  display:flex;
+  flex-direction: column;
+  height: 10%;
+  justify-content: space-evenly;
+}
