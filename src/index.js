@@ -4,9 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { applyMiddleware, compose, createStore } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import rootReducer from "./store/reducers";
+
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={createStore(rootReducer ,composeEnhancer(applyMiddleware(thunk, logger)))}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
