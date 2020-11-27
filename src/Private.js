@@ -10,7 +10,8 @@ const Private = ({ component: Component, ...rest}) => {
     return(
         <Route
             {...rest}
-            render = {props => token? <Component {...props} {...rest /> : <LandingPage />}}
+            render = {props => token? <Component {...props} {...rest} /> : <LandingPage />}
          />
     )
 }
+export default Private;

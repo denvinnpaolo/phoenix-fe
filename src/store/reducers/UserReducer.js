@@ -65,6 +65,8 @@ function UserReducer(state = initialState, action){
                 isFetching: false,
                 userData: action.payload
             }
+        default:
+            return state
     }
 }
 
