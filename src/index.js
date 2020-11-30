@@ -18,7 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={createStore(rootReducer ,composeEnhancer(applyMiddleware(thunk, logger)))}>
       <Router>
-        <App />
+        <App id="app"/>
       </Router>
     </Provider>
   </React.StrictMode>,

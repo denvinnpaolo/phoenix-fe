@@ -23,10 +23,11 @@ export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
+    console.log(user)
     dispatch({ type: FETCH_USER_LOADING });
     return(
         axiosWithAuth()
-            .post(`${host}/login`, user)
+            .post(`/login`, user)
             .then(response => {
                 window.localStorage.setItem('token', response.data.token)
                 dispatch({

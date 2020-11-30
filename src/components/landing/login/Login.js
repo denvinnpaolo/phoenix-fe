@@ -8,16 +8,19 @@ const Login = props => {
     // const { isFetching } = useSelector(state => state.user);
 
     const [user, setUser] = useState({
-        type: '',
+        type: 'user',
         email: '',
         password: ''
     });
 
     const handleChange = e => {
         setUser({...user, [e.target.name]: e.target.value})
+        console.log(user)
+
     };
 
     const handleSubmit = e => {
+        console.log(user)
         e.preventDefault();
         dispatch(fetchUser(user));
     };
@@ -30,6 +33,10 @@ const Login = props => {
             <div id="login-input-container">
                 <div id="login-input-main">
                     <form id="login-form" onSubmit={handleSubmit}>
+                        <select name="type" value={user.type} onChange={handleChange}>
+                            <option value="user">user</option>
+                            <option value="orgs">organization</option>
+                        </select>
                         <input
                             name= "email"
                             value= {user.email}
@@ -51,7 +58,7 @@ const Login = props => {
                             Remember me
                         </label>
                     </form>
-                    <button>log in</button>
+                    <button onClick={handleSubmit}>log in</button>
                 </div>
             </div>
         </div>

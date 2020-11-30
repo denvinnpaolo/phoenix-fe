@@ -44,7 +44,7 @@ const Nav = () => {
     };
     
     return (
-        <div id="nav-container">
+        <div id="dash-nav-container">
             <div id="side-nav">
                 <div id="top">
                     <h1 style={{color:"white"}}>Ouro</h1>
