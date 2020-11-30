@@ -1,4 +1,5 @@
 import './App.css';
+import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 import Private from './Private.js'
@@ -9,10 +10,13 @@ import Nav from './components/dashboard/nav/Nav.js'
 
 
 function App() {
+
+      const { loggedIn } = useSelector(state => state.user);
+
   return (
-      <>
+      <div>
         <Private path="/" component={Dashboard} />
-      </>
+      </div>
   );
 }
 
