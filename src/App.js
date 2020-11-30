@@ -10,7 +10,9 @@ import Nav from './components/dashboard/nav/Nav.js'
 
 function App() {
   return (
-      <Private path="/" component={Dashboard} />
+      <>
+        <Private path="/" component={Dashboard} />
+      </>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Nav from './nav/Nav.js'
-import Contents from './Contents/Contents.js'
+import Contents from './contents/Contents.js'
 
 
 const LandingPage = props => {
