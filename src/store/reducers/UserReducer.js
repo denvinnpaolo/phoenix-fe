@@ -1,5 +1,3 @@
-import jwt_decode from 'jwt-decode';
-
 import {
     CREATE_USER_FAILURE,
     CREATE_USER_START,
