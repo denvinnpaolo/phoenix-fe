@@ -1,3 +1,4 @@
+import jwt_decode from 'jwt-decode';
 import { axiosWithAuth } from '../../utils/axiosWithAuth.js';
 
 export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
