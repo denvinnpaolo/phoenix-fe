@@ -1,19 +1,19 @@
 import './App.css';
 import { useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import Private from './Private.js'
 import Dashboard from './components/dashboard/index.js'
 
-import { AppContainer } from './styles/Styles.js';
-import Nav from './components/dashboard/nav/Nav.js'
+import LandingPage from './components/landing';
 
 
 function App() {
-
+  const {loggedIn} = useSelector(state => state.users)
   return (
       <div>
-        <Private path="/" component={Dashboard} />
+        {loggedIn? <Redirect push to="/"/> : <Route path="/" component={LandingPage} />}
+        <Private exact path="/" component={Dashboard} />
       </div>
   );
 }

@@ -15,12 +15,10 @@ const Login = props => {
 
     const handleChange = e => {
         setUser({...user, [e.target.name]: e.target.value})
-        console.log(user)
 
     };
 
     const handleSubmit = e => {
-        console.log(user)
         e.preventDefault();
         dispatch(fetchUser(user));
     };
@@ -43,6 +41,7 @@ const Login = props => {
                             onChange={handleChange}
                         />
                         <input
+                            type="password"
                             name= "password"
                             value= {user.password}
                             onChange= {handleChange}

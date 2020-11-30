@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {Redirect, Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Nav from './nav/Nav.js'
 import Contents from './contents/Contents.js'
 
 
 const LandingPage = props => {
-    return(
+    const { loggedIn } = useSelector(state => state.users)
+    return(loggedIn?
+        <Redirect push to ="/dashboard"/>
+        :
         <div>
-            {console.log(props)}
+
             <Route path="/" component={Nav}/>
             <Switch>
                 <Route path="/" component={Contents} />

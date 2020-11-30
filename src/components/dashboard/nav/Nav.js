@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { BiHome, BiCalendar} from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
@@ -47,7 +49,7 @@ const Nav = () => {
         <div id="dash-nav-container">
             <div id="side-nav">
                 <div id="top">
-                    <h1 style={{color:"white"}}>Ouro</h1>
+                    <Link to="/"><h1 style={{color:"white"}}>Ouro</h1></Link>
                     <div class="icons">
                        { expand.state? <BsBoxArrowLeft color="white" size="1.3em" onClick={handleExpand} />
                         :<BsBoxArrowRight color="white" size="1.3em" onClick={handleExpand} /> }
