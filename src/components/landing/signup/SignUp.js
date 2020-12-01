@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import WT from '../wt/WT.js'
 
 const SignUp = props => {
     // use this to dispatch data to state for redux
     // const dispatch = useDispatch();
-    const [newUser, setNewUser] = useState({
-        email: "",
-        password: ""
-    })
 
-    const handleChange = e => {
-        setNewUser({
-            ...newUser,
-            [e.target.name]: e.target.value
-        });
-    };
+    const history = useHistory(); 
+
+    // const handleChange = e => {
+    //     setNewUser({
+    //         ...newUser,
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
 
     const handleClick = e => {
         e.preventDefault();
         let name = e.target.name;
-        console.log(name)
+        history.push(`/${name}-register`)
     }
 
 

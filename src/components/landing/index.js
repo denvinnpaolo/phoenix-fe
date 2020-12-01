@@ -12,9 +12,7 @@ const LandingPage = props => {
         :
         <div>
             <Route path="/" component={Nav}/>
-            <Switch>
-                <Route path="/" component={Landing} />
-            </Switch>
+            <Route path="/" component={Landing} />
 
         </div>
     )

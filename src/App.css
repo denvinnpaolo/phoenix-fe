@@ -12,7 +12,7 @@
 
 #register-container {
   background-color:#288B50;
-  height: 85vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -40,7 +40,7 @@
 }
 
 #landing-header {
-  font-size: 4em;
+  font-size: 3.8em;
 }
 
 #register-btn-container {
@@ -75,7 +75,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 15vh;
+  height: 10vh;
   width: 100%;
 }
 
@@ -88,6 +88,67 @@
 .lnd-nav-btn {
   color: white;
 }
+
+/* WASTE TRANSFORMER REGISTER */
+#wt-container {
+  height: 90vh;
+  width:100%;
+  background-color:  #288B50;
+  display: flex;
+  justify-content: center;
+}
+
+#wt-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 45%;
+}
+
+#wt-text-cont {
+  /* border: 1px solid white; */
+  height:20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#wt-form-cont {
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+#wt-btns-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:20%;
+  width: 100%;
+
+}
+
+#wt-btns-inner{
+  display: flex;
+  justify-content: space-between;
+  width:50%;
+}
+
+.wt-register-btn {
+  height: 60px;
+  width:120px;
+  border-radius: 30px;
+  border: 1px solid white;
+  font-size: 1.1em;
+}
+
 
 /* LOGIN */
 
