@@ -12,7 +12,7 @@ const WTransformer = () => {
         step: 1,
         percent: 2,
         company_name:'',
-        company_size: 100,
+        company_size: 10,
         website: '',
         company_address: '',
         company_phone:'',
