@@ -24,6 +24,14 @@ const WTransformer = () => {
     })
 
 
+
+    const handleChange = e => {
+        setNewUser({
+            ...newUser,
+            [e.target.name]: e.target.value
+        })
+    }
+
     function SwitchCase(props) {
         switch(newUser.step){
             case 1:
@@ -32,6 +40,7 @@ const WTransformer = () => {
                         values={newUser}
                         nextStep={nextStep} 
                         handleChange={handleChange} 
+                        setNewUser={setNewUser}
                     />
                 );
             case 2:
@@ -41,6 +50,8 @@ const WTransformer = () => {
                         nextStep={nextStep}
                         prevStep={prevStep} 
                         handleChange={handleChange} 
+                        setNewUser={setNewUser}
+
                     />
                 );
             case 3:
@@ -76,12 +87,6 @@ const WTransformer = () => {
         }
     }
 
-    const handleChange = e => {
-        setNewUser({
-            ...newUser,
-            [e.target.name]: e.target.value
-        })
-    }
 
     return(
         <div id="wt-container">
