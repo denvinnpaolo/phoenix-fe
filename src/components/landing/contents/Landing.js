@@ -7,10 +7,8 @@ import SignUp from '../signup/SignUp.js'
 const Landing = props => {
     return(
         <div>
-            <Switch>
-                <Route path="/register" component={SignUp} />
-                <Route path="/login" component={Login} />
-            </Switch>
+                <Route path="/" component={SignUp} />
+
         </div>
     )
 }

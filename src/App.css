@@ -1,6 +1,5 @@
 /* ROOT */
 #app {
-  border: 1px solid black;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
@@ -8,6 +7,122 @@
   height: 100vh;
   color: black;
 }
+
+/* LANDING PAGE ROOT */
+
+#register-container {
+  background-color:#288B50;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#inner-register-cont {
+  /* border: 1px solid yellow; */
+  height: 70%;
+  width:40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+#text-container {
+  text-align: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid violet; */
+}
+
+#landing-header {
+  font-size: 4em;
+}
+
+#register-btn-container {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+
+.landing-text {
+  color: white;
+  font-family: 'Encode Sans Condensed';
+  font-size: 1.4em;
+}
+
+.register-btn {
+  height: 50px;
+  width: 40%;
+  color: black;
+  border-radius: 30px;
+  border: 1px solid white;
+  font-size: 20px;
+}
+
+
+
+
+/* LANDING PAGE NAVIGATION */
+#nav-container {
+  background-color: #288B50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  width: 100%;
+}
+
+#nav-btns {
+  display:flex;
+  width: 20%;
+  justify-content: space-evenly;
+}
+
+.lnd-nav-btn {
+  color: white;
+}
+
+/* LOGIN */
+
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+
+#login-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#login-input-main {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+#login-form {
+  display:flex;
+  flex-direction: column;
+  height: 10%;
+  justify-content: space-evenly;
+}
+
 
 /* DASHBOARD PAGE */
 #dashboard-container {
@@ -83,57 +198,4 @@
   width: 95%;
 }
 
-/* LANDING PAGE NAVIGATION */
-#nav-container {
-  background-color: #288B50;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10%;
-  width: 100%;
-}
 
-#nav-btns {
-  display:flex;
-  width: 20%;
-  justify-content: space-evenly;
-}
-
-.lnd-nav-btn {
-  color: white;
-}
-
-/* LOGIN */
-
-#login-container {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 100%;
-}
-
-#login-input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 60%;
-  width: 100%;
-  border: 1px solid black;
-}
-
-#login-input-main {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height: 10%;
-}
-
-#login-form {
-  display:flex;
-  flex-direction: column;
-  height: 10%;
-  justify-content: space-evenly;
-}

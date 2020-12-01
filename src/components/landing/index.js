@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Nav from './nav/Nav.js'
-import Contents from './contents/Contents.js'
+import Landing from './contents/Landing.js'
 
 
 const LandingPage = props => {
@@ -11,10 +11,9 @@ const LandingPage = props => {
         <Redirect push to ="/dashboard"/>
         :
         <div>
-
             <Route path="/" component={Nav}/>
             <Switch>
-                <Route path="/" component={Contents} />
+                <Route path="/" component={Landing} />
             </Switch>
 
         </div>

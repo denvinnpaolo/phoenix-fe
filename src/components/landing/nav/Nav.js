@@ -27,9 +27,6 @@ const Nav = props => {
                 <div className="lnd-nav-btn">
                     <span>Help</span>
                 </div>
-                <div className="lnd-nav-btn">
-                    <ImBubbles color="white" size="1.5em" />
-                </div>
             </div>
         </div>
     )
