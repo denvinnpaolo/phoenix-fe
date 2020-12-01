@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchUser } from '../../../store/actions/index.js'
 
 const Login = props => {
     const dispatch = useDispatch();
-
-    // const { isFetching } = useSelector(state => state.user);
 
     const [user, setUser] = useState({
         type: 'user',

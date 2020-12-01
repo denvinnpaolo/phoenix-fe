@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Redirect, Switch } from 'react-router-dom';
+import { Redirect, Switch, useHistory } from 'react-router-dom';
 import UserInfo from './UserInfo.js';
 import CompanyInfo from './CompanyInfo.js';
 import Confirm from './Confirm.js';
+import Progress from './ProgressBar.js'
 
 const WTransformer = () => {
+    const history = useHistory();
 
     const [newUser, setNewUser] = useState({
-        step: 0,
+        step: 1,
+        percent: 2,
         company_name:'',
-        company_size:0,
+        company_size: 0,
         website: '',
         company_address: '',
         company_phone:'',
@@ -25,16 +28,16 @@ const WTransformer = () => {
         switch(newUser.step){
             case 1:
                 return(
-                    <UserInfo 
-                        user={newUser}
+                    <CompanyInfo
+                        values={newUser}
                         nextStep={nextStep} 
                         handleChange={handleChange} 
                     />
                 );
             case 2:
                 return(
-                    <CompanyInfo 
-                        user={newUser}
+                    <UserInfo
+                        values={newUser}
                         nextStep={nextStep}
                         prevStep={prevStep} 
                         handleChange={handleChange} 
@@ -43,7 +46,7 @@ const WTransformer = () => {
             case 3:
                 return(
                     <Confirm
-                        user={newUser}      
+                        values={newUser}      
                         nextStep={nextStep}
                         prevStep={prevStep} 
                         handleChange={handleChange} 
@@ -61,12 +64,16 @@ const WTransformer = () => {
 
     const nextStep = () => {
         const { step } = newUser;
-        setNewUser({...newUser, step: step + 1});
+        setNewUser({...newUser, step: step + 1, percent: newUser.percent + 49});
     }
 
     const prevStep = () => {
         const { step } = newUser;
-        setNewUser({...newUser, step: step - 1});
+        if(step === 1){
+            history.push('/')
+        } else {
+            setNewUser({...newUser, step: step - 1, percent: newUser.percent - 49});
+        }
     }
 
     const handleChange = e => {
@@ -84,15 +91,22 @@ const WTransformer = () => {
                     <span className="landing-text">Tell us about the company</span>
                 </div>
                 <div id="wt-form-cont">
-                    <SwitchCase />
+                    <div id="progress-bar">
+                        <Progress
+                        percent={newUser.percent}
+                        fillBackground="linear-gradient(to right, #fefb72, #f0bb31)"
+                        />
+                    </div>
+                    <div id="wt-form"><SwitchCase /></div>
                 </div>
 
                 <div id="wt-btns-cont">
                     <div id="wt-btns-inner">
-                        <button className="wt-register-btn">Cancel</button>
+                        <button onClick={prevStep}className="wt-register-btn">{newUser.step===1? "Cancel" : "Previous"}</button>
                         <button 
                             className="wt-register-btn"
                             style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}}
+                            onClick={nextStep}
                         >
                           Next
                         </button>
