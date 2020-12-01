@@ -197,6 +197,14 @@
   align-items: flex-start;
 }
 
+#confirm-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 .companyinfo-inputs-cont{
   display: flex;
   justify-content: flex-end;
@@ -217,6 +225,26 @@
   outline: none;
 
 }
+
+.confirm-field {
+  display: flex;
+  justify-content: flex-start;
+  /* border: 1px solid black; */
+  width: 100%;
+}
+
+.confirm-label {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+}
+.confirm-value {
+  text-align: center;
+  width: 55%;
+  justify-content: flex-start;
+  border-bottom: 1px solid gray;
+}
+
 
 
 

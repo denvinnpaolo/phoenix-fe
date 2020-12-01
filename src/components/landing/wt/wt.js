@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Switch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import UserInfo from './UserInfo.js';
 import CompanyInfo from './CompanyInfo.js';
 import Confirm from './Confirm.js';
@@ -12,7 +12,7 @@ const WTransformer = () => {
         step: 1,
         percent: 2,
         company_name:'',
-        company_size: 10,
+        company_size: '',
         website: '',
         company_address: '',
         company_phone:'',
@@ -59,7 +59,6 @@ const WTransformer = () => {
                         values={newUser}      
                         nextStep={nextStep}
                         prevStep={prevStep} 
-                        handleChange={handleChange} 
                     />
                 );
             case 4:
