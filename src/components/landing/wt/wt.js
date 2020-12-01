@@ -12,7 +12,7 @@ const WTransformer = () => {
         step: 1,
         percent: 2,
         company_name:'',
-        company_size: 0,
+        company_size: 10,
         website: '',
         company_address: '',
         company_phone:'',
@@ -51,7 +51,6 @@ const WTransformer = () => {
                         prevStep={prevStep} 
                         handleChange={handleChange} 
                         setNewUser={setNewUser}
-
                     />
                 );
             case 3:
@@ -64,7 +63,9 @@ const WTransformer = () => {
                     />
                 );
             case 4:
-                <Redirect to="/dashboard" />
+                return(
+                    history.push('/dashboard')
+                )
             default:
                 return <h1>Hi</h1>
                 console.log('multi-step form :)')
@@ -110,10 +111,9 @@ const WTransformer = () => {
                         <button onClick={prevStep}className="wt-register-btn">{newUser.step===1? "Cancel" : "Previous"}</button>
                         <button 
                             className="wt-register-btn"
-                            style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}}
                             onClick={nextStep}
                         >
-                          Next
+                          {newUser.step === 3? "Create Account!":"Next"}
                         </button>
                     </div>
 

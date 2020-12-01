@@ -33,7 +33,6 @@ const SignUp = props => {
                 <div id="register-btn-container">
                     <button name="wt" 
                         className="register-btn" 
-                        style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}}
                         onClick={handleClick}
                         >
                             Waste Transformer
