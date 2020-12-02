@@ -8,7 +8,6 @@ const Home = props => {
 
     if(userdata === undefined) {
         let token = window.localStorage.getItem('token')
-        userdata=jwt_decode(token)
     }
     
     return(
