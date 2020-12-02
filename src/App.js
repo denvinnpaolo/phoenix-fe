@@ -12,8 +12,7 @@ function App() {
   const {loggedIn} = useSelector(state => state.users)
   return (
       <div>
-        {loggedIn? <Redirect push to="/"/> : <Route path="/" component={LandingPage} />}
-        <Private exact path="/" component={Dashboard} />
+        <Private  path="/" component={Dashboard} />
       </div>
   );
 }

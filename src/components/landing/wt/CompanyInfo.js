@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
 const CompanyInfo = props => {
+    const { type } = props.values;
 
     const [company, setCompany] = useState({
         company_name: props.values.company_name,
         company_size: props.values.company_size,
+        category: type === 'wp'?  props.values.category : null,
         website: props.values.website,
         company_address: props.values.company_address,
         company_phone: props.values.company_phone
@@ -39,6 +41,21 @@ const CompanyInfo = props => {
 
                     />
                 </div>
+                {type === 'wp'? <div className="companyinfo-inputs-cont">
+                <span>COMPANY TYPE</span>
+                <select  
+                    className="register-inputs"
+                    name="category"
+                    value={company.category}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                >
+                    <option></option>
+                    <option className="registration-form-option" value="restaurant">Restaurant</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="business">Business</option>
+                </select>
+                </div> : null}
                 <div className="companyinfo-inputs-cont">
                     <span>COMPANY SIZE</span>
                     <input 

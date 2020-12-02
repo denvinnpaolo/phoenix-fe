@@ -51,7 +51,7 @@ const UserInfo = props => {
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">
-                    <span>WEBSITE</span>
+                    <span>PHONE</span>
                     <input 
                         className="register-inputs"
                         name="phone"

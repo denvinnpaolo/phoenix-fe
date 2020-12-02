@@ -19,7 +19,7 @@ const Nav = props => {
             <div id="nav-btns">
                 <div className="lnd-nav-btn">
                 {loggedIn? 
-                    <Link to="/dashboard" style={{ textDecoration: 'none',color: 'white'}}>Dashboard</Link>
+                    <Link to="/" style={{ textDecoration: 'none',color: 'white'}}>Dashboard</Link>
                     :
                     <Link to="/login" style={{ textDecoration: 'none',color: 'white'}}>Log In</Link>
                 }

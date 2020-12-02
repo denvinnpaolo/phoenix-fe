@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
+import LandingPage from './components/landing';
 
 
 const Private = ({ component: Component, ...rest}) => {
@@ -9,7 +10,7 @@ const Private = ({ component: Component, ...rest}) => {
     return(
         <Route
             {...rest}
-            render = {props => token? <Component {...props} {...rest} /> : <Redirect to="/" />}
+            render = {props => token? <Component {...props} {...rest} /> : <LandingPage />}
          />
     )
 }

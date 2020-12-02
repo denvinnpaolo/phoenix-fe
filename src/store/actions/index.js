@@ -48,6 +48,7 @@ export const createUser = newUser => dispatch => {
         axiosWithAuth()
             .post(`${host}/register`, newUser)
             .then(response => {
+                window.localStorage.setItem('token', response.data.token);
                 dispatch({ 
                     type: CREATE_USER_SUCCESS,
                     payload: response.data

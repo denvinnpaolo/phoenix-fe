@@ -1,45 +1,49 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { createUser } from '../../../store/actions/index.js'
+
+
 import UserInfo from './UserInfo.js';
 import CompanyInfo from './CompanyInfo.js';
 import Confirm from './Confirm.js';
 import Progress from './ProgressBar.js'
 
-const WTransformer = () => {
+const SignUpForm = props => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    let cannotSubmit = true
+    let type = ''
+
+    if(window.location.href.indexOf("wt") > -1) {
+        type = 'wt';
+    } else if (window.location.href.indexOf("wp") > -1){
+        type = 'wp';
+    };
 
     const [newUser, setNewUser] = useState({
         step: 1,
         percent: 2,
+        type: type,
         company_name:'',
+        category:'',
         company_size: '',
         website: '',
         company_address: '',
         company_phone:'',
         name: '',
         job_title: '',
-        email: '',
         phone: '',
+        email: '',
         password:''
-    })
+    });
 
-
-
-    const handleChange = e => {
-        setNewUser({
-            ...newUser,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    function SwitchCase(props) {
+    function SwitchCase() {
         switch(newUser.step){
             case 1:
                 return(
                     <CompanyInfo
                         values={newUser}
-                        nextStep={nextStep} 
-                        handleChange={handleChange} 
                         setNewUser={setNewUser}
                     />
                 );
@@ -47,9 +51,6 @@ const WTransformer = () => {
                 return(
                     <UserInfo
                         values={newUser}
-                        nextStep={nextStep}
-                        prevStep={prevStep} 
-                        handleChange={handleChange} 
                         setNewUser={setNewUser}
                     />
                 );
@@ -57,20 +58,15 @@ const WTransformer = () => {
                 return(
                     <Confirm
                         values={newUser}      
-                        nextStep={nextStep}
-                        prevStep={prevStep} 
                     />
                 );
-            case 4:
-                return(
-                    history.push('/dashboard')
-                )
             default:
                 return <h1>Hi</h1>
                 console.log('multi-step form :)')
         }
 
     };
+
 
 
     const nextStep = () => {
@@ -85,6 +81,18 @@ const WTransformer = () => {
         } else {
             setNewUser({...newUser, step: step - 1, percent: newUser.percent - 49});
         }
+    }
+
+
+    const handleSubmit = e => {
+
+        dispatch(createUser(newUser))
+        history.push('/')
+    }
+
+    
+    if(newUser.company_name !== '' && newUser.company_address !== '' && newUser.email !== '' && newUser.password !== '' && newUser.company_phone !== ''){
+        cannotSubmit = false 
     }
 
 
@@ -108,12 +116,20 @@ const WTransformer = () => {
                 <div id="wt-btns-cont">
                     <div id="wt-btns-inner">
                         <button onClick={prevStep}className="wt-register-btn">{newUser.step===1? "Cancel" : "Previous"}</button>
-                        <button 
-                            className="wt-register-btn"
-                            onClick={nextStep}
-                        >
-                          {newUser.step === 3? "Create Account!":"Next"}
-                        </button>
+                        {newUser.step === 3? 
+                            <button 
+                                disabled={cannotSubmit}
+                                className="wt-register-btn"
+                                onClick={handleSubmit}
+                                >
+                                Create Account!
+                            </button> :
+                            <button 
+                                className="wt-register-btn"
+                                onClick={nextStep}
+                            >
+                              Next
+                            </button>}
                     </div>
 
                 </div>
@@ -124,4 +140,4 @@ const WTransformer = () => {
     )
 };
 
-export default WTransformer;
+export default SignUpForm;

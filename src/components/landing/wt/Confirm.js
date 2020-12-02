@@ -11,6 +11,10 @@ const Confirm = props => {
                 <div className="confirm-value">{props.values.company_name}</div>
             </div>
             <div className="confirm-field">
+                <div className="confirm-label">COMPANY TYPE:</div>
+                <div className="confirm-value">{props.values.category}</div>
+            </div>
+            <div className="confirm-field">
                 <div className="confirm-label">COMPANY SIZE:</div>
                 <div className="confirm-value">{props.values.company_size}</div>
             </div>
@@ -20,7 +24,7 @@ const Confirm = props => {
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">COMPANY ADDRESS:</div>
-                <div className="confirm-value">{props.values.address}</div>
+                <div className="confirm-value">{props.values.company_address}</div>
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">COMPANY PHONE:</div>
@@ -28,7 +32,7 @@ const Confirm = props => {
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">NAME:</div>
-                <div className="confirm-value">{props.values.namme}</div>
+                <div className="confirm-value">{props.values.name}</div>
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">JOB TITLE</div>
