@@ -85,7 +85,7 @@ const SignUpForm = props => {
 
 
     const handleSubmit = e => {
-
+        e.preventDefault();
         dispatch(createUser(newUser))
         history.push('/')
     }
@@ -100,7 +100,7 @@ const SignUpForm = props => {
         <div id="wt-container">
             <div id="wt-inner-container">
                 <div id="wt-text-cont">
-                    <span id="landing-header" className="landing-text">Waste Transformer</span>
+                    <span id="landing-header" className="landing-text">{type ==='wt'?'Waste Transformer' : 'Waste Producer'}</span>
                     <span className="landing-text">Tell us about the company</span>
                 </div>
                 <div id="wt-form-cont">

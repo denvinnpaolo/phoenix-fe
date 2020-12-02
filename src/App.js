@@ -5,14 +5,14 @@ import { Route, Redirect } from 'react-router-dom';
 import Private from './Private.js'
 import Dashboard from './components/dashboard/index.js'
 
-import LandingPage from './components/landing';
 
 
 function App() {
   const {loggedIn} = useSelector(state => state.users)
   return (
       <div>
-        <Private  path="/" component={Dashboard} />
+        <Private path="/" component={Dashboard} />
+
       </div>
   );
 }

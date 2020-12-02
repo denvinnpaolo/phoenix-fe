@@ -42,6 +42,22 @@ export const fetchUser = user => dispatch => {
     )
 };
 
+export const unfetchUser = () => dispatch => {
+    dispatch({ type: UNFETCH_USER_LOADING });
+    return(
+        axiosWithAuth()
+            .get()
+            .then(response => {
+                window.localStorage.clear();
+                dispatch({
+                    type: UNFETCH_USER_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: UNFETCH_USER_FAILURE, payload: err}))
+    )
+}
+
 export const createUser = newUser => dispatch => {
     dispatch({ type: CREATE_USER_START });
     return(

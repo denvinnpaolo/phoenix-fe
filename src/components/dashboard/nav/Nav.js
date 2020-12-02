@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
-import { BiHome, BiCalendar} from 'react-icons/bi';
+import { BiHome, BiCalendar, BiLogOut} from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
 import { BsQuestionDiamond, BsBoxArrowRight, BsBoxArrowLeft, BsPeople } from 'react-icons/bs';
 
+import { unfetchUser } from '../../../store/actions/index.js'
+import { useDispatch } from 'react-redux';
+
 const Nav = () => {
+    const dispatch = useDispatch();
+
+    const history = useHistory();
     const [expand, setExpand] = useState({
         state: false,
         home: false,
@@ -44,16 +50,17 @@ const Nav = () => {
             setExpand({ ...expand, state: true, home: true });
         }
     };
+
+    const logOut = e => {
+        dispatch(unfetchUser())
+    }
     
     return (
         <div id="dash-nav-container">
             <div id="side-nav">
                 <div id="top">
-                    <Link to="/"><h1 style={{color:"white"}}>Ouro</h1></Link>
-                    <div class="icons">
-                       { expand.state? <BsBoxArrowLeft color="white" size="1.3em" onClick={handleExpand} />
-                        :<BsBoxArrowRight color="white" size="1.3em" onClick={handleExpand} /> }
-                    </div>
+                    <Link to="/" style={{textDecoration: "none"}}><h1 style={{color:"white", fontSize:"5em"}}>O</h1></Link>
+
                 </div>
 
                 <div id="mid">
@@ -72,6 +79,10 @@ const Nav = () => {
                     <div name={"meetings"} id={"meetings"} onClick={activeNav} className={`icons ${expand.meetings? "active": null}`}>
                         <BsPeople color="white" size="1.8em"/>
                     </div>
+
+                    <div onClick={logOut} className={`icons`}>
+                        <BiLogOut color="white" size="1.8em"/>
+                    </div>
                 </div>
 
                 <div id="btm">
@@ -84,9 +95,16 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
-            {expand.state && <div id="expanded"></div>}
+            <div id="expanded"></div>
         </div>
     )
 };
 
 export default Nav;
+
+
+// ICON TO OPEN/ CLOSE THE NAVIGATION
+// <div class="icons">
+// { expand.state? <BsBoxArrowLeft color="white" size="1.3em" onClick={handleExpand} />
+//  :<BsBoxArrowRight color="white" size="1.3em" onClick={handleExpand} /> }
+// </div>

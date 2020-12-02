@@ -38,7 +38,6 @@ const CompanyInfo = props => {
                         value={company.company_name}
                         onBlur={handleBlur}
                         onChange={handleChange}
-
                     />
                 </div>
                 {type === 'wp'? <div className="companyinfo-inputs-cont">
@@ -65,7 +64,6 @@ const CompanyInfo = props => {
                         value={company.company_size}
                         onChange={handleChange}
                         onBlur={handleBlur}
-
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">
@@ -76,7 +74,6 @@ const CompanyInfo = props => {
                         value={company.website}
                         onChange={handleChange}
                         onBlur={handleBlur}
-
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">
@@ -87,7 +84,6 @@ const CompanyInfo = props => {
                         value={company.company_address}
                         onChange={handleChange}
                         onBlur={handleBlur}
-
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">

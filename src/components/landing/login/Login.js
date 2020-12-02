@@ -6,7 +6,6 @@ const Login = props => {
     const dispatch = useDispatch();
 
     const [user, setUser] = useState({
-        type: 'user',
         email: '',
         password: ''
     });
@@ -23,41 +22,41 @@ const Login = props => {
 
     return (
         <div id="login-container">
+        <div id="login-input-main">
+
             <div id="login-header">
-                <h2>Log In</h2>
+                <span id="landing-header" class="landing-text">Log in!</span>
             </div>
             <div id="login-input-container">
-                <div id="login-input-main">
-                    <form id="login-form" onSubmit={handleSubmit}>
-                        <select name="type" value={user.type} onChange={handleChange}>
-                            <option value="user">user</option>
-                            <option value="orgs">organization</option>
-                        </select>
+                    <div className="companyinfo-inputs-cont">
+
+                        <span>email</span>
                         <input
+                            className="register-inputs"
                             name= "email"
                             value= {user.email}
                             onChange={handleChange}
                         />
+                    </div>
+                    <div className="companyinfo-inputs-cont">
+                        <span>password</span>
+
                         <input
+                            className="register-inputs"
                             type="password"
                             name= "password"
                             value= {user.password}
                             onChange= {handleChange}
                         />
-                    </form>
-            </div>
+                    </div>
             </div>
             <div id="login-button">
                 <div id="login-btn-container">
-                    <form>
-                        <label>
-                            <input type="checkbox" name="remember"/>
-                            Remember me
-                        </label>
-                    </form>
-                    <button onClick={handleSubmit}>log in</button>
+                    <button className="wt-register-btn" style={{backgroundColor: "#FF9B64",  border: "1px solid #FF9B64"}} onClick={handleSubmit}>log in</button>
                 </div>
             </div>
+            </div>
+
         </div>
     )
 }

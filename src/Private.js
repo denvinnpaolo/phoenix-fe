@@ -5,8 +5,13 @@ import LandingPage from './components/landing';
 
 
 const Private = ({ component: Component, ...rest}) => {
-    const { token } = useSelector(state => state.users.userData);
+    let { token } = useSelector(state => state.users.userData);
 
+    if(token === undefined){
+        if(window.localStorage.getItem('token') !== undefined){
+            token = window.localStorage.getItem('token')
+        }
+    }
     return(
         <Route
             {...rest}

@@ -5,6 +5,9 @@ import {
     FETCH_USER_FAILURE,
     FETCH_USER_LOADING,
     FETCH_USER_SUCCESS,
+    UNFETCH_USER_FAILURE,
+    UNFETCH_USER_LOADING,
+    UNFETCH_USER_SUCCESS
 } from '../actions/index.js'
 
 const token = localStorage.getItem('token');
@@ -62,6 +65,25 @@ function UserReducer(state = initialState, action){
             return {
                 ...state,
                 loggedIn: true,
+                isFetching: false,
+                userData: action.payload
+            }
+        case UNFETCH_USER_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                loggedIn: true
+            }
+        case UNFETCH_USER_LOADING:
+            return {
+                ...state,
+                loggedIn: true,
+                isFetching: true,
+                error: null
+            }
+        case UNFETCH_USER_SUCCESS:
+            return {
+                loggedIn: false,
                 isFetching: false,
                 userData: action.payload
             }

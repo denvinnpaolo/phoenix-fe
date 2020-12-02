@@ -8,6 +8,10 @@ const Nav = props => {
 
     const {loggedIn} = useSelector(state => state.users)
 
+    let atLogin = false
+    if(window.location.href.indexOf("login") > -1) {
+        atLogin = true
+    } 
     return(
         <div id="nav-container">
             <div id="logo-container">
@@ -18,14 +22,14 @@ const Nav = props => {
             
             <div id="nav-btns">
                 <div className="lnd-nav-btn">
-                {loggedIn? 
-                    <Link to="/" style={{ textDecoration: 'none',color: 'white'}}>Dashboard</Link>
+                {atLogin? 
+                    <Link to="/" style={{ textDecoration: 'none',color: 'white'}}>Register</Link>
                     :
                     <Link to="/login" style={{ textDecoration: 'none',color: 'white'}}>Log In</Link>
                 }
                 </div>
                 <div className="lnd-nav-btn">
-                    <span>Help</span>
+                    <Link to="/help" style={{ textDecoration: 'none',color: 'white'}}>Help</Link>
                 </div>
             </div>
         </div>
