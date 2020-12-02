@@ -23,7 +23,7 @@ const Home = props => {
                     <div id="overview-sort-container"></div>
                     <div id="overview-contents-container"></div>
                 </div>
-                <div></div>
+                <div id="pickup-content-container"></div>
             </div>
         </div>
     )
