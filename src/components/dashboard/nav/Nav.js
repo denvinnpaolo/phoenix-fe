@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 
 import { BiHome, BiCalendar, BiLogOut} from 'react-icons/bi';
-import { FiSettings } from 'react-icons/fi';
+import { FiSettings, FiMail } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
 import { BsQuestionDiamond, BsBoxArrowRight, BsBoxArrowLeft, BsPeople } from 'react-icons/bs';
 
@@ -18,7 +18,7 @@ const Nav = () => {
         home: true,
         cal: false,
         contacts: false,
-        meetings: false,
+        mail: false,
         questions: false,
         settings: false
     });
@@ -42,7 +42,7 @@ const Nav = () => {
                 home: false,
                 cal: false,
                 contacts: false,
-                meetings: false,
+                mail: false,
                 questions: false,
                 settings: false
             });
@@ -65,7 +65,7 @@ const Nav = () => {
 
                 <div id="mid">
                     <div name={"home"} id={"home"} onClick={activeNav} className={`icons ${expand.home? "active": null}`}>
-                        <BiHome color="white" size="1.8em"/>
+                        <BiHome color="white" size="1.8em" />
                     </div>
 
                     <div name={"cal"} id={"cal"} onClick={activeNav} className={`icons ${expand.cal? "active": null}`}>
@@ -76,13 +76,17 @@ const Nav = () => {
                         <FaRegAddressBook color="white" size="1.8em"/>
                     </div>
 
-                    <div name={"meetings"} id={"meetings"} onClick={activeNav} className={`icons ${expand.meetings? "active": null}`}>
-                        <BsPeople color="white" size="1.8em"/>
+                    <div name={"mail"} id={"mail"} onClick={activeNav} className={`icons ${expand.mail? "active": null}`}>
+                        <FiMail color="white" size="1.8em"/>
                     </div>
 
                 </div>
 
                 <div id="btm">
+                    <div onClick={logOut} className={`btm-icons tooltip` }>
+                        <BiLogOut color="white" size="1.8em"/><span className="tooltiptext">Log out</span>
+                    </div>
+
                     <div name={"questions"} id={"questions"} onClick={activeNav} className={`btm-icons ${expand.questions? "active": null}`}>
                         <BsQuestionDiamond color="white" size="1.8em"/>
                     </div>
@@ -90,19 +94,14 @@ const Nav = () => {
                     <div name={"settings"} id={"settings"} onClick={activeNav} className={`btm-icons ${expand.settings? "active": null}`}>
                         <FiSettings color="white" size="1.8em"/>
                     </div>
-
-                    <div onClick={logOut} className={`btm-icons`}>
-                        <BiLogOut color="white" size="1.8em"/>
-                    </div>
                 </div>
             </div>
             <div id="expanded">
             <div id="nav-inner-top">
             </div>
             <div id="nav-inner-mid">
-            {expand.home &&
-                <Link to="/" style={{textDecoration: "none"}}><div id="nav-inner-home" className="nav-inner-btns" >Home</div></Link>
-            }
+                <div id="nav-inner-home" >{expand.home && <Link to="/" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>}</div>
+            
             {expand.cal &&
                 <div id="nav-inner-requests">
                     <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Pick-up Requests</div></Link>

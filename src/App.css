@@ -374,7 +374,6 @@ option {
 /* DASHBOARD INNER NAVIGATION */
 
 #nav-inner-top{
-  border:1px solid red;
   height: 15%;
 }
 
@@ -383,8 +382,7 @@ option {
 }
 
 #nav-inner-btm{
-  border:1px solid blue;
-  height: 17%;
+  height: 24%;
 }
 
 #nav-inner-home {
@@ -397,6 +395,15 @@ option {
 
 }
 
+#nav-inner-requests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 26%;
+}
+
 .nav-inner-btns {
   letter-spacing: .07em;
 
@@ -406,6 +413,36 @@ option {
 }
 .nav-inner-btns:hover {
   font-size: 1.2em;
+}
+
+/* DASHBOARD TEXT WHEN HOVERED */
+
+.tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 0.6em;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 75%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 /* DASHBOARD HOME */
