@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { BiHome, BiCalendar, BiLogOut} from 'react-icons/bi';
 import { FiSettings, FiMail } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
-import { BsQuestionDiamond, BsBoxArrowRight, BsBoxArrowLeft, BsPeople } from 'react-icons/bs';
+import { BsQuestionDiamond } from 'react-icons/bs';
 
 import { unfetchUser } from '../../../store/actions/index.js'
 import { useDispatch } from 'react-redux';
+
+import Ouro from '../../../assets/img/Ouro.png'
 
 const Nav = () => {
     const dispatch = useDispatch();
@@ -59,7 +61,7 @@ const Nav = () => {
         <div id="dash-nav-container">
             <div id="side-nav">
                 <div id="top">
-                    <Link to="/" style={{textDecoration: "none"}}><h1 style={{color:"white", fontSize:"5em"}}>O</h1></Link>
+                    <Link to="/" style={{textDecoration: "none"}}><img src={Ouro} style={{height: "120%"}}/></Link>
 
                 </div>
 

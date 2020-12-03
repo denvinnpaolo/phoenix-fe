@@ -1,4 +1,3 @@
-import jwt_decode from 'jwt-decode';
 import { axiosWithAuth } from '../../utils/axiosWithAuth.js';
 
 export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
@@ -36,9 +35,7 @@ export const fetchUser = user => dispatch => {
                     payload: response.data
                 })
             })
-            .catch(err => {
-                dispatch({ type: FETCH_USER_FAILURE, payload: err})
-            })
+            .catch(err => dispatch({ type: FETCH_USER_FAILURE, payload: err}))
     )
 };
 
@@ -56,7 +53,7 @@ export const unfetchUser = () => dispatch => {
             })
             .catch(err => dispatch({ type: UNFETCH_USER_FAILURE, payload: err}))
     )
-}
+};
 
 export const createUser = newUser => dispatch => {
     dispatch({ type: CREATE_USER_START });
@@ -70,8 +67,21 @@ export const createUser = newUser => dispatch => {
                     payload: response.data
                 });
             })
-            .catch(err => 
-                dispatch({ type: CREATE_USER_FAILURE, payload: err})    
-            )
+            .catch(err => dispatch({ type: CREATE_USER_FAILURE, payload: err}))
+    )
+};
+
+export const updateUser = (updatedUser, id) => dispatch => {
+    dispatch({ type: UPDATE_USER_START });
+    return(
+        axiosWithAuth()
+            .put(`${host}`, updateUser)
+            .then(response => {
+                dispatch({
+                    type: UPDATE_USER_SUCCESS,
+                    payload: response.data
+                });
+            })
+            .catch(err => dispatch({ type: UPDATE_USER_FAILURE, payload: err}))
     )
 }
