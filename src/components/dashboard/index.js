@@ -12,7 +12,7 @@ const Dashboard = props => {
     return(
         <div id='dashboard-container'>
             <Nav />
-            <Home />
+            <Route exact to="/" component={Home} />
 
         </div>
     )

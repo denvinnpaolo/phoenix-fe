@@ -15,7 +15,7 @@ const Nav = () => {
     const history = useHistory();
     const [expand, setExpand] = useState({
         state: false,
-        home: false,
+        home: true,
         cal: false,
         contacts: false,
         meetings: false,
@@ -80,9 +80,6 @@ const Nav = () => {
                         <BsPeople color="white" size="1.8em"/>
                     </div>
 
-                    <div onClick={logOut} className={`icons`}>
-                        <BiLogOut color="white" size="1.8em"/>
-                    </div>
                 </div>
 
                 <div id="btm">
@@ -93,9 +90,29 @@ const Nav = () => {
                     <div name={"settings"} id={"settings"} onClick={activeNav} className={`btm-icons ${expand.settings? "active": null}`}>
                         <FiSettings color="white" size="1.8em"/>
                     </div>
+
+                    <div onClick={logOut} className={`btm-icons`}>
+                        <BiLogOut color="white" size="1.8em"/>
+                    </div>
                 </div>
             </div>
-            <div id="expanded"></div>
+            <div id="expanded">
+            <div id="nav-inner-top">
+            </div>
+            <div id="nav-inner-mid">
+            {expand.home &&
+                <Link to="/" style={{textDecoration: "none"}}><div id="nav-inner-home" className="nav-inner-btns" >Home</div></Link>
+            }
+            {expand.cal &&
+                <div id="nav-inner-requests">
+                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Pick-up Requests</div></Link>
+                    <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">Schedule</div></Link>
+                </div>
+            }
+
+                </div>
+                <div id="nav-inner-btm"></div>
+            </div>
         </div>
     )
 };

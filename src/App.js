@@ -10,10 +10,7 @@ import Dashboard from './components/dashboard/index.js'
 function App() {
   const {loggedIn} = useSelector(state => state.users)
   return (
-      <div>
         <Private path="/" component={Dashboard} />
-
-      </div>
   );
 }
 
