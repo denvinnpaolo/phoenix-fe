@@ -52,7 +52,7 @@ const Home = props => {
                     </div>
                     <div id="overview-sort-container">
                         <span  name={"today"} id={"today"} className={`overview-category-choices  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
-                        <span name={"week"} id={"week"} className={`overview-category-choices ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
+                        <span  id={"week"} className={`overview-category-choices ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
                         <span id={"month"} className={`overview-category-choices ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>
                     </div>
                     <div id="overview-contents-container">
