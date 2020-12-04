@@ -464,7 +464,7 @@ option {
 #welcome-header-container {
   display: flex;
   justify-content: space-between;
-  height: 8%;
+  height: 7%;
   width: 100%;
 }
 
@@ -487,8 +487,10 @@ option {
   width: 10%;
 }
 
+
+/* DASHBOARD OVERVIEW */
 #overview-container {
-  height: 55%;
+  height: 53%;
 }
 
 #overview-header-container {
@@ -521,10 +523,6 @@ option {
   width: 92%;
 }
 
-#pickup-content-container {
-  border: 1px solid blue;
-  height: 37%;
-}
 
 .dash-component-header {
   font-size: 2.3em;
@@ -544,4 +542,61 @@ option {
   border-bottom: 3px solid #FF9B64;
   font-size: 1.2em;
   color: black;
+}
+
+/* DASHBOARD NEW PICK-UP REQUEST */
+
+#pickup-content-container {
+  height: 40%;
+  width: 100%;
+}
+
+#pickup-header-container {
+  display: flex;
+  justify-content: space-between;
+  height:20%;
+}
+
+#pickup-header-left {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  width: 45%;
+}
+
+#pickup-inner-left {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width:90%;
+  height: 100%;
+}
+
+#pickup-header-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: .05em;
+}
+
+#pickup-content-button {
+  border-radius: 20px;
+  border: 1px solid #FF9B64;
+  background-color: #FF9B64;
+  width: 25%;
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.4);
+}
+
+#pickup-map-link {
+  display: flex;
+  justify-content: space-evenly;
+  width: 15%;
+}
+
+#pickup-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13%;
+  height: 100%;
 }

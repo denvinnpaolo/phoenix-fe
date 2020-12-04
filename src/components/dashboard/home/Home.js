@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
-import { BsBell, BsPerson } from 'react-icons/bs'
+import { BsBell, BsPerson, BsSearch } from 'react-icons/bs'
+import { FaMapMarkedAlt } from 'react-icons/fa'
 
 
 const Home = props => {
@@ -34,6 +35,10 @@ const Home = props => {
         })
 
     }
+
+    const ToMap = e => {
+
+    }
     return(
         <div id="home-container">
             <div id="home-contents-container">
@@ -59,7 +64,26 @@ const Home = props => {
                         <div id="dashboard-overview-component"></div>
                     </div>
                 </div>
-                <div id="pickup-content-container"></div>
+                <div id="pickup-content-container">
+                    <div id="pickup-header-container">
+                        <div id="pickup-header-left">
+                            <div id="pickup-inner-left">
+                                <span id="pickup-header-text">New Pick-up Requests</span>
+                                <button id="pickup-content-button">View All Requests</button>
+                                <div id="pickup-map-link" onClick={ToMap}>
+                                    <FaMapMarkedAlt />
+                                    <span style={{fontSize: ".7em", textDecoration: "underline"}}>Map view</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pickup-header-right">
+                            <BsSearch />
+                        </div>
+                    </div>
+                    <div id="overview-contents-container">
+                        <div id="dashboard-overview-component"></div>
+                    </div>
+                </div>
             </div>
         </div>
     )

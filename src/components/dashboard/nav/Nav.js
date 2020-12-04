@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { BiHome, BiCalendar, BiLogOut} from 'react-icons/bi';
+import { BiHome, BiCalendar, BiLogOut } from 'react-icons/bi';
 import { FiSettings, FiMail } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
 import { BsQuestionDiamond } from 'react-icons/bs';
 
 import { unfetchUser } from '../../../store/actions/index.js'
-import { useDispatch } from 'react-redux';
 
 import Ouro from '../../../assets/img/Ouro.png'
 
@@ -37,21 +37,21 @@ const Nav = () => {
     };
 
 
-    const handleExpand = (e) => {
-        if(expand.state === true){
-            setExpand({         
-                state: false,
-                home: false,
-                cal: false,
-                contacts: false,
-                mail: false,
-                questions: false,
-                settings: false
-            });
-        } else {
-            setExpand({ ...expand, state: true, home: true });
-        }
-    };
+    // const handleExpand = (e) => {
+    //     if(expand.state === true){
+    //         setExpand({         
+    //             state: false,
+    //             home: false,
+    //             cal: false,
+    //             contacts: false,
+    //             mail: false,
+    //             questions: false,
+    //             settings: false
+    //         });
+    //     } else {
+    //         setExpand({ ...expand, state: true, home: true });
+    //     }
+    // };
 
     const logOut = e => {
         dispatch(unfetchUser())
