@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
+import { BsBell, BsPerson } from 'react-icons/bs'
+
+
 const Home = props => {
 
     let {userdata} = useSelector(state => state.users.userData)
@@ -19,12 +22,23 @@ const Home = props => {
                     <div id="welcome-header-text">
                         <span id="welcome-header">{`Welcome back, ${userdata.name.toUpperCase()}`}</span>
                     </div>
-                    <div id="welcome-header-alerts"></div>
+                    <div id="welcome-header-alerts">
+                        <BsBell size="1.1em" />
+                        <BsPerson size="1.7em"  />
+                    </div>
                 </div>
                 <div id="overview-container">
-                    <div id="overview-header-container"></div>
-                    <div id="overview-sort-container"></div>
-                    <div id="overview-contents-container"></div>
+                    <div id="overview-header-container">
+                        <span class="dash-component-header">Overview</span>
+                    </div>
+                    <div id="overview-sort-container">
+                        <span className="overview-category-choices">Today</span>
+                        <span className="overview-category-choices">This week</span>
+                        <span className="overview-category-choices">This month</span>
+                    </div>
+                    <div id="overview-contents-container">
+                        <div id="dashboard-overview-component"></div>
+                    </div>
                 </div>
                 <div id="pickup-content-container"></div>
             </div>
