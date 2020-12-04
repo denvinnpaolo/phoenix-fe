@@ -1,5 +1,6 @@
 * {
   font-family: 'Encode Sans Condensed';
+  cursor: default;
 
 }
 
@@ -516,7 +517,7 @@ option {
 #dashboard-overview-component{
   box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
   border-radius: 15px;
-  height: 95%;
+  height: 98%;
   width: 92%;
 }
 
