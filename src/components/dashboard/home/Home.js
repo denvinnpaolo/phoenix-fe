@@ -7,6 +7,12 @@ import { BsBell, BsPerson } from 'react-icons/bs'
 
 const Home = props => {
 
+    const [overviewChoices, setOverviewChoices] = useState({
+        today: false,
+        week: true,
+        month: false
+    })
+
     let {userdata} = useSelector(state => state.users.userData)
 
     if(userdata === undefined) {
@@ -15,6 +21,10 @@ const Home = props => {
 
     }
     
+
+    const activeCat = e => {
+        
+    }
     return(
         <div id="home-container">
             <div id="home-contents-container">
@@ -32,7 +42,7 @@ const Home = props => {
                         <span class="dash-component-header">Overview</span>
                     </div>
                     <div id="overview-sort-container">
-                        <span className="overview-category-choices">Today</span>
+                        <span className="overview-category-choices active-overview">Today</span>
                         <span className="overview-category-choices">This week</span>
                         <span className="overview-category-choices">This month</span>
                     </div>
