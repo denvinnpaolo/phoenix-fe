@@ -6,6 +6,7 @@ import Nav from './nav/Nav.js'
 import Home from './home/Home.js'
 import AllRequest from './requests/all/AllRequest.js'
 import NewRequest from './requests/new/NewRequest.js'
+import Private from '../../Private.js';
 
 
 const Dashboard = props => {
@@ -15,7 +16,7 @@ const Dashboard = props => {
     return(
         <div id='dashboard-container'>
             <Nav />
-            <Route to="/Home" component={Home} />
+            <Private to="/home" component={Home} />
 
 
         </div>

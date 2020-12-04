@@ -412,7 +412,7 @@ option {
   font-weight: bold;
 }
 .nav-inner-btns:hover {
-  font-size: 1.2em;
+  border-bottom: 3px solid #FF9B64 !important;
 }
 
 /* DASHBOARD TEXT WHEN HOVERED */
@@ -460,6 +460,36 @@ option {
   justify-content: flex-start;
 }
 
+#welcome-header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 11%;
+  width: 100%;
+}
+
+#welcome-header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
 #welcome-header {
+  color :#288B50;
+  font-size: 1.5em;
+}
+
+#welcome-header-alerts {
   border: 1px solid black;
+  width: 10%;
+}
+
+#overview-container {
+  border: 1px solid red;
+  height: 45%;
+}
+
+#pickup-content-container {
+  border: 1px solid blue;
+  height: 44%;
 }

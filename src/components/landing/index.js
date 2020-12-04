@@ -9,7 +9,7 @@ import Login from './login/Login.js';
 import Help from './help/Help.js'
 
 
-const LandingPage = props => {
+const LandingPage = () => {
     const { loggedIn } = useSelector(state => state.users)
     const history = useHistory();
 

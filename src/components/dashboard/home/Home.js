@@ -15,8 +15,11 @@ const Home = props => {
     return(
         <div id="home-container">
             <div id="home-contents-container">
-                <div id="welcome-header">
-                    Welcome back, {userdata.name}
+                <div id="welcome-header-container">
+                    <div id="welcome-header-text">
+                        <span id="welcome-header">{`Welcome back, ${userdata.name.toUpperCase()}`}</span>
+                    </div>
+                    <div id="welcome-header-alerts"></div>
                 </div>
                 <div id="overview-container">
                     <div id="overview-header-container"></div>
