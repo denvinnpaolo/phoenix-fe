@@ -10,7 +10,8 @@ const Home = props => {
     const [overviewChoices, setOverviewChoices] = useState({
         today: false,
         week: true,
-        month: false
+        month: false,
+        active: "week"
     })
 
     let {userdata} = useSelector(state => state.users.userData)
@@ -23,7 +24,15 @@ const Home = props => {
     
 
     const activeCat = e => {
-        
+        console.log(overviewChoices)
+        setOverviewChoices({
+            ...overviewChoices,
+            [e.currentTarget.id]: true,
+            [overviewChoices.active]:false,
+            active: e.currentTarget.id
+
+        })
+
     }
     return(
         <div id="home-container">
@@ -42,9 +51,9 @@ const Home = props => {
                         <span class="dash-component-header">Overview</span>
                     </div>
                     <div id="overview-sort-container">
-                        <span className="overview-category-choices active-overview">Today</span>
-                        <span className="overview-category-choices">This week</span>
-                        <span className="overview-category-choices">This month</span>
+                        <span  name={"today"} id={"today"} className={`overview-category-choices  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
+                        <span name={"week"} id={"week"} className={`overview-category-choices ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
+                        <span name={"month"} id={"month"} className={`overview-category-choices ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>
                     </div>
                     <div id="overview-contents-container">
                         <div id="dashboard-overview-component"></div>

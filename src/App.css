@@ -537,9 +537,7 @@ option {
   font-size: 1em;
 }
 
-.overview-category-choices:hover {
-  font-size: 1.2em;
-}
+
 
 .active-overview {
   border-bottom: 3px solid #FF9B64;
