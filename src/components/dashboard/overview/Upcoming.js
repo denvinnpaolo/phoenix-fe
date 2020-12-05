@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+ 
 import { BiCalendarExclamation } from 'react-icons/bi'
 
 
 const Upcoming = props => {
+    const dispatch = useDispatch();
 
     return(
         <div className="overview-content-container">

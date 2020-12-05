@@ -19,23 +19,20 @@ const Home = props => {
         active: "week"
     })
 
-    let {userdata} = useSelector(state => state.users.userData)
+    let {userdata} = useSelector(state => state.users.userData);
 
     if(userdata === undefined) {
         let token = window.localStorage.getItem('token');
-        userdata=jwt_decode(token)
-
+        userdata=jwt_decode(token);
     }
     
 
     const activeCat = e => {
-        console.log(overviewChoices)
         setOverviewChoices({
             ...overviewChoices,
             [e.currentTarget.id]: true,
             [overviewChoices.active]:false,
             active: e.currentTarget.id
-
         })
 
     }

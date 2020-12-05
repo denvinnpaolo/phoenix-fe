@@ -1,3 +1,5 @@
+import jwt_decode from 'jwt-decode'
+
 import {
     CREATE_USER_FAILURE,
     CREATE_USER_START,
@@ -14,11 +16,11 @@ const token = localStorage.getItem('token');
 
 const initialState = token ? 
     {
-        userData: token,
+        userData: jwt_decode(token),
         loggedIn: true,
         error: null,
         isFetching: false
-    } 
+    }
     :
     {
         userData: {},

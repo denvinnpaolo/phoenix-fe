@@ -31,7 +31,6 @@ export const FETCH_AVAILABLE_SUCCESS = 'FETCH_AVAILABLE_SUCCESS';
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
-    console.log(user)
     dispatch({ type: FETCH_USER_LOADING });
     return(
         axiosWithAuth()
@@ -100,7 +99,7 @@ export const fetchAvailable = () => dispatch => {
     dispatch({ type: FETCH_AVAILABLE_LOADING });
     return(
         axiosWithAuth()
-            .get(`${host}/all-organic-waste`)
+            .get(`${host}/organic-waste`)
             .then(response => {
                 dispatch({
                     type: FETCH_AVAILABLE_SUCCESS,
@@ -109,4 +108,19 @@ export const fetchAvailable = () => dispatch => {
             })
             .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
     ) 
-}
+};
+
+export const fetchByTransformerId = userId => dispatch => {
+    dispatch({ type: FETCH_PICKUP_LOADING })
+    return(
+        axiosWithAuth()
+            .get(`${host}/organic-waste/search-by/pick-up/${userId}`)
+            .then(response => {
+                dispatch({
+                    type: FETCH_PICKUP_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
+    )
+};

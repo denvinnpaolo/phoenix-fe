@@ -34,6 +34,20 @@ function WasteReducer(state = initalState, action) {
                 error: action.payload,
                 isFetching: false
             }
+        case FETCH_PICKUP_LOADING:
+            return {
+                isFetching: true,
+            }
+        case FETCH_PICKUP_SUCCESS:
+            return {
+                isFetching: false,
+                wasteData: action.payload
+            }
+        case FETCH_PICKUP_FAILURE:
+            return {
+                isFetching: false,
+                error: action.payload
+            }
         default:
             return state
     }
