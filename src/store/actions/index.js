@@ -20,6 +20,14 @@ export const UPDATE_USER_START = 'UPDATE_USER_START';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
+export const FETCH_PICKUP_FAILURE = 'FETCH_PICKUP_FAILURE';
+export const FETCH_PICKUP_LOADING = 'FETCH_PICKUP_LOADING';
+export const FETCH_PICKUP_SUCCESS = 'FETCH_PICKUP_SUCCESS';
+
+export const FETCH_AVAILABLE_FAILURE = 'FETCH_AVAILABLE_FAILURE';
+export const FETCH_AVAILABLE_LOADING = 'FETCH_AVAILABLE_LOADING';
+export const FETCH_AVAILABLE_SUCCESS = 'FETCH_AVAILABLE_SUCCESS';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -84,4 +92,21 @@ export const updateUser = (updatedUser, id) => dispatch => {
             })
             .catch(err => dispatch({ type: UPDATE_USER_FAILURE, payload: err}))
     )
+}
+
+
+// ORGANIC WASTE ACTIONS
+export const fetchAvailable = () => dispatch => {
+    dispatch({ type: FETCH_AVAILABLE_LOADING });
+    return(
+        axiosWithAuth()
+            .get(`${host}/all-organic-waste`)
+            .then(response => {
+                dispatch({
+                    type: FETCH_AVAILABLE_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
+    ) 
 }

@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
-import { BsBell, BsPerson, BsSearch } from 'react-icons/bs'
-import { FaMapMarkedAlt } from 'react-icons/fa'
+import { BsBell, BsPerson, BsSearch } from 'react-icons/bs';
+import { FaMapMarkedAlt } from 'react-icons/fa';
+
+import Upcoming from '../overview/Upcoming.js';
+import Completed from '../overview/Completed.js';
+import Canceled from '../overview/Canceled.js'
 
 
 const Home = props => {
@@ -53,7 +57,7 @@ const Home = props => {
                 </div>
                 <div id="overview-container">
                     <div id="overview-header-container">
-                        <span class="dash-component-header">Overview</span>
+                        <span id="dash-component-header">Overview</span>
                     </div>
                     <div id="overview-sort-container">
                         <span  id={"today"} className={`overview-category-choices  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
@@ -61,7 +65,19 @@ const Home = props => {
                         <span id={"month"} className={`overview-category-choices ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>
                     </div>
                     <div id="overview-contents-container">
-                        <div id="dashboard-overview-component"></div>
+                        <div id="dashboard-overview-component">
+                            <div id="overview-avail-cont">
+                                <Upcoming />
+                            </div>
+                            <div id="overview-comp-cont">
+                                <Completed />
+                            </div>
+                            <div id="overview-incomp-cont">
+                                <Canceled />
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
                 <div id="pickup-content-container">
@@ -80,8 +96,8 @@ const Home = props => {
                             <BsSearch />
                         </div>
                     </div>
-                    <div id="overview-contents-container">
-                        <div id="dashboard-overview-component"></div>
+                    <div id="pickup-contents-container">
+                        <div id="pickup-overview-component"></div>
                     </div>
                 </div>
             </div>

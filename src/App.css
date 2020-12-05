@@ -509,22 +509,7 @@ option {
   width: 32%;
 }
 
-#overview-contents-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75%;
-}
-
-#dashboard-overview-component{
-  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-  border-radius: 15px;
-  height: 98%;
-  width: 92%;
-}
-
-
-.dash-component-header {
+#dash-component-header {
   font-size: 2.3em;
   letter-spacing: .05em;
   font-weight: bold;
@@ -536,12 +521,42 @@ option {
   font-size: 1em;
 }
 
-
-
 .active-overview {
   border-bottom: 3px solid #FF9B64;
   font-size: 1.2em;
   color: black;
+}
+
+/* DASHBOARD OVERVIEW */
+
+#overview-contents-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+}
+
+#dashboard-overview-component{
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+  border-radius: 15px;
+  display: flex;
+  height: 98%;
+  width: 92%;
+}
+
+#overview-avail-cont {
+  height:100%;
+  width:33.3%;
+}
+
+#overview-comp-cont {
+  height:100%;
+  width:33.3%;
+}
+
+#overview-incomp-cont {
+  height:100%;
+  width:33.3%;
 }
 
 /* DASHBOARD NEW PICK-UP REQUEST */
@@ -600,3 +615,65 @@ option {
   width: 13%;
   height: 100%;
 }
+
+#pickup-contents-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+}
+
+#pickup-overview-component{
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+  border-radius: 15px;
+  height: 98%;
+  width: 92%;
+}
+
+
+/* UPCOMING/COMPLETE/CANCELED COMPONENTS */
+
+#overview-circular-iconbg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border:1px solid rgb(236, 231, 231);
+  background-color: rgb(236, 231, 231);
+  height: 80%;
+  width: 40%;
+}
+
+.overview-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.overview-content-header {
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 30%;
+  width: 100%;
+}
+
+.overview-header-icon {
+  height: 100%;
+  width:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.overview-header-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width:50%;
+  /* border: 1px solid black; */
+}
+
