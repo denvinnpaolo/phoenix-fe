@@ -9,8 +9,8 @@ import {
 
 
 const initalState ={
-    wasteData : [],
-    currentPost : null,
+    availableData : {},
+    pickupData : {},
     error: null,
     isFetching: false
 };
@@ -41,7 +41,7 @@ function WasteReducer(state = initalState, action) {
         case FETCH_PICKUP_SUCCESS:
             return {
                 isFetching: false,
-                wasteData: action.payload
+                pickupData: action.payload
             }
         case FETCH_PICKUP_FAILURE:
             return {

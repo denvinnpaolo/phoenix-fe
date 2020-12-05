@@ -110,11 +110,11 @@ export const fetchAvailable = () => dispatch => {
     ) 
 };
 
-export const fetchByTransformerId = userId => dispatch => {
+export const fetchByTransformerId = id => dispatch => {
     dispatch({ type: FETCH_PICKUP_LOADING })
     return(
         axiosWithAuth()
-            .get(`${host}/organic-waste/search-by/pick-up/${userId}`)
+            .get(`${host}/organic-waste/search-by/pick-up/`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_PICKUP_SUCCESS,
