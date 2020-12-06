@@ -1,5 +1,8 @@
 import React from 'react';
-import { BiCalendarMinus } from 'react-icons/bi'
+import { BiCalendarMinus } from 'react-icons/bi';
+
+import { } from '../../../store/actions/index.js'
+
 
 
 const Upcoming = props => {
