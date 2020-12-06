@@ -2,15 +2,11 @@ import {
     FETCH_AVAILABLE_FAILURE,
     FETCH_AVAILABLE_LOADING,
     FETCH_AVAILABLE_SUCCESS,
-    FETCH_PICKUP_FAILURE,
-    FETCH_PICKUP_LOADING,
-    FETCH_PICKUP_SUCCESS
 } from '../actions/index.js'
 
 
 const initalState ={
     availableData : {},
-    pickupData : {},
     error: null,
     isFetching: false
 };
@@ -33,20 +29,6 @@ function WasteReducer(state = initalState, action) {
                 ...state,
                 error: action.payload,
                 isFetching: false
-            }
-        case FETCH_PICKUP_LOADING:
-            return {
-                isFetching: true,
-            }
-        case FETCH_PICKUP_SUCCESS:
-            return {
-                isFetching: false,
-                pickupData: action.payload
-            }
-        case FETCH_PICKUP_FAILURE:
-            return {
-                isFetching: false,
-                error: action.payload
             }
         default:
             return state
