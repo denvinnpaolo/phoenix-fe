@@ -39,11 +39,7 @@ const Dashboard = props => {
     }, [users])
 
 
-    setTimeout(()=> {
-        wasteData = waste.wasteData 
-        pickupData = waste.pickupData
-        console.log(wasteData, pickupData)
-    }, 2000)
+ 
     return(
         <div id='dashboard-container'>
             {console.log(waste)}
