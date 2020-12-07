@@ -28,7 +28,7 @@ import Loading from '../../UI/Loading.js'
         "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
         {"id": 5, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
         "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        ,{},{},{},{}
+        ,{},{},{},{}, {}
 
     ]
 
