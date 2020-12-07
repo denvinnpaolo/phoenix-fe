@@ -1,30 +1,28 @@
 import {
-    FETCH_PICKUP_FAILURE,
-    FETCH_PICKUP_LOADING,
-    FETCH_PICKUP_SUCCESS
+    FETCH_CANCELED_FAILURE,
+    FETCH_CANCELED_LOADING,
+    FETCH_CANCELED_SUCCESS
 } from '../actions/index.js';
 
 const initalState ={
-    pickupData : [],
+    canceledData : [],
     error: null,
     isFetching: false
 };
 
 
-function PickupReducer(state = initalState, action) {
+function CanceledReducer(state = initalState, action) {
     switch(action.type) {
-        case FETCH_PICKUP_LOADING:
+        case FETCH_CANCELED_LOADING:
             return {
-                ...state,
                 isFetching: true,
             }
-        case FETCH_PICKUP_SUCCESS:
+        case FETCH_CANCELED_SUCCESS:
             return {
-                ...state,
                 isFetching: false,
-                pickupData: action.payload,
+                canceledData: action.payload
             }
-        case FETCH_PICKUP_FAILURE:
+        case FETCH_CANCELED_FAILURE:
             return {
                 isFetching: false,
                 error: action.payload
@@ -34,4 +32,4 @@ function PickupReducer(state = initalState, action) {
     }
 };
 
-export default PickupReducer;
+export default CanceledReducer;

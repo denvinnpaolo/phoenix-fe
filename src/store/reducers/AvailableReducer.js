@@ -6,12 +6,12 @@ import {
 
 
 const initalState ={
-    availableData : {},
+    availableData : [],
     error: null,
     isFetching: false
 };
 
-function WasteReducer(state = initalState, action) {
+function AvailableReducer(state = initalState, action) {
     switch(action.type) {
         case FETCH_AVAILABLE_LOADING:
             return {
@@ -22,7 +22,7 @@ function WasteReducer(state = initalState, action) {
             return {
                 ...state,
                 isFetching: false,
-                wasteData: action.payload
+                availableData: action.payload
             }
         case FETCH_AVAILABLE_FAILURE:
             return {
@@ -35,4 +35,4 @@ function WasteReducer(state = initalState, action) {
     }
 }
 
-export default WasteReducer;
+export default AvailableReducer;

@@ -8,7 +8,7 @@ import AllRequest from './requests/all/AllRequest.js'
 import NewRequest from './requests/new/NewRequest.js'
 import Private from '../../Private.js';
 
-import { fetchAvailable, fetchByTransformerId } from '../../store/actions/index.js'
+import { fetchAvailable, fetchPickupByTI, fetchCompletedByTI, fetchCanceledByTI } from '../../store/actions/index.js'
 
 
 const Dashboard = props => {
@@ -16,10 +16,7 @@ const Dashboard = props => {
     const history = useHistory();
     let id = {}
 
-    let wasteData = {}
-    let pickupData = {}
-
-    const { users, waste } = useSelector(state => {
+    const { users, available } = useSelector(state => {
         return state
     });
 
@@ -31,18 +28,16 @@ const Dashboard = props => {
     };
 
     useEffect(() => {
-        dispatch(fetchAvailable())
-    }, [users])
-
-    useEffect(() => {
-        dispatch(fetchByTransformerId(id))
-    }, [users])
+        dispatch(fetchAvailable());
+        dispatch(fetchPickupByTI(id))
+        dispatch(fetchCompletedByTI(id))
+        dispatch(fetchCanceledByTI(id))
+    }, [])
 
 
  
     return(
         <div id='dashboard-container'>
-            {console.log(waste)}
             <Nav />
             <Private to="/home" component={Home} />
 
@@ -53,6 +48,3 @@ const Dashboard = props => {
 }
 
 export default Dashboard;
-
-// <Route to="/available/request/all" component={AllRequest} />
-// <Route to="/available/schedule/" component={NewRequest} />

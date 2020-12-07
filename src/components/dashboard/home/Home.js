@@ -19,7 +19,7 @@ const Home = props => {
         active: "week"
     })
 
-    let {userdata} = useSelector(state => state.users.userData);
+    let { userdata } = useSelector(state => state.users.userData);
 
     if(userdata === undefined) {
         let token = window.localStorage.getItem('token');
@@ -40,6 +40,7 @@ const Home = props => {
     const ToMap = e => {
 
     }
+
     return(
         <div id="home-container">
             <div id="home-contents-container">
@@ -66,9 +67,11 @@ const Home = props => {
                             <div id="overview-avail-cont">
                                 <Upcoming />
                             </div>
+                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                             <div id="overview-comp-cont">
                                 <Completed />
                             </div>
+                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                             <div id="overview-incomp-cont">
                                 <Canceled />
                             </div>

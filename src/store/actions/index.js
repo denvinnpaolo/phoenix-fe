@@ -28,6 +28,14 @@ export const FETCH_AVAILABLE_FAILURE = 'FETCH_AVAILABLE_FAILURE';
 export const FETCH_AVAILABLE_LOADING = 'FETCH_AVAILABLE_LOADING';
 export const FETCH_AVAILABLE_SUCCESS = 'FETCH_AVAILABLE_SUCCESS';
 
+export const FETCH_COMPLETED_FAILURE = 'FETCH_COMPLETED_FAILURE';
+export const FETCH_COMPLETED_LOADING = 'FETCH_COMPLETED_LOADING';
+export const FETCH_COMPLETED_SUCCESS = 'FETCH_COMPLETED_SUCCESS';
+
+export const FETCH_CANCELED_FAILURE = 'FETCH_CANCELED_FAILURE';
+export const FETCH_CANCELED_LOADING = 'FETCH_CANCELED_LOADING';
+export const FETCH_CANCELED_SUCCESS = 'FETCH_CANCELED_SUCCESS';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -110,7 +118,7 @@ export const fetchAvailable = () => dispatch => {
     ) 
 };
 
-export const fetchByTransformerId = id => dispatch => {
+export const fetchPickupByTI = id => dispatch => {
     dispatch({ type: FETCH_PICKUP_LOADING })
     return(
         axiosWithAuth()
@@ -122,5 +130,35 @@ export const fetchByTransformerId = id => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
+    )
+};
+
+export const fetchCompletedByTI = id => dispatch => {
+    dispatch({ type: FETCH_COMPLETED_LOADING })
+    return(
+        axiosWithAuth()
+            .get(`${host}/organic-waste/search-by/completed/`, id)
+            .then(response => {
+                dispatch({
+                    type: FETCH_COMPLETED_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_COMPLETED_FAILURE, payload: err}))
+    )
+};
+
+export const fetchCanceledByTI = id => dispatch => {
+    dispatch({ type: FETCH_CANCELED_LOADING })
+    return(
+        axiosWithAuth()
+            .get(`${host}/organic-waste/search-by/canceled`, id)
+            .then(response => {
+                dispatch({
+                    type: FETCH_CANCELED_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_CANCELED_FAILURE, payload: err}))
     )
 };
