@@ -5,7 +5,7 @@ import {
 } from '../actions/index.js';
 
 const initalState ={
-    pickupData : [],
+    pickupData : {},
     error: null,
     isFetching: false
 };
@@ -26,6 +26,7 @@ function PickupReducer(state = initalState, action) {
             }
         case FETCH_PICKUP_FAILURE:
             return {
+                ...state,
                 isFetching: false,
                 error: action.payload
             }

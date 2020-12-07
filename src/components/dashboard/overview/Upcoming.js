@@ -13,35 +13,54 @@ import Loading from '../../UI/Loading.js'
 
 
  const Upcoming = props => {
+    const dispatch = useDispatch();
+    const {pickup} = useSelector(state => state)
 
-    const { pickup } = useSelector(state => {
-        return state
-    })
 
-    const dummyData = [
-        {"id": 1, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 2, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 3, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 4, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 5, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 6, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 7, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 8, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 9, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-        {"id": 10, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-        "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
 
-    ]
+    const id = useSelector(state => state.users.userData.id);
 
+    useEffect(() => {
+        dispatch(fetchPickupByTI({transformer_id: id}))
+        console.log(pickup.pickupData.data)
+        console.log(id)
+    },[])
+
+    // const [pickUp, setPickUp] = useState({
+    //     isFetching: false,
+    //     data: []
+    // });
+
+
+
+    // const dummyData = [
+    //     {"id": 1, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 2, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 3, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 4, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 5, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 6, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 7, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 8, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 9, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+    //     {"id": 10, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
+    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
+
+    // ]
+
+
+    if(!pickup.pickupData.data){
+        return <Loading />
+    } else {
     return(
         <div className="overview-content-container">
             <div className="overview-content-header">
@@ -50,19 +69,16 @@ import Loading from '../../UI/Loading.js'
                 </div>
                 <div className="overview-header-info">
                     <span style={{fontSize:"1.5em"}}>Upcoming</span>
-                    <div style={{display:"flex", justifyContent: "center", width: "50%", fontSize:"2em", fontWeight: "bold"}}>{dummyData.length}</div>
+                    <div style={{display:"flex", justifyContent: "center", width: "50%", fontSize:"2em", fontWeight: "bold"}}>{pickup.pickupData.data.length}</div>
                 </div>
             </div>
             <div className="overview-data-container" id="overview-data-container" style={{overflow: "auto"}}>
-                {pickup.isFetching?  
-                    <Loading /> 
-                    : 
                     <InfiniteScroll
-                        dataLength={dummyData.length}
+                        dataLength={pickup.pickupData.data.length}
                         style={{width: "100%", height: "100%"}}
                         scrollableTarget="overview-data-container"
                     >
-                        {dummyData.map(item => 
+                        {pickup.pickupData.data.map(item => 
                             <div className="overview-data">
                                 <div className="overview-inner-div">
                                     <span className="data">
@@ -76,11 +92,10 @@ import Loading from '../../UI/Loading.js'
                             </div>
                         )}
                     </InfiniteScroll>
-                    // null
-                }
             </div>
         </div>
     )
+    }
 
 };
 

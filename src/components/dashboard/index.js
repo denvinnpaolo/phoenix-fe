@@ -29,8 +29,6 @@ const Dashboard = props => {
 
     useEffect(() => {
         dispatch(fetchAvailable());
-        dispatch(fetchPickupByTI(id))
-        dispatch(fetchCompletedByTI(id))
         dispatch(fetchCanceledByTI(id))
     }, [])
 
