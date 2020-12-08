@@ -20,7 +20,7 @@ const PickupBook = () => {
         <div id="pickup-book-cont">
             <div id="welcome-header-container">
                 <div id="welcome-header-text">
-                    <span id="welcome-header">{`Welcome back, ${userInfo.name}`}</span>
+                    <span id="welcome-header">{`Welcome back, ${userInfo.name.toUpperCase()}`}</span>
                 </div>
                 <div id="welcome-header-alerts">
                     <BsBell size="1.1em" />
