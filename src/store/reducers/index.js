@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
     available:  AvailableReducer,
     pickup: PickupReducer,
     completed: CompletedReducer,
-    canceled: CanceledReducer
 
 });
 

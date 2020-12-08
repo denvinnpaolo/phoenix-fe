@@ -5,14 +5,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import Nav from './nav/Nav.js'
 import Home from './home/Home.js'
 import AllRequest from './requests/all/AllRequest.js'
+import PickupBook from './schedule/pickupBook/PickupBook.js'
 import NewRequest from './requests/new/NewRequest.js'
-import Private from '../../Private.js';
+
 
 
 const Dashboard = props => {
     let id = {}
+    const dispatch = useDispatch();
 
-    const { users } = useSelector(state => {
+    const { users,available } = useSelector(state => {
         return state
     });
 
@@ -23,7 +25,6 @@ const Dashboard = props => {
         id['producer_id'] = users.userData.id
     };
 
-
  
     return(
         <div id='dashboard-container'>
@@ -31,9 +32,9 @@ const Dashboard = props => {
             <Route path="/home" render={()=> <Home />}/>
             <Route exact path="/" render={()=> <Home />}/>
             <Route path="/available/request/all" render={()=><AllRequest />} />
+            <Route path="/available/schedule" render={()=><PickupBook/> } />
         </div>
     )
-
 }
 
 export default Dashboard;

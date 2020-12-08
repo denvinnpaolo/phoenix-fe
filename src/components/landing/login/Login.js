@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { fetchUser } from '../../../store/actions/index.js'
 
 const Login = props => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [user, setUser] = useState({
         email: '',
@@ -18,6 +20,7 @@ const Login = props => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(fetchUser(user));
+        history.push('/home')
     };
 
     return (

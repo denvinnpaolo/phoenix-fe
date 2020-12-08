@@ -55,6 +55,7 @@ const Nav = () => {
 
     const logOut = e => {
         dispatch(unfetchUser())
+        history.push('/')
     }
     
     return (

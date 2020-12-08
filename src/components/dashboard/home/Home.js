@@ -8,9 +8,10 @@ import { FaMapMarkedAlt } from 'react-icons/fa';
 import Upcoming from '../overview/Upcoming.js';
 import Completed from '../overview/Completed.js';
 import Canceled from '../overview/Canceled.js'
+import { Link } from 'react-router-dom';
 
 
-const Home = props => {
+const Home = () => {
 
     const [overviewChoices, setOverviewChoices] = useState({
         today: false,
@@ -85,7 +86,7 @@ const Home = props => {
                         <div id="pickup-header-left">
                             <div id="pickup-inner-left">
                                 <span id="pickup-header-text">New Pick-up Requests</span>
-                                <button id="pickup-content-button">View All Requests</button>
+                                <Link to="/available/request/all" id="pickup-content-button" style={{textDecoration: "none", fontSize:'.6em', color: "black", textAlign: "center"}}>View All Requests</Link>
                                 <div id="pickup-map-link" onClick={ToMap}>
                                     <FaMapMarkedAlt />
                                     <span style={{fontSize: ".7em", textDecoration: "underline"}}>Map view</span>

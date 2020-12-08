@@ -6,7 +6,7 @@ import {
 
 
 const initalState ={
-    availableData : [],
+    availableData : {},
     error: null,
     isFetching: false
 };
