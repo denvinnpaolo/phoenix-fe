@@ -718,3 +718,83 @@ option {
   width: 100%;
   height: 90%;
 }
+
+/* DASHBOARD ALL REQUESTS */
+
+#all-req-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#allreq-info-cont {
+  border: 1px solid green;
+  height: 7%;
+  width: 100%;
+}
+
+#allreq-contents-cont {
+  height:93%;
+  width: 100%;
+}
+
+#allreq-header-cont {
+  height: 10%;
+  width: 100%;
+}
+
+
+#allreq-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+  width: 28%;
+}
+
+#allreq-component-header {
+  font-size: 2.2em;
+  letter-spacing: .05em;
+  font-weight: bold;
+}
+
+
+#allreq-sort-cont {
+  height: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#allreq-sort-btns{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  width: 18%;
+  height: 100%;
+}
+
+#allreq-sort-search {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 15%;
+}
+
+#allreq-tbl-cont {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#allreq-tbl-div{
+  height: 95%;
+  width: 92%;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+  border-radius: 15px;
+}
+

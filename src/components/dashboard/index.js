@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  useHistory } from 'react-router-dom';
+import {  Switch, useHistory, Route } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import Nav from './nav/Nav.js'
@@ -8,15 +8,11 @@ import AllRequest from './requests/all/AllRequest.js'
 import NewRequest from './requests/new/NewRequest.js'
 import Private from '../../Private.js';
 
-import { fetchAvailable, fetchPickupByTI, fetchCompletedByTI, fetchCanceledByTI } from '../../store/actions/index.js'
-
 
 const Dashboard = props => {
-    const dispatch = useDispatch();
-    const history = useHistory();
     let id = {}
 
-    const { users, available } = useSelector(state => {
+    const { users } = useSelector(state => {
         return state
     });
 
@@ -27,19 +23,14 @@ const Dashboard = props => {
         id['producer_id'] = users.userData.id
     };
 
-    useEffect(() => {
-        dispatch(fetchAvailable());
-        dispatch(fetchCanceledByTI(id))
-    }, [])
-
 
  
     return(
         <div id='dashboard-container'>
             <Nav />
-            <Private to="/home" component={Home} />
-
-
+            <Route path="/home" render={()=> <Home />}/>
+            <Route exact path="/" render={()=> <Home />}/>
+            <Route path="/available/request/all" render={()=><AllRequest />} />
         </div>
     )
 
