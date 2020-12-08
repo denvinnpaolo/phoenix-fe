@@ -852,12 +852,29 @@ option {
   font-weight: bold;
 }
 
+#pickup-book-confirm {
+  height:9%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+
+
+#check {
+  display:flex;
+  align-items: flex-end;
+
+}
+
 #pickup-content-cont{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85.3%;
+  height: 75.3%;
 }
 
 #pickup-book-tbl {

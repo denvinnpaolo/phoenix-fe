@@ -84,7 +84,7 @@ const AllRequest = () => {
                                 >
                                     {available.availableData.data.map(item=>{
                                         return( 
-                                            <div id="allreq-data-row" onClick={()=> {
+                                            <div id="allreq-data-row" onDoubleClick={()=> {
                                                 handleClick(item.id)
                                             }}>
                                                 <span className="allreq-data">{Moment(item.exp).format('MMMM DD, YYYY')}</span>
