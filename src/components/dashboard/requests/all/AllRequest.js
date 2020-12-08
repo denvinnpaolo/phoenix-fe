@@ -6,7 +6,7 @@ import Moment from 'moment';
 import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
 import { RiArrowUpDownFill } from 'react-icons/ri';
 
-import { fetchAvailable } from '../../../../store/actions/index.js';
+import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';
 import Loading from '../.././../UI/Loading.js'
 import { useHistory } from 'react-router-dom';
 
@@ -19,10 +19,11 @@ const AllRequest = () => {
 
     useEffect(() => {
         dispatch(fetchAvailable())
-    },[dispatch]);
+    },[]);
 
-    const handleClick = e => {
-        console.log(e)
+    const handleClick = id => {
+        console.log(id)
+        dispatch(fetchAvailById({id: id}))
         history.push('/available/schedule')
     }
     

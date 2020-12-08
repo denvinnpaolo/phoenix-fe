@@ -36,6 +36,10 @@ export const FETCH_CANCELED_FAILURE = 'FETCH_CANCELED_FAILURE';
 export const FETCH_CANCELED_LOADING = 'FETCH_CANCELED_LOADING';
 export const FETCH_CANCELED_SUCCESS = 'FETCH_CANCELED_SUCCESS';
 
+export const FETCH_AVAILBYID_FAILURE = 'FETCH_AVAILBYID_FAILURE';
+export const FETCH_AVAILBYID_LOADING = 'FETCH_AVAILBYID_LOADING';
+export const FETCH_AVAILBYID_SUCCESS = 'FETCH_AVAILBYID_SUCCESS';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -97,7 +101,7 @@ export const updateUser = (updatedUser, id) => dispatch => {
                     payload: response.data
                 });
             })
-            .catch(err => dispatch({ type: UPDATE_USER_FAILURE, payload: err}))
+            .catch(err => dispatch({ type: UPDATE_USER_FAILURE, payload: err }))
     )
 }
 
@@ -114,7 +118,7 @@ export const fetchAvailable = () => dispatch => {
                     payload: response.data
                 })
             })
-            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
+            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err }))
     ) 
 };
 
@@ -129,7 +133,7 @@ export const fetchPickupByTI = id => dispatch => {
                     payload: response.data
                 })
             })
-            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err}))
+            .catch(err => dispatch({ type: FETCH_PICKUP_FAILURE, payload: err }))
     )
 };
 
@@ -144,7 +148,7 @@ export const fetchCompletedByTI = id => dispatch => {
                     payload: response.data
                 })
             })
-            .catch(err => dispatch({ type: FETCH_COMPLETED_FAILURE, payload: err}))
+            .catch(err => dispatch({ type: FETCH_COMPLETED_FAILURE, payload: err }))
     )
 };
 
@@ -159,6 +163,21 @@ export const fetchCanceledByTI = id => dispatch => {
                     payload: response.data
                 })
             })
-            .catch(err => dispatch({ type: FETCH_CANCELED_FAILURE, payload: err}))
+            .catch(err => dispatch({ type: FETCH_CANCELED_FAILURE, payload: err }))
     )
 };
+
+export const fetchAvailById = id => dispatch => {
+    dispatch({ type: FETCH_AVAILBYID_LOADING })
+    return(
+        axiosWithAuth()
+            .get(`${host}/organic-waste/search-by/available`, id)
+            .then(response => {
+                dispatch({
+                    type: FETCH_AVAILBYID_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_AVAILBYID_FAILURE, payload: err }))
+    )
+}
