@@ -7,7 +7,7 @@ import Moment from 'moment';
 import {BsPerson, BsBell} from 'react-icons/bs';
 import { FcCheckmark } from 'react-icons/fc'
 
-import { createPickup } from '../../../../store/actions/index.js'
+import { createMultiPickup } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/Loading';
 
 const MultiPickup = () => {
@@ -20,8 +20,10 @@ const MultiPickup = () => {
     const [confirm, setConfirm] = useState(false)
 
 
-    const handleConfirm = e => {
+    const handleConfirm = (list, TI)=> {
+        console.log(TI)
         setConfirm(!confirm)
+        dispatch(createMultiPickup(list,TI))
     }
 
 
@@ -92,7 +94,7 @@ const MultiPickup = () => {
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>CONTACT</span>
-                            <span className="book-info">{`Mr. ${item[0].name}`}</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{`${item[0].name}`}</span>
                         </div>
                     </div>
 
@@ -115,7 +117,7 @@ const MultiPickup = () => {
                     {!confirm? <button 
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                      onClick={handleConfirm}
+                      onClick={()=> {handleConfirm(available.multiIdData.data, userInfo.id)}}
                     >
                         Confirm Pick Up
                     </button>

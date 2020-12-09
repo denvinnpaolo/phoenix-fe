@@ -19,7 +19,7 @@ const PickupBook = () => {
         "id": availbyid.currentAvail.data.id,
         "date_posted": availbyid.currentAvail.data.date_posted,
         "exp": availbyid.currentAvail.data.exp,
-        "pick_up_date": '',
+        "pick_up_date": availbyid.currentAvail.data.exp,
         "time_available": availbyid.currentAvail.data.time_available,
         "type": availbyid.currentAvail.data.type,
         "address": availbyid.currentAvail.data.address,
@@ -65,30 +65,30 @@ const PickupBook = () => {
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>DATE</span>
-                            <span className="book-info">{Moment(availbyid.currentAvail.data.exp).format("MMMM DD, YYYY")}</span>
+                            // <span className="book-info">{Moment(availbyid.currentAvail.data[0][0].exp).format("MMMM DD, YYYY")}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.time_available}</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].time_available}</span>
                         </div>                        <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ITEMS</span>
-                            <span className="book-info">{availbyid.currentAvail.data.type}</span>
+                            <span className="book-info">{availbyid.currentAvail.data[0][0].type}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TYPE</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.description}</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].description}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ADDRESS</span>
-                            <span className="book-info">{availbyid.currentAvail.data.address}</span>
+                            <span className="book-info">{availbyid.currentAvail.data[0][0].address}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
-                            <span className="book-info">{availbyid.currentAvail.data.phone}</span>
+                            <span className="book-info">{availbyid.currentAvail.data[0][0].phone}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>CONTACT</span>
-                            <span className="book-info">{`Mr. ${availbyid.currentAvail.data.name}`}</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{`${availbyid.currentAvail.data[0][0].name}`}</span>
                         </div>
                     </div>
                 </div>

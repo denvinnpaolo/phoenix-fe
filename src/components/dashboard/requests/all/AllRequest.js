@@ -24,7 +24,6 @@ const AllRequest = () => {
     },[dispatch]);
 
     const handleDBClick = id => {
-        console.log(id)
         dispatch(fetchAvailById({id: id}))
         history.push('/available/schedule')
     }

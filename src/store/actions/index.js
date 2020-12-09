@@ -48,6 +48,10 @@ export const CREATE_PICKUP_START = 'CREATE_PICKUP_START';
 export const CREATE_PICKUP_SUCCESS = 'CREATE_PICKUP_SUCCESS';
 export const CREATE_PICKUP_FAILURE = 'CREATE_PICKUP_FAILURE';
 
+export const CREATE_MULTIPICKUP_START = 'CREATE_MULTIPICKUP_START';
+export const CREATE_MULTIPICKUP_SUCCESS = 'CREATE_MULTIPICKUP_SUCCESS';
+export const CREATE_MULTIPICKUP_FAILURE = 'CREATE_MULTIPICKUP_FAILURE';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -176,10 +180,12 @@ export const fetchCanceledByTI = id => dispatch => {
 };
 
 export const fetchAvailById = id => dispatch => {
+    let newId = {id}
+    console.log(newId)
     dispatch({ type: FETCH_AVAILBYID_LOADING })
     return(
         axiosWithAuth()
-            .get(`${host}/organic-waste/search-by/available`, id)
+            .post(`${host}/organic-waste/search-by/available`, newId)
             .then(response => {
                 dispatch({
                     type: FETCH_AVAILBYID_SUCCESS,
@@ -219,5 +225,20 @@ export const createPickup = waste => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: CREATE_PICKUP_FAILURE, payload: err }))
+    )
+}
+
+export const createMultiPickup = (wastes, TI) => dispatch => {
+    dispatch({ type: CREATE_MULTIPICKUP_START })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/to-pick-up/multi`, {wastes,TI})
+            .then(response => {
+                dispatch({
+                    type: CREATE_MULTIPICKUP_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: CREATE_MULTIPICKUP_FAILURE, payload: err }))
     )
 }
