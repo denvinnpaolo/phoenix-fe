@@ -28,6 +28,10 @@ export const FETCH_AVAILABLE_FAILURE = 'FETCH_AVAILABLE_FAILURE';
 export const FETCH_AVAILABLE_LOADING = 'FETCH_AVAILABLE_LOADING';
 export const FETCH_AVAILABLE_SUCCESS = 'FETCH_AVAILABLE_SUCCESS';
 
+export const FETCH_MULTIAVAIL_FAILURE = 'FETCH_MULTIAVAIL_FAILURE';
+export const FETCH_MULTIAVAIL_LOADING = 'FETCH_MULTIAVAIL_LOADING';
+export const FETCH_MULTIAVAIL_SUCCESS = 'FETCH_MULTIAVAIL_SUCCESS';
+
 export const FETCH_COMPLETED_FAILURE = 'FETCH_COMPLETED_FAILURE';
 export const FETCH_COMPLETED_LOADING = 'FETCH_COMPLETED_LOADING';
 export const FETCH_COMPLETED_SUCCESS = 'FETCH_COMPLETED_SUCCESS';
@@ -186,9 +190,25 @@ export const fetchAvailById = id => dispatch => {
     )
 }
 
+
+export const fetchMultiAvail = list => dispatch => {
+    console.log(list)
+    dispatch({ type: FETCH_MULTIAVAIL_LOADING })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/available/multi`, list)
+            .then( response => {
+                dispatch({
+                    type: FETCH_MULTIAVAIL_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_MULTIAVAIL_FAILURE, payload: err }))
+    )
+}
+
 export const createPickup = waste => dispatch => {
     dispatch({ type: CREATE_PICKUP_START })
-    console.log(waste)
     return(
         axiosWithAuth()
             .post(`${host}/organic-waste/to-pick-up`, waste)

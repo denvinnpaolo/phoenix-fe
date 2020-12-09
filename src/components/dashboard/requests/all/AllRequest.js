@@ -6,7 +6,7 @@ import Moment from 'moment';
 import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
 import { RiArrowUpDownFill } from 'react-icons/ri';
 
-import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';
+import { fetchAvailable, fetchAvailById, fetchMultiAvail } from '../../../../store/actions/index.js';
 import Loading from '../.././../UI/Loading.js'
 import { useHistory } from 'react-router-dom';
 
@@ -17,27 +17,32 @@ const AllRequest = () => {
 
     let userInfo = users.userData
 
-    let multiWastes = []
+    let multiWastes = {}
 
     useEffect(() => {
         dispatch(fetchAvailable())
     },[dispatch]);
 
-    const handleClick = id => {
+    const handleDBClick = id => {
         console.log(id)
         dispatch(fetchAvailById({id: id}))
         history.push('/available/schedule')
     }
 
-    const handleCheck = id => {
-        if(multiWastes.includes(id,0)){
-            const index = multiWastes.indexOf(id);
-            if (index > -1) {
-                multiWastes.splice(index, 1);
-            }
+    const handleCheck = item => {
+        if(multiWastes[item.id.toString()]){
+            delete multiWastes[item.id.toString()]
         } else {
-            multiWastes.push(id)
+            multiWastes[item.id.toString()] = item
         }
+        console.log(multiWastes)
+    }
+
+    const handleSchedule = () => {
+
+ 
+        dispatch(fetchMultiAvail(multiWastes))
+        history.push('/available/schedule/multi')
     }
     
 
@@ -101,7 +106,7 @@ const AllRequest = () => {
                                     {available.availableData.data.map(item=>{
                                         return( 
                                             <div id="allreq-data-row" onDoubleClick={()=> {
-                                                handleClick(item.id)
+                                                handleDBClick(item.id)
                                             }}>
                                                 <span className="allreq-data">{Moment(item.exp).format('MMMM DD, YYYY')}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
@@ -118,7 +123,7 @@ const AllRequest = () => {
                                                 <span className="allreq-data">{item.description}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
                                                 
-                                                <span className="allreq-data">{<input type="checkbox" onClick={()=> handleCheck(item.id)}/>} </span>
+                                                <span className="allreq-data">{<input type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
 
 
                                             </div>
@@ -131,7 +136,7 @@ const AllRequest = () => {
                             <div id="allreq-tbl-btns">
                                     <div id="allreq-btm-btns">
                                         <button className="allreq-btn">Map view</button>
-                                        <button className="allreq-btn" style={{backgroundColor: "#FF9B64"}}>Schedule Pick Up</button>
+                                        <button className="allreq-btn" style={{backgroundColor: "#FF9B64"}} onClick={handleSchedule}>Schedule Pick Up</button>
 
                                     </div>
                             </div>
