@@ -1,22 +1,38 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Moment from 'moment';
+
 import {BsPerson, BsBell} from 'react-icons/bs';
 import { FcCheckmark } from 'react-icons/fc'
 
+import { createPickup } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/Loading';
-import { useHistory } from 'react-router-dom';
 
 const PickupBook = () => {
-    const [confirm, setConfirm] = useState(false)
-
     const dispatch = useDispatch();
     const history = useHistory();
     const {availbyid, users} = useSelector(state => state);
 
     let userInfo = users.userData
+    const [newPickUp, setNewPickUp] = useState(!availbyid.currentAvail.data? null : {
+        "id": availbyid.currentAvail.data.id,
+        "date_posted": availbyid.currentAvail.data.date_posted,
+        "exp": availbyid.currentAvail.data.exp,
+        "pick_up_date": '',
+        "time_available": availbyid.currentAvail.data.time_available,
+        "type": availbyid.currentAvail.data.type,
+        "address": availbyid.currentAvail.data.address,
+        "description": availbyid.currentAvail.data.description,
+        "producer_id": availbyid.currentAvail.data.producer_id,
+        "transformer_id": userInfo.id
+    })
+    const [confirm, setConfirm] = useState(false)
+
 
     const handleConfirm = e => {
         setConfirm(!confirm)
+        dispatch(createPickup(newPickUp))
     }
 
 
@@ -43,7 +59,38 @@ const PickupBook = () => {
                     {confirm? <span id="check"><FcCheckmark size="2.2em" />  Your pick-up has been successfully booked</span> : null }
                 </div>
                 <div id="pickup-book-tbl">
-                    {availbyid.currentAvail.data.address}
+                    <div id="pickup-info-tbl">
+                        <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
+                            <span style={{fontSize: "1.5em"}}>Company Name</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>DATE</span>
+                            <span className="book-info">{Moment(availbyid.currentAvail.data.exp).format("MMMM DD, YYYY")}</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.time_available}</span>
+                        </div>                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>ITEMS</span>
+                            <span className="book-info">{availbyid.currentAvail.data.type}</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>TYPE</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.description}</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>ADDRESS</span>
+                            <span className="book-info">{availbyid.currentAvail.data.address}</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
+                            <span className="book-info">{availbyid.currentAvail.data.phone}</span>
+                        </div>
+                        <div className="pickup-info-container">
+                            <span style={{fontSize:".7em"}}>CONTACT</span>
+                            <span className="book-info">{`Mr. ${availbyid.currentAvail.data.name}`}</span>
+                        </div>
+                    </div>
                 </div>
                 <div id="pickup-book-btns">
                     <button className="pickup-book-btns" onClick={()=>{

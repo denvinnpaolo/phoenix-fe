@@ -98,7 +98,9 @@ const Home = () => {
                         </div>
                     </div>
                     <div id="pickup-contents-container">
-                        <div id="pickup-overview-component"></div>
+                        <div id="pickup-overview-component">
+                            
+                        </div>
                     </div>
                 </div>
             </div>

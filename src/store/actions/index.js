@@ -40,6 +40,10 @@ export const FETCH_AVAILBYID_FAILURE = 'FETCH_AVAILBYID_FAILURE';
 export const FETCH_AVAILBYID_LOADING = 'FETCH_AVAILBYID_LOADING';
 export const FETCH_AVAILBYID_SUCCESS = 'FETCH_AVAILBYID_SUCCESS';
 
+export const CREATE_PICKUP_START = 'CREATE_PICKUP_START';
+export const CREATE_PICKUP_SUCCESS = 'CREATE_PICKUP_SUCCESS';
+export const CREATE_PICKUP_FAILURE = 'CREATE_PICKUP_FAILURE';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -179,5 +183,21 @@ export const fetchAvailById = id => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: FETCH_AVAILBYID_FAILURE, payload: err }))
+    )
+}
+
+export const createPickup = waste => dispatch => {
+    dispatch({ type: CREATE_PICKUP_START })
+    console.log(waste)
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/to-pick-up`, waste)
+            .then(response => {
+                dispatch({
+                    type: CREATE_PICKUP_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: CREATE_PICKUP_FAILURE, payload: err }))
     )
 }
