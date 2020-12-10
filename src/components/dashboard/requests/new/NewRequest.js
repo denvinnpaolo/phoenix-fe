@@ -1,0 +1,103 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Moment from 'moment';
+
+import Loading from '../.././../UI/Loading.js'
+import InfiniteScroll from 'react-infinite-scroll-component';
+
+import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';
+import { useHistory } from 'react-router-dom';
+
+
+const NewRequest = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    let multiWastes = {}
+
+    const { available } = useSelector(state => state)
+
+    useEffect(() => {
+        dispatch(fetchAvailable())
+    },[dispatch]);
+
+    const handleDBClick = id => {
+        dispatch(fetchAvailById({id: id}))
+        history.push('/available/schedule')
+    }
+
+    const handleCheck = item => {
+        if(multiWastes[item.id.toString()]){
+            delete multiWastes[item.id.toString()]
+        } else {
+            multiWastes[item.id.toString()] = item
+        }
+    }
+
+    if(!available.availableData.data){
+        return <Loading />
+    } else {
+    return(
+        <div id="pickup-overview-tbl">
+            <div id="allreq-data-labels">
+                    <span className="allreq-data-overview">Pick-up Date</span>
+                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                    <span className="allreq-data-overview">Time Available</span>
+                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                    <span className="allreq-data-overview" >Address</span>
+                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                    <span className="allreq-data-overview" >items</span>
+                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                    <span className="allreq-data-overview" >Type of Waste</span>
+                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                    <span className="allreq-data-overview">Pick-up Selection</span>
+            </div>
+
+            {!available.availableData.data? 
+                <Loading />
+                :
+                <InfiniteScroll
+                    dataLength={available.availableData.data.length}
+                    style={{width: "100%", height: "100%"}}
+                    scrollableTarget="pickup-overview-tbl"
+                >
+                    {available.availableData.data.map(item=>{
+                        return( 
+                            <div className="overview-datarow" onDoubleClick={()=> {
+                                handleDBClick(item.id)
+                            }}>
+                                <span className="allreq-data">{Moment(item.exp).format('MMMM DD, YYYY')}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                
+                                <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                
+                                <span className="allreq-data">{item.address}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                
+                                <span className="allreq-data">{item.description}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                
+                                <span className="allreq-data">{item.description}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
+                                
+                                <span className="allreq-data">{<input type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
+
+
+                            </div>
+                        )
+                    })
+                }
+                </InfiniteScroll>
+                }
+        </div>
+    )
+    }
+};
+
+export default NewRequest;

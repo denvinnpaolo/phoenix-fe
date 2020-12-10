@@ -8,6 +8,7 @@ import AllRequest from './requests/all/AllRequest.js'
 import PickupBook from './schedule/pickupBook/PickupBook.js'
 import MultiPickup from './schedule/multiPickup/MultiPickup.js'
 import Loading from '../UI/Loading.js';
+import { fetchAvailable } from '../../store/actions/index.js';
 
 
 
@@ -19,6 +20,9 @@ const Dashboard = props => {
         return state
     });
 
+    useEffect(() => {
+    })
+
  
     return(
         <div id='dashboard-container'>
@@ -26,7 +30,7 @@ const Dashboard = props => {
             <Route path="/home" render={()=> <Home />}/>
             <Route exact path="/" render={()=> <Home />}/>
             <Route path="/available/request/all" render={()=><AllRequest />} />
-            <Route exact path="/available/schedule" render={()=><PickupBook id={users.userData.userdata.id}/> } />
+            <Route exact path="/available/schedule" render={()=><PickupBook /> } />
             <Route path="/available/schedule/multi" render={()=><MultiPickup/> } />
 
         </div>
