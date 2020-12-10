@@ -181,7 +181,6 @@ export const fetchCanceledByTI = id => dispatch => {
 
 export const fetchAvailById = id => dispatch => {
     let newId = {id}
-    console.log(newId)
     dispatch({ type: FETCH_AVAILBYID_LOADING })
     return(
         axiosWithAuth()
@@ -198,7 +197,6 @@ export const fetchAvailById = id => dispatch => {
 
 
 export const fetchMultiAvail = list => dispatch => {
-    console.log(list)
     dispatch({ type: FETCH_MULTIAVAIL_LOADING })
     return(
         axiosWithAuth()
@@ -214,6 +212,7 @@ export const fetchMultiAvail = list => dispatch => {
 }
 
 export const createPickup = waste => dispatch => {
+    console.log('action: ',waste)
     dispatch({ type: CREATE_PICKUP_START })
     return(
         axiosWithAuth()

@@ -101,7 +101,27 @@ const Home = () => {
                     </div>
                     <div id="pickup-contents-container">
                         <div id="pickup-overview-component">
-                            
+                            <div id="pickup-overview-tbl">
+                                <div id="allreq-data-labels">
+                                        <span className="allreq-data-overview">Pick-up Date</span>
+                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                        <span className="allreq-data-overview">Time Available</span>
+                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                        <span className="allreq-data-overview" >Address</span>
+                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                        <span className="allreq-data-overview" >items</span>
+                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                        <span className="allreq-data-overview" >Type of Waste</span>
+                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                        <span className="allreq-data-overview">Pick-up Selection</span>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

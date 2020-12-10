@@ -936,9 +936,29 @@ option {
 
 #pickup-overview-component{
   box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 15px;
   height: 98%;
   width: 92%;
+}
+
+#pickup-overview-tbl {
+  border: 1px solid red;
+  height: 85%;
+  width: 90%;
+}
+
+.allreq-data-overview {
+  width:16.66%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(190, 184, 184, 0.5);
+  font-size: .8em;
+  font-weight: bold;
 }
 
 

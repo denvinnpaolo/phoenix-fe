@@ -9,29 +9,30 @@ import { FcCheckmark } from 'react-icons/fc'
 import { createPickup } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/Loading';
 
-const PickupBook = () => {
+const PickupBook = props => {
+    console.log(props)
     const dispatch = useDispatch();
     const history = useHistory();
     const {availbyid, users} = useSelector(state => state);
 
-    let userInfo = users.userData
     const [newPickUp, setNewPickUp] = useState(!availbyid.currentAvail.data? null : {
-        "id": availbyid.currentAvail.data.id,
-        "date_posted": availbyid.currentAvail.data.date_posted,
-        "exp": availbyid.currentAvail.data.exp,
-        "pick_up_date": availbyid.currentAvail.data.exp,
-        "time_available": availbyid.currentAvail.data.time_available,
-        "type": availbyid.currentAvail.data.type,
-        "items": availbyid.currentAvail.data.items,
-        "address": availbyid.currentAvail.data.address,
-        "description": availbyid.currentAvail.data.description,
-        "producer_id": availbyid.currentAvail.data.producer_id,
-        "transformer_id": userInfo.id
-    })
+                "id": availbyid.currentAvail.data[0][0].id,
+                "date_posted": availbyid.currentAvail.data[0][0].date_posted,
+                "exp": availbyid.currentAvail.data[0][0].exp,
+                "pick_up_date": availbyid.currentAvail.data[0][0].exp,
+                "time_available": availbyid.currentAvail.data[0][0].time_available,
+                "type": availbyid.currentAvail.data[0][0].type,
+                "items": availbyid.currentAvail.data[0][0].items,
+                "address": availbyid.currentAvail.data[0][0].address,
+                "description": availbyid.currentAvail.data[0][0].description,
+                "producer_id": availbyid.currentAvail.data[0][0].producer_id,
+                "transformer_id": users.userData.userdata.id
+            });
     const [confirm, setConfirm] = useState(false)
 
 
-    const handleConfirm = e => {
+    const handlePickup = e => {
+        console.log(e)
         setConfirm(!confirm)
         dispatch(createPickup(newPickUp))
     }
@@ -99,7 +100,10 @@ const PickupBook = () => {
                     {!confirm? <button 
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                      onClick={handleConfirm}
+                      onClick={()=> {
+                          handlePickup(availbyid.currentAvail.data[0][0])
+                          console.log(availbyid)
+                      }}
                     >
                         Confirm Pick Up
                     </button>
