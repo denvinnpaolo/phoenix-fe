@@ -34,7 +34,6 @@ const MultiPickup = () => {
         <div id="pickup-book-cont">
             <div id="welcome-header-container">
                 <div id="welcome-header-text">
-                    <span id="welcome-header">{`Welcome back, ${userInfo.name.toUpperCase()}`}</span>
                 </div>
                 <div id="welcome-header-alerts">
                     <BsBell size="1.1em" />
@@ -62,49 +61,38 @@ const MultiPickup = () => {
                     return( 
                         <div id="multi-tbl-container">
                         <div id="multi-pickup-tbl">
-                            
-
-
-                        <div id="pickup-info-tbl">
-                        <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                            <span style={{fontSize: "1.5em"}}>Company Name</span>
+                            <div id="pickup-info-tbl">
+                            <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
+                                <span style={{fontSize: "1.5em"}}>Company Name</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>DATE</span>
+                                <span className="book-info">{Moment(item[0].exp).format("MMMM DD, YYYY")}</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].time_available}</span>
+                            </div>                        <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>ITEMS</span>
+                                <span className="book-info">{item[0].type}</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].description}</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>ADDRESS</span>
+                                <span className="book-info">{item[0].address}</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
+                                <span className="book-info">{item[0].phone}</span>
+                            </div>
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>CONTACT</span>
+                                <span className="book-info" style={{textTransform: 'capitalize'}}>{`${item[0].name}`}</span>
+                            </div>
                         </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>DATE</span>
-                            <span className="book-info">{Moment(item[0].exp).format("MMMM DD, YYYY")}</span>
-                        </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].time_available}</span>
-                        </div>                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>ITEMS</span>
-                            <span className="book-info">{item[0].type}</span>
-                        </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>TYPE</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].description}</span>
-                        </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>ADDRESS</span>
-                            <span className="book-info">{item[0].address}</span>
-                        </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
-                            <span className="book-info">{item[0].phone}</span>
-                        </div>
-                        <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>CONTACT</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{`${item[0].name}`}</span>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
                         </div>
                         </div>)
                 })}

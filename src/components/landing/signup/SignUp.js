@@ -8,7 +8,7 @@ const SignUpLanding = () => {
     const handleClick = e => {
         e.preventDefault();
         let name = e.target.name;
-        history.push(`/${name}-register`)
+        history.push(`/welcome/${name}-register`)
     }
 
     return (

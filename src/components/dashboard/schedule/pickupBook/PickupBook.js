@@ -22,6 +22,7 @@ const PickupBook = () => {
         "pick_up_date": availbyid.currentAvail.data.exp,
         "time_available": availbyid.currentAvail.data.time_available,
         "type": availbyid.currentAvail.data.type,
+        "items": availbyid.currentAvail.data.items,
         "address": availbyid.currentAvail.data.address,
         "description": availbyid.currentAvail.data.description,
         "producer_id": availbyid.currentAvail.data.producer_id,
@@ -43,7 +44,6 @@ const PickupBook = () => {
         <div id="pickup-book-cont">
             <div id="welcome-header-container">
                 <div id="welcome-header-text">
-                    <span id="welcome-header">{`Welcome back, ${userInfo.name.toUpperCase()}`}</span>
                 </div>
                 <div id="welcome-header-alerts">
                     <BsBell size="1.1em" />
@@ -65,7 +65,7 @@ const PickupBook = () => {
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>DATE</span>
-                            // <span className="book-info">{Moment(availbyid.currentAvail.data[0][0].exp).format("MMMM DD, YYYY")}</span>
+                            <span className="book-info">{Moment(availbyid.currentAvail.data[0][0].exp).format("MMMM DD, YYYY")}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TIME OF DAY</span>

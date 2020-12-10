@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
  
 import { BiCalendarExclamation } from 'react-icons/bi';
 
@@ -16,6 +17,7 @@ import Loading from '../../UI/Loading.js'
     const dispatch = useDispatch();
     const {pickup} = useSelector(state => state)
 
+    const [open, setOpen] = useState(true)
 
 
     const id = useSelector(state => state.users.userData.id);
@@ -23,34 +25,6 @@ import Loading from '../../UI/Loading.js'
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
     },[pickup.newData, dispatch])
-
-
-
-
-
-    // const dummyData = [
-    //     {"id": 1, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 2, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 3, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 4, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 5, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 6, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 7, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 8, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 9, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 10, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-
-    // ]
 
 
     if(!pickup.pickupData.data){
@@ -74,17 +48,18 @@ import Loading from '../../UI/Loading.js'
                             scrollableTarget="overview-data-container"
                         >
                             {pickup.pickupData.data.map(item => 
-                                <div className="overview-data">
+                                  <div className="overview-data">
                                     <div className="overview-inner-div">
                                         <span className="data">
-                                            {Moment(item.date_posted).format('MMMM DD, YYYY')}
+                                            {Moment(item.exp).format('MMMM DD, YYYY')}
                                         </span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                         <span className="data" style={{textTransform: 'capitalize'}}> 
                                             {item.time_available}
                                         </span>
-                                    </div> 
-                                </div>
+                                        </div> 
+                                    </div>
+                                
                             )}
                         </InfiniteScroll>
                 </div>

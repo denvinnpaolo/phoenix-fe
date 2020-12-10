@@ -34,11 +34,9 @@ const AllRequest = () => {
         } else {
             multiWastes[item.id.toString()] = item
         }
-        console.log(multiWastes)
     }
 
     const handleSchedule = () => {
-
  
         dispatch(fetchMultiAvail(multiWastes))
         history.push('/available/schedule/multi')
@@ -52,7 +50,7 @@ const AllRequest = () => {
             <div id="all-req-container">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{`Welcome back, ${userInfo.name}`}</span>
+
                     </div>
                     <div id="welcome-header-alerts">
                         <BsBell size="1.1em" />

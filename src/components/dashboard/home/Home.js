@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
+
 
 import { BsBell, BsPerson, BsSearch } from 'react-icons/bs';
 import { FaMapMarkedAlt } from 'react-icons/fa';
@@ -8,10 +10,10 @@ import { FaMapMarkedAlt } from 'react-icons/fa';
 import Upcoming from '../overview/Upcoming.js';
 import Completed from '../overview/Completed.js';
 import Canceled from '../overview/Canceled.js'
-import { Link } from 'react-router-dom';
 
 
 const Home = () => {
+
 
     const [overviewChoices, setOverviewChoices] = useState({
         today: false,

@@ -8,8 +8,6 @@ import AllRequest from './requests/all/AllRequest.js'
 import PickupBook from './schedule/pickupBook/PickupBook.js'
 import MultiPickup from './schedule/multiPickup/MultiPickup.js'
 
-import NewRequest from './requests/new/NewRequest.js'
-
 
 
 const Dashboard = props => {

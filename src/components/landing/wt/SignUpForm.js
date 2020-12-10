@@ -77,7 +77,7 @@ const SignUpForm = props => {
     const prevStep = () => {
         const { step } = newUser;
         if(step === 1){
-            history.push('/')
+            history.push('/welcome/register')
         } else {
             setNewUser({...newUser, step: step - 1, percent: newUser.percent - 49});
         }

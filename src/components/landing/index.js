@@ -7,6 +7,7 @@ import SignUpForm from './wt/SignUpForm.js'
 import SignUpLanding from './signup/SignUp.js'
 import Login from './login/Login.js';
 import Help from './help/Help.js'
+import Main from './website/main/Main.js'
 
 
 const LandingPage = () => {
@@ -19,13 +20,13 @@ const LandingPage = () => {
     }
     return(
         <div>
-            <Nav />
-            <Route exact path="/" component={SignUpLanding} />
-            <Route exact path="/landing" component={SignUpLanding} />
-            <Route path="/wt-register" component={SignUpForm} />
-            <Route path="/wp-register" component={SignUpForm} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path ="/help" component={Help} />
+            <Route exact path="/" component={Main} />
+            <Route path="/welcome/" component={Nav} />
+            <Route path="/welcome/register" component={SignUpLanding} />
+            <Route path="/welcome/wt-register" component={SignUpForm} />
+            <Route path="/welcome/wp-register" component={SignUpForm} />
+            <Route exact path="/welcome/login" component={Login} />
+            <Route exact path ="/welcome/help" component={Help} />
         </div>
     )
 }

@@ -138,7 +138,7 @@ export const fetchPickupByTI = id => dispatch => {
     dispatch({ type: FETCH_PICKUP_LOADING })
     return(
         axiosWithAuth()
-            .get(`${host}/organic-waste/search-by/pick-up/`, id)
+            .post(`${host}/organic-waste/search-by/pick-up/`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_PICKUP_SUCCESS,
