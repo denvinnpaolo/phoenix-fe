@@ -24,7 +24,7 @@ import Loading from '../../UI/Loading.js'
 
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
-    },[pickup.newData, dispatch])
+    },[dispatch])
 
 
     if(!pickup.pickupData.data){

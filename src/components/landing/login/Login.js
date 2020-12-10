@@ -52,9 +52,14 @@ const Login = props => {
                             onChange= {handleChange}
                         />
                     </div>
+                    <div className="companyinfo-inputs-cont">
+                        <span style={{ width: "80%", textAlign: 'center'}}><u>Forgot Password?</u></span>
+                    </div>
             </div>
             <div id="login-button">
                 <div id="login-btn-container">
+                    <button className="wt-register-btn"  onClick={()=> history.push('/')}>Cancel</button>
+
                     <button className="wt-register-btn" style={{backgroundColor: "#FF9B64",  border: "1px solid #FF9B64"}} onClick={handleSubmit}>log in</button>
                 </div>
             </div>

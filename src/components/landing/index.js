@@ -23,8 +23,8 @@ const LandingPage = () => {
             <Route exact path="/" component={Main} />
             <Route path="/welcome/" component={Nav} />
             <Route path="/welcome/register" component={SignUpLanding} />
-            <Route path="/welcome/wt-register" component={SignUpForm} />
             <Route path="/welcome/wp-register" component={SignUpForm} />
+            <Route path="/welcome/wt-register" component={SignUpForm} />
             <Route exact path="/welcome/login" component={Login} />
             <Route exact path ="/welcome/help" component={Help} />
         </div>
