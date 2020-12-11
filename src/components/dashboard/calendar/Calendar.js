@@ -21,7 +21,6 @@ const Calendar = () => {
     },[dispatch, completed.newCompleted])
 
     const [events, setEvents] = useState();
-    const [modalShow, setModalShow] = useState(false);
 
     useEffect(
         () => {
@@ -37,7 +36,7 @@ const Calendar = () => {
                 title: event.company_name,
                 start: event.exp,
                 end: event.exp,
-
+                data: event
               };
             });
     
@@ -46,15 +45,6 @@ const Calendar = () => {
         },
         [pickup.pickupData.data, pickup.isFetching, pickup.error]
       );
-
-
-        const handleClick = e => {
-            <DataModal
-                item={e}
-                show={modalShow}
-                onHide={()=> setModalShow(false)}
-            />
-        }
 
     if(!pickup.pickupData.data){
         return <Loading />
@@ -71,7 +61,6 @@ const Calendar = () => {
                         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                       }}
                         events={events}
-                        eventClick={handleClick}
                         height="100%"
                         width="100%"
                         plugins={[ dayGridPlugin, timeGridPlugin, listPlugin ]}

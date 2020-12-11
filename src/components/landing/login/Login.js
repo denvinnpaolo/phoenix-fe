@@ -28,7 +28,7 @@ const Login = props => {
         <div id="login-input-main">
 
             <div id="login-header">
-                <span id="landing-header" class="landing-text">Log in!</span>
+                <span id="landing-header" class="landing-text titles">Log in!</span>
             </div>
             <div id="login-input-container">
                     <div className="companyinfo-inputs-cont">

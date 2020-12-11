@@ -222,7 +222,6 @@ export const fetchMultiAvail = list => dispatch => {
 }
 
 export const createPickup = waste => dispatch => {
-    console.log('action: ',waste)
     dispatch({ type: CREATE_PICKUP_START })
     return(
         axiosWithAuth()

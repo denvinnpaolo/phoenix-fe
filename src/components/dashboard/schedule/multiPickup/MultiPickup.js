@@ -21,9 +21,12 @@ const MultiPickup = () => {
 
 
     const handleConfirm = (list, TI)=> {
-        console.log(TI)
-        setConfirm(!confirm)
-        dispatch(createMultiPickup(list,TI))
+        if(list && TI === null){
+            return
+        } else {        
+            setConfirm(!confirm)
+            dispatch(createMultiPickup(list,TI))
+        }
     }
 
 

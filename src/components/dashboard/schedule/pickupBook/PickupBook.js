@@ -14,25 +14,44 @@ const PickupBook = props => {
     const history = useHistory();
     const {availbyid, users} = useSelector(state => state);
 
-    const [newPickUp, setNewPickUp] = useState(!availbyid.currentAvail.data? null : {
-                "id": availbyid.currentAvail.data[0][0].id,
-                "date_posted": availbyid.currentAvail.data[0][0].date_posted,
-                "exp": availbyid.currentAvail.data[0][0].exp,
-                "pick_up_date": availbyid.currentAvail.data[0][0].exp,
-                "time_available": availbyid.currentAvail.data[0][0].time_available,
-                "type": availbyid.currentAvail.data[0][0].type,
-                "items": availbyid.currentAvail.data[0][0].items,
-                "address": availbyid.currentAvail.data[0][0].address,
-                "description": availbyid.currentAvail.data[0][0].description,
-                "producer_id": availbyid.currentAvail.data[0][0].producer_id,
-                "transformer_id": users.userData.id
-            });
+    const [newPickUp, setNewPickUp] = useState(!availbyid.currentAvail.data? null :{
+            "id": availbyid.currentAvail.data[0][0].id,
+            "date_posted": availbyid.currentAvail.data[0][0].date_posted,
+            "exp": availbyid.currentAvail.data[0][0].exp,
+            "pick_up_date": availbyid.currentAvail.data[0][0].exp,
+            "time_available": availbyid.currentAvail.data[0][0].time_available,
+            "type": availbyid.currentAvail.data[0][0].type,
+            "items": availbyid.currentAvail.data[0][0].items,
+            "address": availbyid.currentAvail.data[0][0].address,
+            "description": availbyid.currentAvail.data[0][0].description,
+            "producer_id": availbyid.currentAvail.data[0][0].producer_id,
+            "transformer_id": users.userData.id
+
+    });
     const [confirm, setConfirm] = useState(false)
 
 
     const handlePickup = e => {
-        setConfirm(!confirm)
-        dispatch(createPickup(newPickUp))
+
+        setNewPickUp(!e? null :{
+            "id": e.id,
+            "date_posted": e.date_posted,
+            "exp": availbyid.currentAvail.data[0][0].exp,
+            "pick_up_date": e.exp,
+            "time_available": e.time_available,
+            "type": e.type,
+            "items": e.items,
+            "address": e.address,
+            "description":e.description,
+            "producer_id": e.producer_id,
+            "transformer_id": users.userData.id
+        })
+        if(newPickUp === null){
+            return
+        } else {
+            dispatch(createPickup(newPickUp))
+            setConfirm(!confirm)
+        }
     }
 
 
@@ -98,7 +117,9 @@ const PickupBook = props => {
                     {!confirm? <button 
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                      onClick={handlePickup}
+                      onClick={()=>{
+                          handlePickup(availbyid.currentAvail.data[0][0])
+                      }}
                     >
                         Confirm Pick Up
                     </button>

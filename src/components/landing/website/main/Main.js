@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import OuroLogo from '../../../../assets/img/ouro/ourologo.png'
 import Content1IMG from '../../../../assets/img/ouro/website/landing/hero@2x.png'
 import SignUpIMG from '../../../../assets/img/ouro/signup.png';
 import ConfirmPickUp from '../../../../assets/img/ouro/confirmpickup.png';
@@ -12,6 +11,7 @@ import THREE from '../../../../assets/img/ouro/website/landing/number3@2x.png';
 import PRODUCER1 from '../../../../assets/img/ouro/website/landing/benefit1@2x.png'
 import PRODUCER2 from '../../../../assets/img/ouro/website/landing/benefit2@2x.png'
 import PRODUCER3 from '../../../../assets/img/ouro/website/landing/benefit3@2x.png'
+import Nav from '../nav/Nav.js';
 
 
 
@@ -19,20 +19,7 @@ const Main = () => {
     const history = useHistory();
     return(
         <div id="main-page-container">
-            <div id="main-nav-container">
-                <div id="main-logo-container">
-                    <img src={OuroLogo} style={{maxWidth:"100%",height:"3em", objectFit: "contain"}} />
-                </div>
-                
-                <div id="main-nav-btns">
-                    <span className="main-nav-btn">Waste Transformers</span>
-                    <span className="main-nav-btn">Waste Producers</span>
-                    <span className="main-nav-btn" onClick={()=> history.push('/about')}>About</span>
-                    <span className="main-nav-btn">Contact</span>
-                    <button className="main-join-btn" onClick={()=> history.push('/welcome/register')}>JOIN OURO</button>
-                    <span className="main-nav-btn" onClick={()=> history.push('/welcome/login')}>Log in</span>
-                </div>
-            </div>
+            <Nav />
 
             <div id="main-content1-container">
                 <div className="main-content1-contents">
@@ -41,10 +28,12 @@ const Main = () => {
                 <div className="main-content1-contents">
                     <div id="main-content1-texts">
                         <div id="main-content1-div">
-                            <span style={{fontSize: "3.3em", fontWeight: "bolder", letterSpacing: ".04em"}}>Rethinking Food Waste</span>
+                            <span style={{fontSize: "3em", fontWeight: "bolder", letterSpacing: ".04em"}}>Rethinking Food Waste</span>
                             <span className="main-content1-regtxt">Our mission is to help divert food waste from landfills to initiatives coverting food waste in high value products and goods.</span>
                             <span className="main-content1-regtxt">Ouro is a platform that helps businesses reprocessing food waste into new products and good source waste for their operations.</span>
-                            <button className="main-join-btn" style={{height:"11%", width:"20%"}} onClick={()=> history.push('/welcome/register')}>JOIN OURO</button>
+                            <div id="main-content1-btncont">
+                                <button className="main-join-btn" style={{height:"55%", width:"20%", justifySelf: "flex-end"}} onClick={()=> history.push('/welcome/register')}>JOIN OURO</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +43,7 @@ const Main = () => {
                     <div id="main-content2-texts">
                         <div id="main-content2-toptxt">
                             <div id="main-content2-innertxt">
-                            <span style={{fontSize: "3.2em", fontWeight: "bold", letterSpacing: ".04em"}}>Is Your Company A Waste Transfomer?</span>
+                            <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".04em"}}>Is Your Company A Waste Transfomer?</span>
                             <span className="main-content2-regtxt">
                                 Your operations can scale significantly with increased access to food waste.
                                 That's why we built this platform just for you.
@@ -83,7 +72,7 @@ const Main = () => {
             </div>
 
             <div id="main-content3-topjoin">
-                <button className="main-join-btn" style={{height: "25%", fontSize:"1.12em", width: "15%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wt-register')}>JOIN OURO</button>
+                <button className="main-join-btn" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wt-register')}>JOIN OURO</button>
             </div>
 
             <div id="main-content4-container">
@@ -91,7 +80,7 @@ const Main = () => {
                     <div id="main-content4-texts">
                         <div id="main-content4-toptxt">
                             <div id="main-content4-innertxt">
-                                <span style={{fontSize: "3.2em", fontWeight: "bold", letterSpacing: ".07em"}}>Are You A Waste Producer?</span>
+                                <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".07em"}}>Are You A Waste Producer?</span>
                                 <span className="main-content4-regtxt">
                                     Ouro Offers avenues where food waste can be diverted towards, to be repurposed into new products and goods, which reduces your costs and benefits the environment.
                                 </span>
@@ -134,7 +123,7 @@ const Main = () => {
                 </div>
 
                 <div id="main-content3-topjoin">
-                    <button className="main-join-btn" style={{height: "25%", fontSize:"1.12em", width: "15%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wp-register')}>JOIN OURO</button>
+                    <button className="main-join-btn" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wp-register')}>JOIN OURO</button>
                 </div>
 
                 <div id="main-content-footer">

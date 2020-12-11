@@ -13,8 +13,8 @@ import Ouro from '../../../assets/img/Ouro.png'
 
 const Nav = () => {
     const dispatch = useDispatch();
-
     const history = useHistory();
+
     const [expand, setExpand] = useState({
         state: false,
         home: true,
@@ -25,8 +25,6 @@ const Nav = () => {
         settings: false
     });
     
-    
-    
     const activeNav = (e) => {
         var navLi = expand[e.currentTarget.id]
         if(expand[e.currentTarget.id] === true) {
@@ -35,23 +33,6 @@ const Nav = () => {
             setExpand({ state: true, [e.currentTarget.id]: !navLi  });
         }
     };
-
-
-    // const handleExpand = (e) => {
-    //     if(expand.state === true){
-    //         setExpand({         
-    //             state: false,
-    //             home: false,
-    //             cal: false,
-    //             contacts: false,
-    //             mail: false,
-    //             questions: false,
-    //             settings: false
-    //         });
-    //     } else {
-    //         setExpand({ ...expand, state: true, home: true });
-    //     }
-    // };
 
     const logOut = e => {
         dispatch(unfetchUser())
@@ -63,7 +44,6 @@ const Nav = () => {
             <div id="side-nav">
                 <div id="top">
                     <Link to="/" style={{textDecoration: "none"}}><img src={Ouro} style={{height: "120%"}}/></Link>
-
                 </div>
 
                 <div id="mid">

@@ -115,7 +115,7 @@ const Home = () => {
                         <div id="pickup-overview-component">
                             <NewRequest multiWastes={multiWastes} />
                             <div id="overview-pickup-btn">
-                                <button className="allreq-btn" style={{backgroundColor: "#FF9B64", width: "10%", height: "60%"}} onClick={handleSchedule}>Schedule Pick Up</button>
+                                <button className="allreq-btn" style={{backgroundColor: "#FF9B64", width: "10%", height: "60%", fontSize: ".15em"}} onClick={handleSchedule}>Schedule Pick Up</button>
                             </div>
                             </div>
                     </div>
