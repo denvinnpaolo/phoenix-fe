@@ -3,28 +3,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-
- 
 import { BiCalendarExclamation } from 'react-icons/bi';
 
-import {fetchAvailable, fetchPickupByTI} from'../../../store/actions/index.js';
+import { fetchPickupByTI } from'../../../store/actions/index.js';
 
 import Loading from '../../UI/Loading.js'
 
+import DataModal from '../modal/Modal.js'
 
 
- const Upcoming = () => {
+
+const Upcoming = () => {
+    const [modalShow, setModalShow] = useState(false);
+
     const dispatch = useDispatch();
     const {pickup} = useSelector(state => state)
 
-    const [open, setOpen] = useState(true)
 
 
     const id = useSelector(state => state.users.userData.id);
 
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
-    },[dispatch])
+    },[dispatch, pickup.pickupData])
 
 
     if(!pickup.pickupData.data){
@@ -48,7 +49,7 @@ import Loading from '../../UI/Loading.js'
                             scrollableTarget="overview-data-container"
                         >
                             {pickup.pickupData.data.map(item => 
-                                  <div className="overview-data">
+                                  <div className="overview-data" onClick={()=> setModalShow(true)}>
                                     <div className="overview-inner-div">
                                         <span className="data">
                                             {Moment(item.exp).format('MMMM DD, YYYY')}
@@ -58,6 +59,11 @@ import Loading from '../../UI/Loading.js'
                                             {item.time_available}
                                         </span>
                                         </div> 
+                                        <DataModal
+                                        item={item}
+                                        show={modalShow}
+                                        onHide={()=> setModalShow(false)}
+                                        />
                                     </div>
                                 
                             )}

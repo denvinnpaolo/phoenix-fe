@@ -26,7 +26,7 @@ const PickupBook = props => {
                 "address": availbyid.currentAvail.data[0][0].address,
                 "description": availbyid.currentAvail.data[0][0].description,
                 "producer_id": availbyid.currentAvail.data[0][0].producer_id,
-                "transformer_id": users.userData.userdata.id
+                "transformer_id": users.userData.id
             });
     const [confirm, setConfirm] = useState(false)
 
@@ -62,7 +62,7 @@ const PickupBook = props => {
                 <div id="pickup-book-tbl">
                     <div id="pickup-info-tbl">
                         <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                            <span style={{fontSize: "1.5em"}}>Company Name</span>
+                            <span style={{fontSize: "1.5em"}}>{availbyid.currentAvail.data[0][0].company_name}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>DATE</span>
@@ -73,7 +73,7 @@ const PickupBook = props => {
                             <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].time_available}</span>
                         </div>                        <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ITEMS</span>
-                            <span className="book-info">{availbyid.currentAvail.data[0][0].type}</span>
+                            <span className="book-info">{availbyid.currentAvail.data[0][0].items}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TYPE</span>

@@ -10,6 +10,7 @@ const rootReducer = combineReducers({
     users: UserReducer,
     available:  AvailableReducer,
     availbyid: AvailByIdReducer,
+    canceled: CanceledReducer,
     pickup: PickupReducer,
     completed: CompletedReducer,
 

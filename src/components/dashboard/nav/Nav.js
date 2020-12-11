@@ -94,8 +94,8 @@ const Nav = () => {
                         <FiSettings color="white" size="1.8em"/>
                     </div>
 
-                    <div onClick={logOut} className={`btm-icons tooltip` }>
-                        <BiLogOutCircle color="white" size="1.8em"/><span className="tooltiptext">Log out</span>
+                    <div onClick={logOut} className={`btm-icons ` }>
+                        <BiLogOutCircle color="white" size="1.8em"/>
                     </div>
                 </div>
             </div>
@@ -103,12 +103,14 @@ const Nav = () => {
             <div id="nav-inner-top">
             </div>
             <div id="nav-inner-mid">
-                <div id="nav-inner-home" >{expand.home && <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>}</div>
+                <div style={{textDecoration: "none"}} id="nav-inner-home" >{expand.home && <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>}</div>
             
             {expand.cal &&
                 <div id="nav-inner-requests">
                     <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Pick-up Requests</div></Link>
                     <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">Schedule</div></Link>
+                    <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
+
                 </div>
             }
 

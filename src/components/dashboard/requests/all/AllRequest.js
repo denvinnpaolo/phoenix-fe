@@ -114,7 +114,7 @@ const AllRequest = () => {
                                                 <span className="allreq-data">{item.address}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                 
-                                                <span className="allreq-data">{item.description}</span>
+                                                <span className="allreq-data">{item.items}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                 
                                                 <span className="allreq-data">{item.description}</span>

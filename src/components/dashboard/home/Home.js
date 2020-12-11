@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 import { BsBell, BsPerson, BsSearch } from 'react-icons/bs';
@@ -11,9 +11,12 @@ import Upcoming from '../overview/Upcoming.js';
 import Completed from '../overview/Completed.js';
 import Canceled from '../overview/Canceled.js'
 import NewRequest from '../requests/new/NewRequest.js';
+import { fetchMultiAvail } from '../../../store/actions/index.js'
 
 
 const Home = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
 
 
     const [overviewChoices, setOverviewChoices] = useState({
@@ -24,6 +27,8 @@ const Home = () => {
     })
 
     let { userdata, available } = useSelector(state => state.users.userData);
+
+    let multiWastes ={}
 
     if(userdata === undefined) {
         let token = window.localStorage.getItem('token');
@@ -39,6 +44,12 @@ const Home = () => {
             active: e.currentTarget.id
         })
 
+    }
+
+    const handleSchedule = () => {
+ 
+        dispatch(fetchMultiAvail(multiWastes))
+        history.push('/available/schedule/multi')
     }
 
     const ToMap = e => {
@@ -102,8 +113,11 @@ const Home = () => {
                     </div>
                     <div id="pickup-contents-container">
                         <div id="pickup-overview-component">
-                            <NewRequest />
-                        </div>
+                            <NewRequest multiWastes={multiWastes} />
+                            <div id="overview-pickup-btn">
+                                <button className="allreq-btn" style={{backgroundColor: "#FF9B64", width: "10%", height: "60%"}} onClick={handleSchedule}>Schedule Pick Up</button>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>

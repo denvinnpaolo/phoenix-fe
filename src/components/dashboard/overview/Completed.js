@@ -22,38 +22,8 @@ import Loading from '../../UI/Loading.js'
 
     useEffect(() => {
         dispatch(fetchCompletedByTI({transformer_id: id}))
-    },[])
+    },[dispatch, completed.newCompleted])
 
-    // const [pickUp, setPickUp] = useState({
-    //     isFetching: false,
-    //     data: []
-    // });
-
-
-
-    // const dummyData = [
-    //     {"id": 1, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 2, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 3, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 4, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 5, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 6, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 7, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 8, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 9, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-    //     {"id": 10, "date_posted": "2020-11-23", "exp": "2020-11-26", "pick_up_date": "2020-11-25", "time_available": "morning",
-    //     "type": "restaurant","address": "123 lane st", "description": "organic waste", "producer_id": 1,"transformer_id": 1},
-
-    // ]
 
 
     if(!completed.completedData.data){

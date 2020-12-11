@@ -9,11 +9,11 @@ import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.
 import { useHistory } from 'react-router-dom';
 
 
-const NewRequest = () => {
+const NewRequest = props => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    let multiWastes = {}
+    let multiWastes = props.multiWastes
 
     const { available } = useSelector(state => state)
 
@@ -80,7 +80,7 @@ const NewRequest = () => {
                                 <span className="allreq-data">{item.address}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
-                                <span className="allreq-data">{item.description}</span>
+                                <span className="allreq-data">{item.items}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
                                 <span className="allreq-data">{item.description}</span>

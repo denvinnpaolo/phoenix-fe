@@ -74,7 +74,7 @@ const MultiPickup = () => {
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].time_available}</span>
                             </div>                        <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>ITEMS</span>
-                                <span className="book-info">{item[0].type}</span>
+                                <span className="book-info">{item[0].items}</span>
                             </div>
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>TYPE</span>
@@ -124,39 +124,3 @@ const MultiPickup = () => {
 };
 
 export default MultiPickup;
-
-// <div id="pickup-book-tbl">
-
-// <div id="pickup-info-tbl">
-//                         <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-//                             <span style={{fontSize: "1.5em"}}>Company Name</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>DATE</span>
-//                             <span className="book-info">{Moment(availbyid.currentAvail.data.exp).format("MMMM DD, YYYY")}</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-//                             <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.time_available}</span>
-//                         </div>                        <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>ITEMS</span>
-//                             <span className="book-info">{availbyid.currentAvail.data.type}</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>TYPE</span>
-//                             <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data.description}</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>ADDRESS</span>
-//                             <span className="book-info">{availbyid.currentAvail.data.address}</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
-//                             <span className="book-info">{availbyid.currentAvail.data.phone}</span>
-//                         </div>
-//                         <div className="pickup-info-container">
-//                             <span style={{fontSize:".7em"}}>CONTACT</span>
-//                             <span className="book-info">{`Mr. ${availbyid.currentAvail.data.name}`}</span>
-//                         </div>
-//                     </div>
-// </div>

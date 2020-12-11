@@ -52,6 +52,15 @@ export const CREATE_MULTIPICKUP_START = 'CREATE_MULTIPICKUP_START';
 export const CREATE_MULTIPICKUP_SUCCESS = 'CREATE_MULTIPICKUP_SUCCESS';
 export const CREATE_MULTIPICKUP_FAILURE = 'CREATE_MULTIPICKUP_FAILURE';
 
+
+export const CREATE_COMPLETED_START = 'CREATE_COMPLETED_START';
+export const CREATE_COMPLETED_SUCCESS = 'CREATE_COMPLETED_SUCCESS';
+export const CREATE_COMPLETED_FAILURE = 'CREATE_COMPLETED_FAILURE';
+
+export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
+export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
+export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
+
 const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
@@ -150,6 +159,7 @@ export const fetchPickupByTI = id => dispatch => {
 };
 
 export const fetchCompletedByTI = id => dispatch => {
+    console.log(id)
     dispatch({ type: FETCH_COMPLETED_LOADING })
     return(
         axiosWithAuth()
@@ -239,5 +249,37 @@ export const createMultiPickup = (wastes, TI) => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: CREATE_MULTIPICKUP_FAILURE, payload: err }))
+    )
+}
+
+export const createCompleted = waste => dispatch => {
+    console.log('action: ',waste)
+    dispatch({ type: CREATE_COMPLETED_START })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/to-complete`, waste)
+            .then(response => {
+                dispatch({
+                    type: CREATE_COMPLETED_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: CREATE_COMPLETED_FAILURE, payload: err }))
+    )
+}
+
+export const createCanceled = waste => dispatch => {
+    console.log('action: ',waste)
+    dispatch({ type: CREATE_CANCELED_START })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/to-cancel`, waste)
+            .then(response => {
+                dispatch({
+                    type: CREATE_CANCELED_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: CREATE_CANCELED_FAILURE, payload: err }))
     )
 }
