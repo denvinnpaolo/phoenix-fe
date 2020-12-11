@@ -45,11 +45,7 @@
   color: black;
 }
 
-/* WEBSITE */
-
-#main-page-container{
-  height: 390vh;
-}
+/* MAIN PAGES NAVIGATION */
 
 #main-nav-container {
   background-color: #175932;
@@ -70,6 +66,7 @@
 
 #main-nav-btns {
   display: flex;
+  font-size: .8em;
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
@@ -91,6 +88,12 @@
   box-shadow: -5px 4px 13px -4px black;
   height: 45%;
   width: 15%;
+}
+
+/* MAIN PAGE */
+
+#main-page-container{
+  height: 390vh;
 }
 
 #main-content1-container {
@@ -323,8 +326,10 @@
 
 }
 
+/* FOOTER */
+
 #main-content-footer{
-  background-color:  #288B50;
+  background-color:  #175932;
   height: 30vh;
   display: flex;
   flex-direction: column;
@@ -350,12 +355,109 @@
 
 /* ABOUT */
 #about-page-container {
-  height: 150vh;
+  height: 170vh;
 }
 
 #about-content-container {
-  height:100vh;
+  height:85%;
 }
+#about-content-start {
+  display: flex;
+  height: 50%;
+}
+
+#about-content-texts{
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+
+#about-content-innertexts{
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: flex-end;
+  height: 80%;
+  width: 95%;
+}
+#about-content-txt
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  width: 90%;
+}
+
+#about-content-img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* border: 1px solid green; */
+  height: 100%;
+  width: 50%;
+}
+
+.about-start-txt {
+  font-size: 1.08em;
+  letter-spacing: .05em;
+}
+
+#about-subheader-container{
+  width: 100%;
+  height: 13%;
+}
+
+#about-subheader-texts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}
+
+#about-icons-container {
+  height: 37%;
+  display: flex;
+  justify-content: center;
+}
+
+#about-content-icons{
+  display: flex;
+  justify-content: space-between;
+
+  height: 75%;
+  width: 90%;
+}
+
+.about-icons-headers{
+  display: flex;
+  flex-direction:column ;
+  height: 30%;
+}
+
+.about-icons-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 80%;
+  height: 65%;
+}
+
+.about-content-icon {
+  box-shadow: 0px 5px 17px 0px rgb(255, 207, 184);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 32%;
+  height: 100%;
+}
+
 
 /* LANDING PAGE ROOT */
 

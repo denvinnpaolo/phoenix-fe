@@ -12,6 +12,7 @@ import PRODUCER1 from '../../../../assets/img/ouro/website/landing/benefit1@2x.p
 import PRODUCER2 from '../../../../assets/img/ouro/website/landing/benefit2@2x.png'
 import PRODUCER3 from '../../../../assets/img/ouro/website/landing/benefit3@2x.png'
 import Nav from '../nav/Nav.js';
+import Footer from '../footer/Footer';
 
 
 
@@ -80,7 +81,7 @@ const Main = () => {
                     <div id="main-content4-texts">
                         <div id="main-content4-toptxt">
                             <div id="main-content4-innertxt">
-                                <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".07em"}}>Are You A Waste Producer?</span>
+                                <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".05em"}}>Are You A Waste Producer?</span>
                                 <span className="main-content4-regtxt">
                                     Ouro Offers avenues where food waste can be diverted towards, to be repurposed into new products and goods, which reduces your costs and benefits the environment.
                                 </span>
@@ -126,26 +127,7 @@ const Main = () => {
                     <button className="main-join-btn" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wp-register')}>JOIN OURO</button>
                 </div>
 
-                <div id="main-content-footer">
-                    <div id="main-footer-linkscont">
-                        <div className="main-footer-link">
-                            <span style={{fontSize: ".75em", color:"#FF9B64", fontWeight: "bolder"}}>PRODUCT</span>
-                            <span>Features</span>
-                            <span>FAQ</span>
-                        </div>
-                        <div className="main-footer-link">
-                            <span style={{fontSize: ".75em", color:"#FF9B64", fontWeight: "bolder"}}>COMPANY</span>
-                            <span>About</span>
-                            <span>Press</span>
-                        </div>
-                        <div className="main-footer-link">
-                            <span style={{fontSize: ".75em", color:"#FF9B64", fontWeight: "bolder"}}>SUPPORT</span>
-                            <span>Tutorials</span>
-                            <span>Contacts</span>
-                        </div>
-                    </div>
-                    <div id="main-footer-copyright"></div>
-                </div>
+                <Footer />
             </div>
         </div>
     )

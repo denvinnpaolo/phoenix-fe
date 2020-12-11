@@ -21,6 +21,7 @@ import Loading from '../../UI/Loading.js'
     const id = useSelector(state => state.users.userData.id);
 
     useEffect(() => {
+        console.log("completed", id)
         dispatch(fetchCompletedByTI({transformer_id: id}))
     },[dispatch, completed.newCompleted])
 

@@ -163,7 +163,7 @@ export const fetchCompletedByTI = id => dispatch => {
     dispatch({ type: FETCH_COMPLETED_LOADING })
     return(
         axiosWithAuth()
-            .get(`${host}/organic-waste/search-by/completed/`, id)
+            .post(`${host}/organic-waste/search-by/completed/`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_COMPLETED_SUCCESS,
@@ -178,7 +178,7 @@ export const fetchCanceledByTI = id => dispatch => {
     dispatch({ type: FETCH_CANCELED_LOADING })
     return(
         axiosWithAuth()
-            .get(`${host}/organic-waste/search-by/canceled`, id)
+            .post(`${host}/organic-waste/search-by/canceled`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_CANCELED_SUCCESS,
