@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Loading from '../../UI/Loading.js'
 import { fetchPickupByTI } from'../../../store/actions/index.js';
+import DataModal from '../modal/Modal.js'
 
 
 const Calendar = () => {
@@ -20,10 +21,14 @@ const Calendar = () => {
     },[dispatch, completed.newCompleted])
 
     const [events, setEvents] = useState();
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(
         () => {
-          if (!pickup.isFetching && !pickup.error) {
+          if (!pickup.pickupData.data) {
+             return null
+            } else {
+
             let newEvents = [];
     
             newEvents = pickup.pickupData.data.map(event => {
@@ -31,7 +36,7 @@ const Calendar = () => {
                 id: event.id,
                 title: event.company_name,
                 start: event.exp,
-                end: "2020-12-15"
+                end: event.exp,
 
               };
             });
@@ -43,8 +48,12 @@ const Calendar = () => {
       );
 
 
-        const handleClick = () => {
-            
+        const handleClick = e => {
+            <DataModal
+                item={e}
+                show={modalShow}
+                onHide={()=> setModalShow(false)}
+            />
         }
 
     if(!pickup.pickupData.data){

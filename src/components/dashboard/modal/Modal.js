@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import Moment from 'moment';
 
-import { createCompleted, createCanceled } from '../../../store/actions/index.js';
+import { createCompleted, createCanceled, createPickup } from '../../../store/actions/index.js';
 
 
 function DataModal(props) {
@@ -12,6 +12,17 @@ function DataModal(props) {
 
     const handleCancel = () => {
         dispatch(createCanceled(props.item))
+        let newPickup = {
+            type: props.item.type,
+            producer_id: props.item.producer_id,
+            address: props.item.address,
+            description: props.item.description,
+            items: props.item.items,
+            time_available: props.item.time_available,
+            exp: props.item.exp,
+            date_posted: props.item.date_posted
+        }
+        dispatch(createPickup(newPickup))
     }
 
     const handleComplete = () => {

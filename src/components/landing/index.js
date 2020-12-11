@@ -8,6 +8,7 @@ import SignUpLanding from './signup/SignUp.js'
 import Login from './login/Login.js';
 import Help from './help/Help.js'
 import Main from './website/main/Main.js'
+import About from './website/about/About.js';
 
 
 const LandingPage = () => {
@@ -21,6 +22,8 @@ const LandingPage = () => {
     return(
         <div>
             <Route exact path="/" component={Main} />
+            <Route path="/about" component={About} />
+
             <Route path="/welcome/" component={Nav} />
             <Route path="/welcome/register" component={SignUpLanding} />
             <Route path="/welcome/wp-register" component={SignUpForm} />

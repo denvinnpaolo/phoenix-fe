@@ -10,7 +10,6 @@ import { createPickup } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/Loading';
 
 const PickupBook = props => {
-    console.log(props)
     const dispatch = useDispatch();
     const history = useHistory();
     const {availbyid, users} = useSelector(state => state);
@@ -32,7 +31,6 @@ const PickupBook = props => {
 
 
     const handlePickup = e => {
-        console.log(e)
         setConfirm(!confirm)
         dispatch(createPickup(newPickUp))
     }
@@ -100,10 +98,7 @@ const PickupBook = props => {
                     {!confirm? <button 
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                      onClick={()=> {
-                          handlePickup(availbyid.currentAvail.data[0][0])
-                          console.log(availbyid)
-                      }}
+                      onClick={handlePickup}
                     >
                         Confirm Pick Up
                     </button>

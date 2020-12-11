@@ -38,7 +38,7 @@
 /* WEBSITE */
 
 #main-page-container{
-  height: 397vh;
+  height: 390vh;
 }
 
 #main-nav-container {
@@ -328,6 +328,16 @@
   height: 50%;
   width: 40%;
 }
+
+/* ABOUT */
+#about-page-container {
+  height: 150vh;
+}
+
+#about-content-container {
+  height:100vh;
+}
+
 /* LANDING PAGE ROOT */
 
 #register-container {
@@ -1222,7 +1232,7 @@ option {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   border-bottom: 1px solid rgb(190, 184, 184, 0.5);
   font-size: .9em;
 }
@@ -1354,7 +1364,6 @@ option {
 /* CALENDAR */
 
 #calendar-container {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -1411,3 +1420,16 @@ option {
 .fc .fc-toolbar.fc-header-toolbar {
   margin: 1.5em;
 }
+
+.fc-button-primary {
+  color: black !important;
+  background-color: white !important;
+  border: none !important;
+}
+
+.fc-today-button{
+  color: black !important;
+  border: 1px solid black !important;
+
+}
+

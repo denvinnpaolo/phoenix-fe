@@ -21,15 +21,13 @@ import Loading from '../../UI/Loading.js'
 
     useEffect(() => {
         dispatch(fetchCanceledByTI({transformer_id: id}))
-    },[dispatch])
+    },[dispatch, canceled.newCanceled])
 
 
 
     if(!canceled.canceledData.data){
         return <Loading />
     } else {
-    //     return <Loading />
-    // }
         return(
             <div className="overview-content-container">
                 <div className="overview-content-header">
@@ -63,7 +61,6 @@ import Loading from '../../UI/Loading.js'
                                     </div> 
                                 </div>
                                 )
-                                // null
                         }
                         </InfiniteScroll>
                 </div>

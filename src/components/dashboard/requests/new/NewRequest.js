@@ -40,7 +40,7 @@ const NewRequest = props => {
     return(
         <div id="pickup-overview-tbl">
             <div id="allreq-data-labels">
-                    <span className="allreq-data-overview">Pick-up Date</span>
+                    <span className="allreq-data-overview">Expiration</span>
                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
                     <span className="allreq-data-overview">Time Available</span>
@@ -77,16 +77,16 @@ const NewRequest = props => {
                                 <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
-                                <span className="allreq-data">{item.address}</span>
+                                <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
                                 <span className="allreq-data">{item.items}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
-                                <span className="allreq-data">{item.description}</span>
+                                <span className="allreq-data">Waste</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
                                 
-                                <span className="allreq-data">{<input type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
+                                <span className="allreq-data" >{<input  type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
 
 
                             </div>

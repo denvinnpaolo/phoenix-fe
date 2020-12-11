@@ -27,7 +27,7 @@ const Main = () => {
                 <div id="main-nav-btns">
                     <span className="main-nav-btn">Waste Transformers</span>
                     <span className="main-nav-btn">Waste Producers</span>
-                    <span className="main-nav-btn">About</span>
+                    <span className="main-nav-btn" onClick={()=> history.push('/about')}>About</span>
                     <span className="main-nav-btn">Contact</span>
                     <button className="main-join-btn" onClick={()=> history.push('/welcome/register')}>JOIN OURO</button>
                     <span className="main-nav-btn" onClick={()=> history.push('/welcome/login')}>Log in</span>
