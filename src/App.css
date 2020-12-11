@@ -1353,3 +1353,61 @@ option {
 
 /* CALENDAR */
 
+#calendar-container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+#calendar-table {
+  border: 1px solid gray;
+  border-radius: 20px;
+  height: 85%;
+  width: 95%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+}
+
+.fc-col-header-cell-cushion{
+  color: black !important;
+}
+
+.fc-daygrid-day-number{
+  color: black !important;
+}
+
+.fc-event-title-container{
+  background-color: #288B50;
+}
+
+.fc-daygrid-event.fc-event-start {
+  border: 1px solid #288B50;
+  text-align: center;
+
+}
+
+.fc-daygrid-event.fc-event-end {
+  border: 1px solid #288B50;
+  text-align: center;
+
+
+}
+
+.fc-day-past{
+  background-color: lightgray;
+}
+
+.fc-day-today{
+  background-color: white !important;
+}
+.fc-day-future{
+  background-color: lightgray;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin: 1.5em;
+}

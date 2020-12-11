@@ -17,7 +17,7 @@ const Upcoming = () => {
     const [modalShow, setModalShow] = useState(false);
 
     const dispatch = useDispatch();
-    const {pickup} = useSelector(state => state)
+    const {pickup, completed} = useSelector(state => state)
 
 
 
@@ -25,7 +25,7 @@ const Upcoming = () => {
 
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
-    },[dispatch, pickup.pickupData])
+    },[dispatch, completed.newCompleted])
 
 
     if(!pickup.pickupData.data){
