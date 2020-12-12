@@ -42,7 +42,7 @@ function DataModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-          <b>{props.item.company_name}</b>{`:    ${props.item.time_available.toUpperCase()},   ${Moment(props.item.exp).format("MMMM DD, YYYY")} `}
+          <b>{props.item.company_name}</b>{`: ${Moment(props.item.exp).format("MMM DD, YYYY")} - ${props.item.time_available.toLowerCase()} `}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -50,42 +50,40 @@ function DataModal(props) {
             <div id="pickup-info-tbl">
 
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".7em"}}>ITEMS</span>
-                    <span className="book-info">{props.item.items}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>ITEMS</span>
+                    <span className="modal-info">{props.item.items}</span>
                 </div>
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".7em"}}>TYPE</span>
-                    <span className="book-info" style={{textTransform: 'capitalize'}}>{props.item.description}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>TYPE</span>
+                    <span className="modal-info" style={{textTransform: 'capitalize'}}>{props.item.description}</span>
                 </div>
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".7em"}}>ADDRESS</span>
-                    <span className="book-info">{props.item.address}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>ADDRESS</span>
+                    <span className="modal-info">{props.item.address}</span>
                 </div>
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
-                    <span className="book-info">{props.item.phone}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>PHONE NUMBER</span>
+                    <span className="modal-info">{props.item.phone}</span>
                 </div>
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".7em"}}>CONTACT</span>
-                    <span className="book-info" style={{textTransform: 'capitalize'}}>{`${props.item.name}`}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>CONTACT</span>
+                    <span className="modal-info" style={{textTransform: 'capitalize'}}>{`${props.item.name}`}</span>
                 </div>
             </div>
 
 
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{display: "flex", justifyContent: "center", border: "none"}}>
         <div id="modal-footer-style">
-        <span>I would like to:</span>
             <button className="modal-button-style" onClick={() => {
                 handleCancel()
                 props.onHide()
             }}>Cancel</button>
-            <span>OR</span>
-            <button className="modal-button-style" onClick={() => {
+            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={() => {
                 handleComplete()
                 props.onHide()
+                
             }}>Complete</button>
-        <span> this    <u><b>PICK-UP</b></u></span>
         </div>
         </Modal.Footer>
       </Modal>

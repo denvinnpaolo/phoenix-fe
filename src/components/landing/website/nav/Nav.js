@@ -13,10 +13,10 @@ const Nav = () => {
             </div>
         
         <div id="main-nav-btns">
-            <span className="main-nav-btn clickable-span">WASTE TRANSFORMER</span>
-            <span className="main-nav-btn clickable-span" >WASTE PRODUCER</span>
+            <span className="main-nav-btn clickable-span" onClick={()=> history.push('/welcome/wt-register')}>WASTE TRANSFORMER</span>
+            <span className="main-nav-btn clickable-span" onClick={()=> history.push('/welcome/wp-register')}>WASTE PRODUCER</span>
             <span className="main-nav-btn clickable-span" onClick={()=> history.push('/about')}>ABOUT</span>
-            <span className="main-nav-btn clickable-span">CONTACT</span>
+            <span className="main-nav-btn clickable-span" onClick={()=> history.push('/contact')}>CONTACT</span>
             <button className="main-join-btn" onClick={()=> history.push('/welcome/register')}>JOIN OURO</button>
             <span className="main-nav-btn clickable-span" onClick={()=> history.push('/welcome/login')}>LOG IN</span>
         </div>
