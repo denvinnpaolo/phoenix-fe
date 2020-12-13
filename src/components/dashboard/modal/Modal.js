@@ -1,5 +1,5 @@
 import { Modal, Button } from 'react-bootstrap'
-import React, {useState} from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import Moment from 'moment';
 
