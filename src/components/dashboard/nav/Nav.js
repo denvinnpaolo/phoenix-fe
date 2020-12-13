@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { BiHome, BiCalendar, BiLogOutCircle } from 'react-icons/bi';
 import { FiSettings, FiMail } from 'react-icons/fi';
@@ -14,6 +14,7 @@ import Ouro from '../../../assets/img/Ouro.png'
 const Nav = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const type = useSelector(state => state.users.userData.type)
 
     const [expand, setExpand] = useState({
         state: false,

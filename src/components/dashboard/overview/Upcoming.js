@@ -21,7 +21,7 @@ const Upcoming = () => {
 
     const {pickup, completed, canceled} = useSelector(state => state);
 
-    const {id, type}= useSelector(state => state.users.userData);
+    const {id}= useSelector(state => state.users.userData);
 
 
     useEffect(() => {
