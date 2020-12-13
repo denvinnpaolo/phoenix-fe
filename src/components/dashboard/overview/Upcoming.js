@@ -20,8 +20,9 @@ const Upcoming = () => {
     
 
     const {pickup, completed, canceled} = useSelector(state => state);
-    
-    const id = useSelector(state => state.users.userData.id);
+
+    const {id, type}= useSelector(state => state.users.userData);
+
 
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
