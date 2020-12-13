@@ -7,7 +7,6 @@ import { createCompleted, createCanceled, createPickup } from '../../../store/ac
 
 
 function DataModal(props) {
-    console.log(props.item)
     const dispatch = useDispatch();
 
     const handleCancel = () => {

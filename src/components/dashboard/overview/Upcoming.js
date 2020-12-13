@@ -17,10 +17,10 @@ const Upcoming = () => {
     const [modalShow, setModalShow] = useState(false);
 
     const dispatch = useDispatch();
-    const {pickup, completed, canceled} = useSelector(state => state)
+    
 
-
-
+    const {pickup, completed, canceled} = useSelector(state => state);
+    
     const id = useSelector(state => state.users.userData.id);
 
     useEffect(() => {
