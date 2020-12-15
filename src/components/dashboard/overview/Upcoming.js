@@ -7,7 +7,7 @@ import { BiCalendarExclamation } from 'react-icons/bi';
 
 import { fetchPickupByTI } from'../../../store/actions/index.js';
 
-import Loading from '../../UI/Loading.js'
+import Loading from '../../UI/loading/Loading.js'
 
 import DataModal from '../modal/Modal.js'
 

@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Loading from '../../UI/Loading.js'
+import Loading from '../../UI/loading/Loading.js'
 import { fetchPickupByTI } from'../../../store/actions/index.js';
 import DataModal from '../modal/Modal.js'
 
