@@ -7,7 +7,7 @@ import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
 import { RiArrowUpDownFill } from 'react-icons/ri';
 
 import { fetchAvailable, fetchAvailById, fetchMultiAvail } from '../../../../store/actions/index.js';
-import Loading from '../.././../UI/Loading.js'
+import Loading from '../.././../UI/loading/Loading.js'
 import { useHistory } from 'react-router-dom';
 
 const AllRequest = () => {

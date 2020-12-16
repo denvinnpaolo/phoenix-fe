@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 
-import Loading from '../.././../UI/Loading.js'
+import Loading from '../.././../UI/loading/Loading.js'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';

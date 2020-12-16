@@ -8,7 +8,7 @@ import {BsPerson, BsBell} from 'react-icons/bs';
 import { FcCheckmark } from 'react-icons/fc'
 
 import { createMultiPickup } from '../../../../store/actions/index.js'
-import Loading from '../../../UI/Loading';
+import Loading from '../../../UI/loading/Loading';
 
 const MultiPickup = () => {
     const dispatch = useDispatch();

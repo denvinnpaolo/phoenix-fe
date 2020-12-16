@@ -7,7 +7,7 @@ import Home from './home/Home.js'
 import AllRequest from './requests/all/AllRequest.js'
 import PickupBook from './schedule/pickupBook/PickupBook.js'
 import MultiPickup from './schedule/multiPickup/MultiPickup.js'
-import Loading from '../UI/Loading.js';
+import Loading from '../UI/loading/Loading.js';
 import { fetchAvailable } from '../../store/actions/index.js';
 import Calendar from './calendar/Calendar.js';
 

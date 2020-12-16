@@ -8,7 +8,7 @@ import { BiCalendarCheck } from 'react-icons/bi';
 
 import {fetchCompletedByTI} from'../../../store/actions/index.js';
 
-import Loading from '../../UI/Loading.js'
+import Loading from '../../UI/loading/Loading.js'
 
 
 

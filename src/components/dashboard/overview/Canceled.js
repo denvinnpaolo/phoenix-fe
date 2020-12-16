@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
  
 import {fetchCanceledByTI} from'../../../store/actions/index.js';
 
-import Loading from '../../UI/Loading.js'
+import Loading from '../../UI/loading/Loading.js'
 
 
 

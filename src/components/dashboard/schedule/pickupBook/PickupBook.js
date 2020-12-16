@@ -7,7 +7,7 @@ import {BsPerson, BsBell} from 'react-icons/bs';
 import { FcCheckmark } from 'react-icons/fc'
 
 import { createPickup } from '../../../../store/actions/index.js'
-import Loading from '../../../UI/Loading';
+import Loading from '../../../UI/loading/Loading';
 
 const PickupBook = props => {
     const dispatch = useDispatch();
