@@ -61,7 +61,7 @@ export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
 export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
 export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
 
-const host = 'http://localhost:25060';
+const host = 'http://localhost:5432';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
