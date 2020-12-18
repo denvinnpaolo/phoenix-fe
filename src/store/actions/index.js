@@ -61,13 +61,13 @@ export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
 export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
 export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
 
-const host = 'http://localhost:5432';
+const host = 'http://localhost:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
     return(
         axiosWithAuth()
-            .post(`/login`, user)
+            .post(`${host}/login`, user)
             .then(response => {
                 window.localStorage.setItem('token', response.data.token)
                 dispatch({
@@ -83,7 +83,7 @@ export const unfetchUser = () => dispatch => {
     dispatch({ type: UNFETCH_USER_LOADING });
     return(
         axiosWithAuth()
-            .get()
+            .get(`${host}`)
             .then(response => {
                 window.localStorage.clear();
                 dispatch({
