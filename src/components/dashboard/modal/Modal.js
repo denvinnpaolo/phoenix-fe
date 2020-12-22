@@ -10,6 +10,7 @@ function DataModal(props) {
     const dispatch = useDispatch();
 
     const handleCancel = () => {
+        console.log('handleCancel: ', props.item)
         dispatch(createCanceled(props.item))
         let newPickup = {
             type: props.item.type,
@@ -21,7 +22,7 @@ function DataModal(props) {
             exp: props.item.exp,
             date_posted: props.item.date_posted
         }
-        dispatch(createPickup(newPickup))
+        // dispatch(createWaste(newPickup))
     }
 
     const handleComplete = () => {

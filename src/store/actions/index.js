@@ -44,6 +44,10 @@ export const FETCH_AVAILBYID_FAILURE = 'FETCH_AVAILBYID_FAILURE';
 export const FETCH_AVAILBYID_LOADING = 'FETCH_AVAILBYID_LOADING';
 export const FETCH_AVAILBYID_SUCCESS = 'FETCH_AVAILBYID_SUCCESS';
 
+export const CREATE_NEWWASTE_START = 'CREATE_NEWWASTE_START';
+export const CREATE_NEWWASTE_SUCCESS = 'CREATE_NEWWASTE_SUCCESS';
+export const CREATE_NEWWASTE_FAILURE = 'CREATE_NEWWASTE_FAILURE';
+
 export const CREATE_PICKUP_START = 'CREATE_PICKUP_START';
 export const CREATE_PICKUP_SUCCESS = 'CREATE_PICKUP_SUCCESS';
 export const CREATE_PICKUP_FAILURE = 'CREATE_PICKUP_FAILURE';
@@ -218,6 +222,21 @@ export const fetchMultiAvail = list => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: FETCH_MULTIAVAIL_FAILURE, payload: err }))
+    )
+}
+
+export const createNewWaste = waste => dispatch => {
+    dispatch({ type: CREATE_NEWWASTE_START })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/add-waste`, waste)
+            .then(response => {
+                dispatch({
+                    type: CREATE_NEWWASTE_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: CREATE_NEWWASTE_FAILURE, payload: err }))
     )
 }
 
