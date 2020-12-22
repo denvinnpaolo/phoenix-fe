@@ -55,12 +55,10 @@ const Nav = () => {
                     <div name={"cal"} id={"cal"} onClick={activeNav} className={`icons ${expand.cal? "active": null}`}>
                         <BiCalendar color="white" size="1.8em"/>
                     </div>
-                    {type ==='wp'? 
-                    null
-                    :
+
                     <div name={"contacts"} id={"contacts"} onClick={activeNav} className={`icons ${expand.contacts? "active": null}`}>
                         <FaRegAddressBook color="white" size="1.8em"/>
-                    </div>}
+                    </div>
 
                     <div name={"mail"} id={"mail"} onClick={activeNav} className={`icons ${expand.mail? "active": null}`}>
                         <FiMail color="white" size="1.8em"/>
