@@ -15,11 +15,11 @@ const NewRequest = props => {
 
     let multiWastes = props.multiWastes
 
-    const { available } = useSelector(state => state)
+    const { available, canceled } = useSelector(state => state)
 
     useEffect(() => {
         dispatch(fetchAvailable())
-    },[dispatch]);
+    },[dispatch, canceled.newCanceled]);
 
     const handleDBClick = id => {
         dispatch(fetchAvailById({id: id}))
