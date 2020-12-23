@@ -65,6 +65,8 @@ export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
 export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
 export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
 
+export const RESET_DATA = 'RESET_DATA'
+
 const host = 'http://104.131.164.155:25060';
 
 export const fetchUser = user => dispatch => {

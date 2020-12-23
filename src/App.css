@@ -908,6 +908,8 @@ option {
   font-size: 1em;
   font-weight: bold;
 }
+
+
 .nav-inner-btns:hover {
   color: white;
   border-bottom: 3px solid #FF9B64 !important;
@@ -1587,3 +1589,13 @@ option {
 
 }
 
+
+
+@media screen and (max-width: 1200px){
+  .nav-inner-btns {
+    letter-spacing: .05em;
+    color: white ;
+    font-size: .8em;
+    font-weight: bold;
+  }
+}

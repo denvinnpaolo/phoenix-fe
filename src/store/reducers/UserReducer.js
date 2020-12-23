@@ -56,7 +56,6 @@ function UserReducer(state = initialState, action){
                 error: action.payload,
                 isFetching: false,
                 loggedIn: false,
-                userData: []
             }
         case FETCH_USER_LOADING:
             return {
@@ -84,11 +83,8 @@ function UserReducer(state = initialState, action){
                 error: null
             }
         case UNFETCH_USER_SUCCESS:
-            return {
-                loggedIn: false,
-                isFetching: false,
-                userData: action.payload
-            }
+            state = undefined
+            return state
         default:
             return state
     }

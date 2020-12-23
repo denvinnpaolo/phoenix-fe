@@ -5,6 +5,7 @@ import PickupReducer from './PickupReducer.js';
 import CompletedReducer from './CompletedReducer.js'
 import CanceledReducer from './CanceledReducer.js'
 import AvailByIdReducer from './AvailByIdReducer.js';
+import { RESET_DATA, UNFETCH_USER_LOADING, UNFETCH_USER_SUCCESS } from '../actions/index.js';
 
 const rootReducer = combineReducers({
     users: UserReducer,
@@ -15,5 +16,42 @@ const rootReducer = combineReducers({
     completed: CompletedReducer,
 
 });
+
+// let defaultState = null;
+// export default (state, action) => {
+//   switch (action.type) {
+//     case UNFETCH_USER_SUCCESS:
+//       // detaching the reference on reset
+//       console.log(state)
+//       state = {
+//           users: {
+//             userData: {},
+//             loggedIn: false,
+//             error: null,
+//             isFetching: false
+
+//           },
+//           available: {},
+//           availbyid: {},
+//           canceled: {
+//             canceledData : {},
+//             newCanceled:{},
+//             error: null,
+//             isFetching: false
+//           },
+//           pickup: {},
+//           completed: {
+//             completedData : {},
+//             newCompleted:{},
+//             error: null,
+//             isFetching: false
+//           }
+//       }
+//       return state;
+//     default:
+//       break;
+//   }
+//   return rootReducer(state, action);
+// };
 
 export default rootReducer;
