@@ -65,7 +65,9 @@ export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
 export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
 export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
 
-export const RESET_DATA = 'RESET_DATA'
+export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
+export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
+export const FETCH_VIEWBYID_SUCCESS = 'FETCH_VIEWBYID_SUCCESS';
 
 const host = 'http://104.131.164.155:25060';
 
@@ -133,7 +135,7 @@ export const updateUser = (updatedUser, id) => dispatch => {
 }
 
 
-// ORGANIC WASTE ACTIONS
+// ORGANIC WASTE ACTIONS 
 export const fetchAvailable = () => dispatch => {
     dispatch({ type: FETCH_AVAILABLE_LOADING });
     return(
@@ -273,7 +275,6 @@ export const createMultiPickup = (wastes, TI) => dispatch => {
 }
 
 export const createCompleted = waste => dispatch => {
-    console.log('action: ',waste)
     dispatch({ type: CREATE_COMPLETED_START })
     return(
         axiosWithAuth()
@@ -289,7 +290,6 @@ export const createCompleted = waste => dispatch => {
 }
 
 export const createCanceled = waste => dispatch => {
-    console.log('action: ',waste)
     dispatch({ type: CREATE_CANCELED_START })
     return(
         axiosWithAuth()
@@ -301,5 +301,20 @@ export const createCanceled = waste => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: CREATE_CANCELED_FAILURE, payload: err }))
+    )
+}
+
+// WASTE PRODUCER 
+export const viewPostedById = id => dispatch => {
+    dispatch({ type: FETCH_VIEWBYID_LOADING })
+    return(
+        axiosWithAuth(`${host}/orgranic-waste/search-by/id`, id)
+        .then(response => {
+            dispatch({
+                type: FETCH_VIEWBYID_SUCCESS,
+                payload: response.payload
+            })
+        })
+        .catch(err => dispatch({ type: FETCH_VIEWBYID_FAILURE, payload: err }))
     )
 }
