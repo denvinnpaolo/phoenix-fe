@@ -93,8 +93,6 @@ const Home = () => {
                                 <div id="overview-incomp-cont">
                                     <Canceled />
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
