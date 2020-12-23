@@ -25,6 +25,8 @@ import Loading from '../../UI/loading/Loading.js'
 
 
 
+    console.log(window.innerWidth)
+
     if(!canceled.canceledData.data){
         return <Loading />
     } else {
@@ -52,7 +54,7 @@ import Loading from '../../UI/loading/Loading.js'
                                 <div className="overview-data">
                                     <div className="overview-inner-div">
                                         <span className="data">
-                                            {Moment(item.date_posted).format('MMMM DD, YYYY')}
+                                            {Moment(item.date_posted).format('MM/DD/YYYY')}
                                         </span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                         <span className="data" style={{textTransform: 'capitalize'}}> 
