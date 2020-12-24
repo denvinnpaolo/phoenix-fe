@@ -27,13 +27,15 @@ const Home = () => {
         active: "week"
     })
 
-    let { userdata } = useSelector(state => state.users.userData);
+    let  userData = useSelector(state => state.users.userData);
 
     let multiWastes ={}
 
-    if(userdata === undefined) {
+    if(userData.userdata === undefined) {
         let token = window.localStorage.getItem('token');
-        userdata=jwt_decode(token);
+        userData={
+            userdata:jwt_decode(token)
+        };
     }
     
 
@@ -56,7 +58,7 @@ const Home = () => {
     const ToMap = e => {
 
     }
-    if(!userdata){
+    if(!userData.userdata){
         return <Loading />
     } else {
         return(
@@ -64,7 +66,7 @@ const Home = () => {
                 <div id="home-contents-container">
                     <div id="welcome-header-container">
                         <div id="welcome-header-text">
-                            <span id="welcome-header">{`Welcome back, ${userdata.name.toUpperCase()}`}</span>
+                            <span id="welcome-header">{`Welcome back, ${userData.userdata.name.toUpperCase()}`}</span>
                         </div>
                         <div id="welcome-header-alerts">
                             <BsBell size="1.1em" />
@@ -93,6 +95,7 @@ const Home = () => {
                                 <div id="overview-incomp-cont">
                                     <Canceled />
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -100,7 +103,7 @@ const Home = () => {
                         <div id="pickup-header-container">
                             <div id="pickup-header-left">
                                 <div id="pickup-inner-left">
-                                    <span id="pickup-header-text">{userdata.type === 'wt'?'New Pick-up Requests' : 'Recent Post'}</span>
+                                    <span id="pickup-header-text">{userData.userdata.type === 'wt'?'New Pick-up Requests' : 'Recent Post'}</span>
                                     <Link to="/available/request/all" id="pickup-content-button" style={{textDecoration: "none", fontSize:'.6em', color: "black", textAlign: "center"}}>View All Requests</Link>
                                     <div id="pickup-map-link" onClick={ToMap}>
                                         <FaMapMarkedAlt />
