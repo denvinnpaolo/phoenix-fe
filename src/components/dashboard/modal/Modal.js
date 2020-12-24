@@ -7,6 +7,7 @@ import { createCompleted, createCanceled, createNewWaste } from '../../../store/
 
 
 function DataModal(props) {
+    console.log(props)
     const dispatch = useDispatch();
 
     const handleCancel = () => {
@@ -74,17 +75,26 @@ function DataModal(props) {
 
         </Modal.Body>
         <Modal.Footer style={{display: "flex", justifyContent: "center", border: "none"}}>
+        {props.item.type ==='wt'?
+
         <div id="modal-footer-style">
             <button className="modal-button-style" onClick={() => {
                 handleCancel()
                 props.onHide()
             }}>Cancel</button>
-            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={() => {
+            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} 
+            onClick={() => {
                 handleComplete()
                 props.onHide()
-                
             }}>Complete</button>
+            <button>close</button>
         </div>
+        :
+        <div id="modal-footer-style">
+
+            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={props.onHide}>close</button>
+        </div>
+        }
         </Modal.Footer>
       </Modal>
       </div>

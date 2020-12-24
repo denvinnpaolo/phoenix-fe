@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
+import DataModal from '../modal/Modal.js'
 
  
 import { BiCalendarCheck } from 'react-icons/bi';
@@ -13,6 +14,8 @@ import Loading from '../../UI/loading/Loading.js'
 
 
  const Completed = props => {
+    const [modalShow, setModalShow] = useState(false);
+
     const dispatch = useDispatch();
     const { completed } = useSelector(state => state)
 
@@ -52,7 +55,7 @@ import Loading from '../../UI/loading/Loading.js'
                             :
                             completed.completedData.data.map(item => 
                             <div className="overview-data">
-                                <div className="overview-inner-div">
+                                <div className="overview-inner-div" onDoubleClick={()=> setModalShow(true)}>
                                     <span className="data">
                                         {Moment(item.date_posted).format('MMM. DD, YYYY')}
                                     </span>
@@ -61,6 +64,11 @@ import Loading from '../../UI/loading/Loading.js'
                                         {item.time_available}
                                     </span>
                                 </div> 
+                                <DataModal
+                                item={item}
+                                show={modalShow}
+                                onHide={()=> setModalShow(false)}
+                                />
                             </div>
                             )
                             // null
