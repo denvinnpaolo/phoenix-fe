@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import { Link, useHistory } from 'react-router-dom';
 
 
-import { BsBell, BsPerson, BsSearch } from 'react-icons/bs';
+import { BsBell, BsPerson, BsSearch, BsPlus } from 'react-icons/bs';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 
 import Upcoming from '../overview/Upcoming.js';
@@ -100,21 +100,38 @@ const Home = () => {
                         </div>
                     </div>
                     <div id="pickup-content-container">
-                        <div id="pickup-header-container">
+                        {userData.userdata.type === 'wt'?                        
+                            <div id="pickup-header-container">
+                                <div id="pickup-header-left">
+                                    <div id="pickup-inner-left">
+                                        <span id="pickup-header-text">New Pick-up Requests</span>
+                                        <Link to="/available/request/all" id="pickup-content-button" style={{textDecoration: "none", fontSize:'.6em', color: "black", textAlign: "center"}}>View All Requests</Link>
+                                        <div id="pickup-map-link" onClick={ToMap}>
+                                            <FaMapMarkedAlt />
+                                            <span style={{fontSize: ".7em", textDecoration: "underline"}}>Map view</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="pickup-header-right">
+                                    <BsSearch />
+                                </div>
+                            </div>
+                            :
+                            <div id="pickup-header-container">
                             <div id="pickup-header-left">
                                 <div id="pickup-inner-left">
-                                    <span id="pickup-header-text">{userData.userdata.type === 'wt'?'New Pick-up Requests' : 'Recent Post'}</span>
+                                    <span id="pickup-header-text">Recent Post</span>
                                     <Link to="/available/request/all" id="pickup-content-button" style={{textDecoration: "none", fontSize:'.6em', color: "black", textAlign: "center"}}>View All Requests</Link>
                                     <div id="pickup-map-link" onClick={ToMap}>
-                                        <FaMapMarkedAlt />
-                                        <span style={{fontSize: ".7em", textDecoration: "underline"}}>Map view</span>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div id="pickup-header-right">
-                                <BsSearch />
+                            <div id="pickup-header-right" style={{display:'flex'}}>
+                            <BsPlus size={'1.5em'} />
                             </div>
                         </div>
+                        }
                         <div id="pickup-contents-container">
                             <div id="pickup-overview-component">
                                 <NewRequest multiWastes={multiWastes} />
