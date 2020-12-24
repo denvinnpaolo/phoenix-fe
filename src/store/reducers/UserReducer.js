@@ -83,8 +83,12 @@ function UserReducer(state = initialState, action){
                 error: null
             }
         case UNFETCH_USER_SUCCESS:
-            state = undefined
-            return state
+            return {
+                ...state,
+                isFetching: false,
+                loggedIn: false,
+                userData: {}
+            }
         default:
             return state
     }

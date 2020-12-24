@@ -36,7 +36,7 @@ const NewRequest = props => {
         }
     }
 
-    if(!available.availableData.data){
+    if(!available.availableData.data && !users.userData.type ){
         return <Loading />
     } else {
         if(users.userData.type === 'wt'){
@@ -74,7 +74,7 @@ const NewRequest = props => {
                                     <div className="overview-datarow" onDoubleClick={()=> {
                                         handleDBClick(item.id)
                                     }}>
-                                        <span className="allreq-data">{Moment(item.exp).format('MMMM DD, YYYY')}</span>
+                                        <span className="allreq-data">{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                         
                                         <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
@@ -100,7 +100,7 @@ const NewRequest = props => {
                         }
                 </div>
             )
-    } else if(users.userData.type === 'wp'){
+    } else {
         return(
             <div id="pickup-overview-tbl">
                 <div id="allreq-data-labels">
@@ -139,7 +139,7 @@ const NewRequest = props => {
                                 <div className="overview-datarow" onDoubleClick={()=> {
                                     handleDBClick(item.id)
                                 }}>
-                                    <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM DD, YYYY')}</span>
+                                    <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                     
                                     <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>

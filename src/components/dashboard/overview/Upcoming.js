@@ -50,10 +50,10 @@ const Upcoming = () => {
                             scrollableTarget="overview-data-container"
                         >
                             {pickup.pickupData.data.map(item => 
-                                  <div className="overview-data" onClick={()=> setModalShow(true)}>
+                                  <div className="overview-data" onDoubleClick={()=> setModalShow(true)}>
                                     <div className="overview-inner-div">
                                         <span className="data">
-                                            {Moment(item.exp).format('MMMM DD, YYYY')}
+                                            {Moment(item.exp).format('MMM. DD, YYYY')}
                                         </span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                         <span className="data" style={{textTransform: 'capitalize'}}> 

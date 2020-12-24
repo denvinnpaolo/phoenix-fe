@@ -14,7 +14,7 @@ import Ouro from '../../../assets/img/Ouro.png'
 const Nav = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {type} = useSelector(state => state.users.userData)
+    const {users} = useSelector(state => state)
 
     const [expand, setExpand] = useState({
         state: false,
@@ -86,14 +86,23 @@ const Nav = () => {
             <div id="nav-inner-mid">
                 <div style={{textDecoration: "none"}} id="nav-inner-home" >{expand.home && <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>}</div>
             
-            {expand.cal &&
-                <div id="nav-inner-requests">
+            {expand.cal && users.userData.type ==="wt" &&
+                <div id="nav-inner-requests" style={{height: "39%"}}>
                     <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Pick-up Requests</div></Link>
                     <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">Schedule</div></Link>
                     <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
 
                 </div>
             }
+
+            {expand.cal && users.userData.type ==="wp" &&
+            <div id="nav-inner-requests" style={{height: "39%"}}>
+                <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Add Waste</div></Link>
+                <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">View Posts</div></Link>
+                <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
+
+            </div>
+        }
 
                 </div>
                 <div id="nav-inner-btm"></div>
