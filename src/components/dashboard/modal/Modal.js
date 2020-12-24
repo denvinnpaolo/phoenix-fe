@@ -43,6 +43,7 @@ function DataModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
+          <b>{props.item.company_name}</b>{`: ${Moment(props.item.exp).format("MMM DD, YYYY")} - ${props.item.time_available.toLowerCase()} `}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
