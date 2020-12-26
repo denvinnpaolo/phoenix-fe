@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddWaste = () => {
+
+    const [newPickUp, setNewPickUp] = useState({
+        "date_posted":"",
+        "exp": "",
+        "time_available": "",
+        "type": "",
+        "items": "",
+        "address":"",
+        "description": "",
+        "producer_id":""
+});
+    const [confirm, setConfirm] = useState(false)
+
+
     return(
         <div id="pickup-book-cont">
             <div id="welcome-header-container">

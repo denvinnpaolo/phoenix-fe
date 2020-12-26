@@ -7,6 +7,7 @@ import AllRequest from './requests/all/AllRequest.js'
 import PickupBook from './schedule/pickupBook/PickupBook.js'
 import MultiPickup from './schedule/multiPickup/MultiPickup.js'
 import Calendar from './calendar/Calendar.js';
+import AddWaste from './requests/add/AddWaste.js';
 
 
 
@@ -21,6 +22,8 @@ const Dashboard = props => {
             <Route exact path="/available/schedule" render={()=><PickupBook /> } />
             <Route path="/available/schedule/multi" render={()=><MultiPickup/> } />
             <Route path="/available/calendar" render={()=><Calendar /> } />
+            <Route exact path="/available/schedule" render={()=><AddWaste />} />
+
 
         </div>
     )
