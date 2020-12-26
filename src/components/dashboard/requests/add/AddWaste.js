@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Moment from 'moment';
+
+import {FcCheckmark} from 'react-icons/fc';
+import { BsBell, BsPerson } from 'react-icons/bs';
 
 const AddWaste = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [confirm, setConfirm] = useState(false)
 
     const [newPickUp, setNewPickUp] = useState({
         "date_posted":"",
@@ -11,8 +20,11 @@ const AddWaste = () => {
         "address":"",
         "description": "",
         "producer_id":""
-});
-    const [confirm, setConfirm] = useState(false)
+    });
+
+    const handleAdd = () => {
+
+    };
 
 
     return(
@@ -36,34 +48,35 @@ const AddWaste = () => {
                 <div id="pickup-book-tbl">
                     <div id="pickup-info-tbl">
                         <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                            <span style={{fontSize: "1.5em"}}>{availbyid.currentAvail.data[0][0].company_name}</span>
+                            <input style={{fontSize: "1.5em"}}/>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>DATE</span>
-                            <span className="book-info">{Moment(availbyid.currentAvail.data[0][0].exp).format("MMMM DD, YYYY")}</span>
+                            <input className="book-info"/>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].time_available}</span>
-                        </div>                        <div className="pickup-info-container">
+                            <input className="book-info" />
+                        </div>                        
+                        <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ITEMS</span>
-                            <span className="book-info">{availbyid.currentAvail.data[0][0].items}</span>
+                            <input className="book-info"/>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>TYPE</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].description}</span>
+                            <input className="book-info" />
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ADDRESS</span>
-                            <span className="book-info">{availbyid.currentAvail.data[0][0].address}</span>
+                            <input className="book-info" />
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
-                            <span className="book-info">{availbyid.currentAvail.data[0][0].phone}</span>
+                            <input className="book-info"/>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>CONTACT</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{`${availbyid.currentAvail.data[0][0].name}`}</span>
+                            <input className="book-info" />
                         </div>
                     </div>
                 </div>
@@ -75,7 +88,7 @@ const AddWaste = () => {
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
                       onClick={()=>{
-                          handlePickup(availbyid.currentAvail.data[0][0])
+                          handleAdd()
                       }}
                     >
                         Confirm Pick Up
@@ -84,7 +97,7 @@ const AddWaste = () => {
                     <button 
                       className="pickup-book-btns" 
                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                      onClick={()=> history.push('/available/request/all')}
+                      onClick={()=> history.push('/available/add')}
                     >
                         Add more
                     </button>}

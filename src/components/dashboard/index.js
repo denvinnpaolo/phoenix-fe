@@ -22,7 +22,7 @@ const Dashboard = props => {
             <Route exact path="/available/schedule" render={()=><PickupBook /> } />
             <Route path="/available/schedule/multi" render={()=><MultiPickup/> } />
             <Route path="/available/calendar" render={()=><Calendar /> } />
-            <Route exact path="/available/schedule" render={()=><AddWaste />} />
+            <Route path="/available/add" render={()=><AddWaste />} />
 
 
         </div>
