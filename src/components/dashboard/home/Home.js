@@ -69,7 +69,7 @@ const Home = () => {
                             <span id="welcome-header">{`Welcome back, ${userData.userdata.name.toUpperCase()}`}</span>
                         </div>
                         <div id="welcome-header-alerts">
-                            <BsBell size="1.1em" />
+                            <BsBell className="clickable" size="1.1em" />
                             <BsPerson size="1.7em"  />
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div id="pickup-header-right" style={{display:'flex'}}>
-                            <BsPlus size={'1.5em'} onClick={()=>{history.push('/available/add')}}/>
+                            <BsPlus className="clickable" size={'1.5em'} onClick={()=>{history.push('/available/add')}}/>
                             </div>
                         </div>
                         }

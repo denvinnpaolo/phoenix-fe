@@ -3,6 +3,10 @@
 
 }
 
+.clickable:hover{
+  cursor: pointer;
+}
+
 .clickable-span {
   cursor: pointer;
   color: white
