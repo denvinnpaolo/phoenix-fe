@@ -78,9 +78,9 @@ const Home = () => {
                             <span id="dash-component-header">Overview</span>
                         </div>
                         <div id="overview-sort-container">
-                            <span  id={"today"} className={`overview-category-choices  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
-                            <span id={"week"} className={`overview-category-choices ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
-                            <span id={"month"} className={`overview-category-choices ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>
+                            <span  id={"today"} className={`overview-category-choices clickable  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
+                            <span id={"week"} className={`overview-category-choices clickable ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
+                            <span id={"month"} className={`overview-category-choices clickable ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>
                         </div>
                         <div id="overview-contents-container">
                             <div id="dashboard-overview-component">
