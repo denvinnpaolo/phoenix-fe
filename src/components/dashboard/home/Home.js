@@ -70,7 +70,7 @@ const Home = () => {
                         </div>
                         <div id="welcome-header-alerts">
                             <BsBell className="clickable" size="1.1em" />
-                            <BsPerson size="1.7em"  />
+                            <BsPerson className="clickable" size="1.7em"  />
                         </div>
                     </div>
                     <div id="overview-container">
