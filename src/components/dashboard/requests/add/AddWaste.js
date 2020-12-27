@@ -16,8 +16,9 @@ const AddWaste = () => {
 
     const {userData} = useSelector(state => state.users)
 
-    const [newPickUp, setNewPickUp] = useState(!userData.name? null: {
+    const [newPickUp, setNewPickUp] = useState(!userData.company_address? null: {
         "date_posted": date,
+        "price":"",
         "exp": "",
         "time_available": "",
         "type": "",
@@ -48,8 +49,8 @@ const AddWaste = () => {
                     <div id="welcome-header-text">
                     </div>
                     <div id="welcome-header-alerts">
-                        <BsBell size="1.1em" />
-                        <BsPerson size="1.7em"  />
+                        <BsBell className="clickable" size="1.1em" />
+                        <BsPerson className="clickable" size="1.7em"  />
                     </div>
                 </div>
                 <div id="pickup-header-cont">
@@ -76,12 +77,13 @@ const AddWaste = () => {
                                 </select>
                             </div> 
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PRICE</span>
-                                <input className="add-waste-form"/>
-                            </div>
-                            <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>EXPIRATION</span>
-                                <input className="add-waste-form"/>
+                                <input type="date" className="add-waste-form"/>
+                            </div>
+
+                            <div className="pickup-info-container">
+                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <input className="add-waste-form" />
                             </div>
                        
                             <div className="pickup-info-container">
@@ -89,8 +91,8 @@ const AddWaste = () => {
                                 <input className="add-waste-form"/>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TYPE</span>
-                                <input className="add-waste-form" />
+                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <input className="add-waste-form"/>
                             </div>
 
                         </div>
@@ -106,7 +108,7 @@ const AddWaste = () => {
                             handleAdd()
                         }}
                         >
-                            Confirm Pick Up
+                            Add Waste
                         </button>
                         :
                         <button 
