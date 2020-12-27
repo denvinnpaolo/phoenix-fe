@@ -94,17 +94,30 @@ const AddWaste = () => {
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>TYPE</span>
                                 <input 
+                                  name="type"
                                   className="add-waste-form" 
+                                  onChange={handleChange}
+                                  value={newPickUp.type}
                                 />
                             </div>
                        
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>ITEMS</span>
-                                <input className="add-waste-form"/>
+                                <input 
+                                  className="add-waste-form"
+                                  name="items"
+                                  onChange={handleChange}
+                                  value={newPickUp.items}
+                                />
                             </div>
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>PRICE</span>
-                                <input className="add-waste-form"/>
+                                <input 
+                                  className="add-waste-form"
+                                  name="price"
+                                  value={newPickUp.price}
+                                  onChange={handleChange}
+                                />
                             </div>
 
                         </div>
