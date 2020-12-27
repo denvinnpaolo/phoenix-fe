@@ -32,7 +32,7 @@ const AddWaste = () => {
         console.log()
         setNewPickUp({
             ...newPickUp,
-            [e.target.name]: e.target.value
+            [e.currentTarget.name]: e.currentTarget.value
         })
     };
 
@@ -68,7 +68,12 @@ const AddWaste = () => {
                             </div>
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-                                <select className="add-waste-form">
+                                <select 
+                                  className="add-waste-form" 
+                                  name="time_available" 
+                                  value={newPickUp.time_available} 
+                                  onChange={handleChange}
+                                >
                                     <option></option>
                                     <option>Morning</option>
                                     <option>Afternoon</option>
@@ -78,12 +83,19 @@ const AddWaste = () => {
                             </div> 
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>EXPIRATION</span>
-                                <input type="date" className="add-waste-form"/>
+                                <input type="date"
+                                 name="exp"
+                                 className="add-waste-form" 
+                                 value={newPickUp.exp}
+                                 onChange={handleChange}
+                                />
                             </div>
 
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>TYPE</span>
-                                <input className="add-waste-form" />
+                                <input 
+                                  className="add-waste-form" 
+                                />
                             </div>
                        
                             <div className="pickup-info-container">
