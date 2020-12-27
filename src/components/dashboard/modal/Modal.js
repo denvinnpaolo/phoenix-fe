@@ -91,8 +91,10 @@ function DataModal(props) {
         </div>
         :
         <div id="modal-footer-style">
-
-            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={props.onHide}>close</button>
+            <button className="modal-button-style" onClick={() => {
+                props.onHide()
+            }}>close</button>
+            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={props.onHide}>archive</button>
         </div>
         }
         </Modal.Footer>

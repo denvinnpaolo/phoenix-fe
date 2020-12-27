@@ -38,7 +38,7 @@ const AddWaste = () => {
                 </div>
             </div>
             <div id="pickup-header-cont">
-                <span id="pickup-book-header">Book Pick-up</span>
+                <span id="pickup-book-header">Add Waste</span>
             </div>
 
             <div id="pickup-content-cont">

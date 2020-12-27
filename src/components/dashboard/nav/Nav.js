@@ -63,34 +63,34 @@ const Nav = props => {
                     </div>
 
                     <div id="mid">
-                        <div name={"home"} id={"home"} onClick={activeNav} className={`icons ${expand.home? "active": null}`}>
+                        <div name={"home"} id={"home"} onClick={activeNav} className={`icons clickable ${expand.home? "active": null}`}>
                             <BiHome color="white" size="1.8em" />
                         </div>
 
-                        <div name={"cal"} id={"cal"} onClick={activeNav} className={`icons ${expand.cal? "active": null}`}>
+                        <div name={"cal"} id={"cal"} onClick={activeNav} className={`icons clickable ${expand.cal? "active": null}`}>
                             <BiCalendar color="white" size="1.8em"/>
                         </div>
 
-                        <div name={"contacts"} id={"contacts"} onClick={activeNav} className={`icons ${expand.contacts? "active": null}`}>
+                        <div name={"contacts"} id={"contacts"} onClick={activeNav} className={`icons clickable ${expand.contacts? "active": null}`}>
                             <FaRegAddressBook color="white" size="1.8em"/>
                         </div>
 
-                        <div name={"mail"} id={"mail"} onClick={activeNav} className={`icons ${expand.mail? "active": null}`}>
+                        <div name={"mail"} id={"mail"} onClick={activeNav} className={`icons clickable ${expand.mail? "active": null}`}>
                             <FiMail color="white" size="1.8em"/>
                         </div>
 
                     </div>
 
                     <div id="btm">
-                        <div name={"questions"} id={"questions"} onClick={activeNav} className={`btm-icons ${expand.questions? "active": null}`}>
+                        <div name={"questions"} id={"questions"} onClick={activeNav} className={`btm-icons clickable ${expand.questions? "active": null}`}>
                             <BsQuestionDiamond color="white" size="1.8em"/>
                         </div>
 
-                        <div name={"settings"} id={"settings"} onClick={activeNav} className={`btm-icons ${expand.settings? "active": null}`}>
+                        <div name={"settings"} id={"settings"} onClick={activeNav} className={`btm-icons clickable ${expand.settings? "active": null}`}>
                             <FiSettings color="white" size="1.8em"/>
                         </div>
 
-                        <div onClick={logOut} className={`btm-icons ` }>
+                        <div onClick={logOut} className={`btm-icons clickable`}>
                             <BiLogOutCircle color="white" size="1.8em"/>
                         </div>
                     </div>
@@ -99,8 +99,11 @@ const Nav = props => {
                 <div id="nav-inner-top">
                 </div>
                 <div id="nav-inner-mid">
-                    <div style={{textDecoration: "none"}} id="nav-inner-home" >{expand.home && <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>}</div>
-                
+                {expand.home &&
+                    <div style={{textDecoration: "none"}} id="nav-inner-home">
+                        <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>
+                    </div>
+                }
                 {expand.cal?
                     userData.userdata.type==='wt'?
                             <div id="nav-inner-requests" style={{height: "39%"}}>
