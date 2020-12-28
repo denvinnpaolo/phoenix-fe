@@ -69,7 +69,10 @@ const NewRequest = props => {
                             style={{width: "100%", height: "100%"}}
                             scrollableTarget="pickup-overview-tbl"
                         >
-                            {available.availableData.data.map(item=>{
+                            {available.availableData.data
+                                .sort((a,b) => Moment(b.exp).diff(Moment(a.exp)))
+                                .filter(a => new Date(Moment(a.exp).add(2, 'days')) - new Date(Moment().subtract(0, 'days')) > 0)
+                                .map(item=>{
                                 return( 
                                     <div className="overview-datarow" onDoubleClick={()=> {
                                         handleDBClick(item.id)

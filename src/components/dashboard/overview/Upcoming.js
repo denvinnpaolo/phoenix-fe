@@ -13,7 +13,7 @@ import DataModal from '../modal/Modal.js'
 
 
 
-const Upcoming = () => {
+const Upcoming = props => {
     const [modalShow, setModalShow] = useState(false);
 
     const dispatch = useDispatch();
@@ -49,7 +49,18 @@ const Upcoming = () => {
                             style={{width: "100%", height: "100%"}}
                             scrollableTarget="overview-data-container"
                         >
-                            {pickup.pickupData.data.map(item => 
+                            {pickup.pickupData.data
+                                .sort((a,b) => Moment(a.exp).diff(Moment(b.exp)))
+                                .filter(a => {
+                                    if(props.sort.today){
+                                        return new Date(Moment(a.exp).add(0, 'days')) === new Date() 
+                                    } else if(props.sort.week){
+                                        return new Date(Moment(a.exp).add(0, 'days')) - new Date(Moment().subtract(7, 'days')) > 0
+                                    } else if(props.sort.month){
+                                        return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
+                                    }
+                                })
+                                .map(item => 
                                   <div className="overview-data" onDoubleClick={()=> setModalShow(true)}>
                                     <div className="overview-inner-div">
                                         <span className="data">

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Moment from 'moment';
@@ -16,6 +16,7 @@ const AllRequest = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { available, users, view } = useSelector(state => state);
+    const [order, setOrder] = useState(true)
 
     let multiWastes = {}
 
@@ -69,7 +70,11 @@ const AllRequest = () => {
                         <div id="allreq-sort-cont">
                             <div id="allreq-sort-btns">
                                 <BsFunnelFill size="1.6em"/>
-                                <RiArrowUpDownFill size="1.5em" />
+                                <RiArrowUpDownFill 
+                                  onClick={()=>{setOrder(!order)}} 
+                                  size="1.5em" 
+                                  className="clickable"
+                                />
                             </div>
                             <div id="allreq-sort-search">
                                 <BsSearch size="1.4em" />
@@ -105,7 +110,7 @@ const AllRequest = () => {
                                         style={{width: "100%", height: "100%"}}
                                         scrollableTarget="allreq-tbl"
                                     >
-                                        {available.availableData.data.map(item=>{
+                                        {available.availableData.data.sort((a,b) => order?Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp))).map(item=>{
                                             return( 
                                                 <div id="allreq-data-row" onDoubleClick={()=> {
                                                     handleDBClick(item.id)

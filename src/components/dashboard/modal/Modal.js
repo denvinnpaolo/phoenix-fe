@@ -7,11 +7,9 @@ import { createCompleted, createCanceled, createNewWaste } from '../../../store/
 
 
 function DataModal(props, type) {
-    console.log(props)
     const dispatch = useDispatch();
 
     const handleCancel = () => {
-        console.log('handleCancel: ', props.item)
         dispatch(createCanceled(props.item))
         let newPickup = {
             type: props.item.type,
@@ -93,7 +91,13 @@ function DataModal(props, type) {
             <button className="modal-button-style" onClick={() => {
                 props.onHide()
             }}>close</button>
-            <button className="modal-button-style" style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} onClick={props.onHide}>archive</button>
+            <button 
+              className="modal-button-style" 
+              style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} 
+              onClick={props.onHide}
+            >
+                archive
+            </button>
         </div>
         }
         </Modal.Footer>

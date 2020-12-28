@@ -45,11 +45,22 @@ import Loading from '../../UI/loading/Loading.js'
                             {canceled.isFetching?
                                 <Loading />
                                 :
-                                canceled.canceledData.data.map(item => 
+                                canceled.canceledData.data
+                                .sort((a,b) => Moment(a.exp).diff(Moment(b.exp)))
+                                .filter(a => {
+                                    if(props.sort.today){
+                                        return new Date(Moment(a.exp).add(0, 'days')) === new Date() 
+                                    } else if(props.sort.week){
+                                        return new Date(Moment(a.exp).add(0, 'days')) - new Date(Moment().subtract(7, 'days')) > 0
+                                    } else if(props.sort.month){
+                                        return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
+                                    }
+                                })
+                                .map(item => 
                                 <div className="overview-data">
                                     <div className="overview-inner-div">
                                         <span className="data">
-                                            {Moment(item.date_posted).format('MMM. DD, YYYY')}
+                                            {Moment(item.exp).format('MMM. DD, YYYY')}
                                         </span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                         <span className="data" style={{textTransform: 'capitalize'}}> 

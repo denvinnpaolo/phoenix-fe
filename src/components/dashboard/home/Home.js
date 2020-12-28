@@ -86,15 +86,15 @@ const Home = () => {
                         <div id="overview-contents-container">
                             <div id="dashboard-overview-component">
                                 <div id="overview-avail-cont">
-                                    <Upcoming />
+                                    <Upcoming sort={overviewChoices} />
                                 </div>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 <div id="overview-comp-cont">
-                                    <Completed />
+                                    <Completed sort={overviewChoices} />
                                 </div>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 <div id="overview-incomp-cont">
-                                    <Canceled />
+                                    <Canceled sort={overviewChoices} />
                                 </div>
 
                             </div>
