@@ -23,7 +23,7 @@ const PickupBook = props => {
             "type": availbyid.currentAvail.data[0][0].type,
             "items": availbyid.currentAvail.data[0][0].items,
             "address": availbyid.currentAvail.data[0][0].address,
-            "description": availbyid.currentAvail.data[0][0].description,
+            "price": availbyid.currentAvail.data[0][0].price,
             "producer_id": availbyid.currentAvail.data[0][0].producer_id,
             "transformer_id": users.userData.id
 
@@ -42,7 +42,7 @@ const PickupBook = props => {
             "type": e.type,
             "items": e.items,
             "address": e.address,
-            "description":e.description,
+            "price":e.price,
             "producer_id": e.producer_id,
             "transformer_id": users.userData.id
         })
@@ -93,8 +93,8 @@ const PickupBook = props => {
                             <span className="book-info">{availbyid.currentAvail.data[0][0].items}</span>
                         </div>
                         <div className="pickup-info-container">
-                            <span style={{fontSize:".7em"}}>TYPE</span>
-                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].description}</span>
+                            <span style={{fontSize:".7em"}}>PRICE</span>
+                            <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].price}</span>
                         </div>
                         <div className="pickup-info-container">
                             <span style={{fontSize:".7em"}}>ADDRESS</span>

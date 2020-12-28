@@ -4,8 +4,7 @@ import Moment from 'moment';
 
 import Loading from '../.././../UI/loading/Loading.js'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { BiEdit } from 'react-icons/bi'
-
+import { BiEdit } from 'react-icons/bi';
 import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';
 import { useHistory } from 'react-router-dom';
 
@@ -16,7 +15,7 @@ const NewRequest = props => {
 
     let multiWastes = props.multiWastes
 
-    const { available, canceled, users } = useSelector(state => state)
+    const { available, canceled, users, view } = useSelector(state => state)
 
 
     useEffect(() => {
@@ -134,32 +133,31 @@ const NewRequest = props => {
                         style={{width: "100%", height: "100%"}}
                         scrollableTarget="pickup-overview-tbl"
                     >
-                        {available.availableData.data.map(item=>{
+                        {view.postedById.data.map(item=>{
                             return( 
                                 <div className="overview-datarow" onDoubleClick={()=> {
                                     handleDBClick(item.id)
                                 }}>
-                                    <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                    
-                                    <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-
-                                    <span className="allreq-data">{item.items}</span>
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-
-                                    <span className="allreq-data">Y</span>
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                    
-                                    <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
-                                    
-                                    <span className="allreq-data">818 818 8181</span>
-                                    
-                                    <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
-                                    <span className="allreq-data"><BiEdit /> Edit  </span>
+                                <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
+                                <span className="allreq-data">{item.items}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+
+                                <span className="allreq-data">{item.transformer_id? "Y": "" }</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                
+                                <span className="allreq-data">{item.transformer_id? item.company_name: ""}</span>
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                            
+                                
+                                <span className="allreq-data">{item.transformer_id? item.phone: ""}</span>
+                                
+                                <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
+                                <span className="allreq-data"><BiEdit /> Edit  </span>
     
                                 </div>
                             )

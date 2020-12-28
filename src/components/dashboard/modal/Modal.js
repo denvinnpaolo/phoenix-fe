@@ -6,7 +6,7 @@ import Moment from 'moment';
 import { createCompleted, createCanceled, createNewWaste } from '../../../store/actions/index.js';
 
 
-function DataModal(props) {
+function DataModal(props, type) {
     console.log(props)
     const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function DataModal(props) {
             type: props.item.type,
             producer_id: props.item.producer_id,
             address: props.item.address,
-            description: props.item.description,
+            price: props.item.price,
             items: props.item.items,
             time_available: props.item.time_available,
             exp: props.item.exp,
@@ -75,7 +75,7 @@ function DataModal(props) {
 
         </Modal.Body>
         <Modal.Footer style={{display: "flex", justifyContent: "center", border: "none"}}>
-        {props.item.type ==='wt'?
+        {props.type ==='wt'?
 
         <div id="modal-footer-style">
             <button className="modal-button-style" onClick={() => {
@@ -87,7 +87,6 @@ function DataModal(props) {
                 handleComplete()
                 props.onHide()
             }}>Complete</button>
-            <button>close</button>
         </div>
         :
         <div id="modal-footer-style">

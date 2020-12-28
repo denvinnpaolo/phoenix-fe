@@ -21,7 +21,7 @@ const Upcoming = () => {
 
     const {pickup, completed, canceled} = useSelector(state => state);
 
-    const { id }= useSelector(state => state.users.userData);
+    const { id, type }= useSelector(state => state.users.userData);
 
 
     useEffect(() => {
@@ -62,6 +62,7 @@ const Upcoming = () => {
                                         </div> 
                                         <DataModal
                                         item={item}
+                                        type={type}
                                         show={modalShow}
                                         onHide={()=> setModalShow(false)}
                                         />

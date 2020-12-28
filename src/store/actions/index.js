@@ -69,7 +69,7 @@ export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
 export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
 export const FETCH_VIEWBYID_SUCCESS = 'FETCH_VIEWBYID_SUCCESS';
 
-const host = 'http://104.131.164.155:25060';
+const host = 'http://localhost:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -167,11 +167,10 @@ export const fetchPickupByTI = id => dispatch => {
 };
 
 export const fetchCompletedByTI = id => dispatch => {
-    console.log(id)
     dispatch({ type: FETCH_COMPLETED_LOADING })
     return(
         axiosWithAuth()
-            .post(`${host}/organic-waste/search-by/completed/`, id)
+            .post(`${host}/organic-waste/search-by/completed`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_COMPLETED_SUCCESS,
@@ -308,11 +307,13 @@ export const createCanceled = waste => dispatch => {
 export const viewPostedById = id => dispatch => {
     dispatch({ type: FETCH_VIEWBYID_LOADING })
     return(
-        axiosWithAuth(`${host}/orgranic-waste/search-by/id`, id)
+        axiosWithAuth()
+        .post(`${host}/organic-waste/search-by/id`,id)
         .then(response => {
+            console.log(response)
             dispatch({
                 type: FETCH_VIEWBYID_SUCCESS,
-                payload: response.payload
+                payload: response.data
             })
         })
         .catch(err => dispatch({ type: FETCH_VIEWBYID_FAILURE, payload: err }))

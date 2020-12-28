@@ -13,19 +13,14 @@ import Loading from '../../UI/loading/Loading.js'
 
  const Canceled = props => {
     const dispatch = useDispatch();
-    const { canceled, pickup } = useSelector(state => state)
 
-
-
+    const { canceled } = useSelector(state => state);
     const id = useSelector(state => state.users.userData.id);
 
     useEffect(() => {
         dispatch(fetchCanceledByTI({transformer_id: id}))
     },[dispatch, canceled.newCanceled])
 
-
-
-    console.log(window.innerWidth)
 
     if(!canceled.canceledData.data){
         return <Loading />

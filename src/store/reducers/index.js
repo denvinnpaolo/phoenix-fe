@@ -5,7 +5,7 @@ import PickupReducer from './PickupReducer.js';
 import CompletedReducer from './CompletedReducer.js'
 import CanceledReducer from './CanceledReducer.js'
 import AvailByIdReducer from './AvailByIdReducer.js';
-import { RESET_DATA, UNFETCH_USER_LOADING, UNFETCH_USER_SUCCESS } from '../actions/index.js';
+import ViewReducer from './ViewReducer.js'
 
 const rootReducer = combineReducers({
     users: UserReducer,
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
     canceled: CanceledReducer,
     pickup: PickupReducer,
     completed: CompletedReducer,
+    view: ViewReducer
 
 });
 

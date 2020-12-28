@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Moment from 'moment';
 import Loading from '../../../UI/loading/Loading.js';
 
 import {FcCheckmark} from 'react-icons/fc';
 import { BsBell, BsPerson } from 'react-icons/bs';
+import { createNewWaste } from '../../../../store/actions/index.js';
 
 const AddWaste = () => {
     const history = useHistory();
@@ -24,20 +24,33 @@ const AddWaste = () => {
         "type": "",
         "items": "",
         "address":userData.company_address,
-        "description": "",
         "producer_id":userData.id
     });
 
     const handleChange = e => {
-        console.log()
         setNewPickUp({
             ...newPickUp,
             [e.currentTarget.name]: e.currentTarget.value
         })
     };
 
-    const handleAdd = () => {
-        console.log(newPickUp)
+    const handleAdd = e => {
+        setNewPickUp(
+            !userData.company_address? 
+            null: 
+            {
+            "date_posted": date,
+            "price":e.price,
+            "exp": e.exp,
+            "time_available": e.time_available,
+            "type": e.type,
+            "items": e.items,
+            "address":userData.company_address,
+            "producer_id":userData.id
+            }
+        );
+    
+        dispatch(createNewWaste(newPickUp))
     };
 
     if(!userData.id){
