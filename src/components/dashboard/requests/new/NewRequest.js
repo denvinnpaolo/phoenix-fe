@@ -126,7 +126,7 @@ const NewRequest = props => {
                         <span className="allreq-data-overview"></span>
                 </div>
     
-                {!available.availableData.data? 
+                {!view.postedById.data? 
                     <Loading />
                     :
                     <InfiniteScroll

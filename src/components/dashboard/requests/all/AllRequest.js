@@ -160,8 +160,8 @@ const AllRequest = () => {
                     </div>
                 </div>
                 <div id="allreq-contents-cont">
-                    <div id= "allreq-header-container">
-                        <span id="allreq-component-header">Posts</span>
+                    <div id= "allreq-header-container" style={{width:"15%"}}>
+                        <span id="allreq-component-header" >Posts</span>
                     </div>
                     <div id="allreq-sort-cont">
                         <div id="allreq-sort-btns">
@@ -197,7 +197,7 @@ const AllRequest = () => {
                     
                                         <span className="allreq-data-overview"></span>
                                 </div>
-                                {!available.availableData.data? 
+                                {!view.postedById.data? 
                                 <Loading />
                                 :
                                 <InfiniteScroll
