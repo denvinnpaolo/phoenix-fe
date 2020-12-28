@@ -161,7 +161,7 @@ const AllRequest = () => {
                 </div>
                 <div id="allreq-contents-cont">
                     <div id= "allreq-header-container">
-                        <span id="allreq-component-header">Pick up Request</span>
+                        <span id="allreq-component-header">Posts</span>
                     </div>
                     <div id="allreq-sort-cont">
                         <div id="allreq-sort-btns">

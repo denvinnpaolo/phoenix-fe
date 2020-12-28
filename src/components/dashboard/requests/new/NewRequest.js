@@ -5,7 +5,7 @@ import Moment from 'moment';
 import Loading from '../.././../UI/loading/Loading.js'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { BiEdit } from 'react-icons/bi';
-import { fetchAvailable, fetchAvailById } from '../../../../store/actions/index.js';
+import { fetchAvailable, fetchAvailById, viewPostedById } from '../../../../store/actions/index.js';
 import { useHistory } from 'react-router-dom';
 
 
@@ -19,6 +19,7 @@ const NewRequest = props => {
 
 
     useEffect(() => {
+        dispatch(viewPostedById({id:users.userData.id}))
         dispatch(fetchAvailable())
     },[dispatch, canceled.newCanceled]);
 
@@ -35,7 +36,7 @@ const NewRequest = props => {
         }
     }
 
-    if(!available.availableData.data && !users.userData.type ){
+    if(!available.availableData.data && !users.userData.type && !view.postedById ){
         return <Loading />
     } else {
         if(users.userData.type === 'wt'){
@@ -129,7 +130,7 @@ const NewRequest = props => {
                     <Loading />
                     :
                     <InfiniteScroll
-                        dataLength={available.availableData.data.length}
+                        dataLength={view.postedById.data.length}
                         style={{width: "100%", height: "100%"}}
                         scrollableTarget="pickup-overview-tbl"
                     >
