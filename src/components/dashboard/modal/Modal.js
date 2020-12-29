@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Moment from 'moment';
 
 import { createCompleted, createCanceled, createNewWaste } from '../../../store/actions/index.js';
+import Loading from '../../UI/loading/Loading.js';
 
 
 function DataModal(props, type) {
@@ -27,6 +28,9 @@ function DataModal(props, type) {
     const handleComplete = () => {
         dispatch(createCompleted(props.item))
     }
+    if(!props.item){
+        return null
+    } else {
 
     return (
         <div onClick={e => e.stopPropagation()}>
@@ -104,6 +108,7 @@ function DataModal(props, type) {
       </Modal>
       </div>
     );
+    }
   }
 
   export default DataModal;

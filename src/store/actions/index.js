@@ -69,7 +69,7 @@ export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
 export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
 export const FETCH_VIEWBYID_SUCCESS = 'FETCH_VIEWBYID_SUCCESS';
 
-const host = 'http://104.131.164.155:25060';
+const host = 'http://localhost:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });

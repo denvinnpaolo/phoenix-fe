@@ -71,7 +71,15 @@ const NewRequest = props => {
                         >
                             {available.availableData.data
                                 .sort((a,b) => Moment(b.exp).diff(Moment(a.exp)))
-                                .filter(a => new Date(Moment(a.exp).add(2, 'days')) - new Date(Moment().subtract(0, 'days')) > 0)
+                                .filter(a => {
+                                    if(props.sort.today){
+                                        return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
+                                    } else if(props.sort.week){
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
+                                    } else if(props.sort.month){
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
+                                    }
+                                })
                                 .map(item=>{
                                 return( 
                                     <div className="overview-datarow" onDoubleClick={()=> {

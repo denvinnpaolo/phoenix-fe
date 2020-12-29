@@ -110,7 +110,9 @@ const AllRequest = () => {
                                         style={{width: "100%", height: "100%"}}
                                         scrollableTarget="allreq-tbl"
                                     >
-                                        {available.availableData.data.sort((a,b) => order?Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp))).map(item=>{
+                                        {available.availableData.data
+                                            .sort((a,b) => order? Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp)))
+                                            .map(item=>{
                                             return( 
                                                 <div id="allreq-data-row" onDoubleClick={()=> {
                                                     handleDBClick(item.id)

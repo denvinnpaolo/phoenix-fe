@@ -49,11 +49,11 @@ import Loading from '../../UI/loading/Loading.js'
                                 .sort((a,b) => Moment(a.exp).diff(Moment(b.exp)))
                                 .filter(a => {
                                     if(props.sort.today){
-                                        return new Date(Moment(a.exp).add(0, 'days')) === new Date() 
+                                        return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
                                     } else if(props.sort.week){
-                                        return new Date(Moment(a.exp).add(0, 'days')) - new Date(Moment().subtract(7, 'days')) > 0
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
                                     } else if(props.sort.month){
-                                        return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
                                     }
                                 })
                                 .map(item => 

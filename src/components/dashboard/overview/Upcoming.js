@@ -17,17 +17,17 @@ const Upcoming = props => {
     const [modalShow, setModalShow] = useState(false);
 
     const dispatch = useDispatch();
-    
 
     const {pickup, completed, canceled} = useSelector(state => state);
 
     const { id, type }= useSelector(state => state.users.userData);
 
+    const [itemInfo, setItemInfo] = useState(pickup.pickupData.data? pickup.pickupData.data[0]: null);
+
 
     useEffect(() => {
         dispatch(fetchPickupByTI({transformer_id: id}))
-    },[dispatch, completed.newCompleted, canceled.newCanceled])
-
+    },[dispatch, completed.newCompleted, canceled.newCanceled]);
 
     if(!pickup.pickupData.data){
         return <Loading />
@@ -43,6 +43,9 @@ const Upcoming = props => {
                         <div style={{display:"flex", justifyContent: "center", width: "50%", fontSize:"2em", fontWeight: "bold"}}>{pickup.pickupData.data.length}</div>
                     </div>
                 </div>
+                {!pickup.pickupData.data?
+                <Loading/>
+                    :
                 <div className="overview-data-container" id="overview-data-container" style={{overflow: "auto"}}>
                         <InfiniteScroll
                             dataLength={pickup.pickupData.data.length}
@@ -53,15 +56,20 @@ const Upcoming = props => {
                                 .sort((a,b) => Moment(a.exp).diff(Moment(b.exp)))
                                 .filter(a => {
                                     if(props.sort.today){
-                                        return new Date(Moment(a.exp).add(0, 'days')) === new Date() 
+                                        return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
                                     } else if(props.sort.week){
-                                        return new Date(Moment(a.exp).add(0, 'days')) - new Date(Moment().subtract(7, 'days')) > 0
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
                                     } else if(props.sort.month){
-                                        return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
+                                        return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
                                     }
                                 })
                                 .map(item => 
-                                  <div className="overview-data" onDoubleClick={()=> setModalShow(true)}>
+                                  <div className="overview-data" 
+                                    onDoubleClick={()=> {
+                                        setModalShow(true) 
+                                        setItemInfo(item)
+                                    }
+                                  }>
                                     <div className="overview-inner-div">
                                         <span className="data">
                                             {Moment(item.exp).format('MMM. DD, YYYY')}
@@ -71,8 +79,9 @@ const Upcoming = props => {
                                             {item.time_available}
                                         </span>
                                         </div> 
+                                        
                                         <DataModal
-                                        item={item}
+                                        item={itemInfo}
                                         type={type}
                                         show={modalShow}
                                         onHide={()=> setModalShow(false)}
@@ -81,7 +90,7 @@ const Upcoming = props => {
                                 
                             )}
                         </InfiniteScroll>
-                </div>
+                </div>}
             </div>
         )
     }
