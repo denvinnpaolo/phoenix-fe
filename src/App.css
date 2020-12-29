@@ -3,6 +3,11 @@
 
 }
 
+.sweet-alert .sa-icon{
+  height: 10% !important;
+  width: 10% !important;
+}
+
 .clickable:hover{
   cursor: pointer;
 }

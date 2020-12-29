@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
 import { BiCalendarExclamation } from 'react-icons/bi';
 
 import { fetchPickupByTI } from'../../../store/actions/index.js';
-
 import Loading from '../../UI/loading/Loading.js'
-
 import DataModal from '../modal/Modal.js'
 
 
@@ -33,6 +32,9 @@ const Upcoming = props => {
 
         }
     },[dispatch, completed.newCompleted, canceled.newCanceled]);
+
+
+
 
     if(!pickup.pickupData.data){
         return <Loading />
@@ -68,6 +70,7 @@ const Upcoming = props => {
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                     }
                                 })
+                                .slice(0,15)
                                 .map(item => 
                                   <div className="overview-data" 
                                     onDoubleClick={()=> {

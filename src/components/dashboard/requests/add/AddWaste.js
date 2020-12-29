@@ -143,13 +143,12 @@ const AddWaste = () => {
                         }}>Home</button>
                         {!confirm? 
                         <button 
-                          lassName="pickup-book-btns" 
+                          className="pickup-book-btns" 
                           style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
                           onClick={()=>{
                             handleAdd()
                           }}
                         >
-
                             Add Waste
                         </button>
                         :

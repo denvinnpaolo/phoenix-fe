@@ -132,7 +132,7 @@ const AllRequest = () => {
                                                     <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
                                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                     
-                                                    <span className="allreq-data">{item.items}</span>
+                                                    <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                     
                                                     <span className="allreq-data">Waste</span>
@@ -235,7 +235,7 @@ const AllRequest = () => {
                                             <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
         
-                                            <span className="allreq-data">{item.items}</span>
+                                            <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
         
                                             <span className="allreq-data">{item.transformer_id? "Y": "" }</span>

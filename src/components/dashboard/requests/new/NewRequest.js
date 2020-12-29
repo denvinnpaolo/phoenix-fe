@@ -84,7 +84,8 @@ const NewRequest = props => {
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                     }
                                 })
-                                .map(item=>{
+                                .slice(0,6)
+                                .map((item,i)=>{
                                     return( 
                                         <div className="overview-datarow" onDoubleClick={()=> {
                                             handleDBClick(item.id)
@@ -98,7 +99,7 @@ const NewRequest = props => {
                                             <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             
-                                            <span className="allreq-data">{item.items}</span>
+                                            <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             
                                             <span className="allreq-data">Waste</span>
@@ -169,7 +170,7 @@ const NewRequest = props => {
                                 <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
-                                <span className="allreq-data">{item.items}</span>
+                                <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
                                 <span className="allreq-data">{item.transformer_id? "Y": "" }</span>

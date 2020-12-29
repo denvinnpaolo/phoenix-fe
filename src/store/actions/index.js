@@ -44,6 +44,10 @@ export const FETCH_AVAILBYID_FAILURE = 'FETCH_AVAILBYID_FAILURE';
 export const FETCH_AVAILBYID_LOADING = 'FETCH_AVAILBYID_LOADING';
 export const FETCH_AVAILBYID_SUCCESS = 'FETCH_AVAILBYID_SUCCESS';
 
+export const FETCH_PICKUPBYID_FAILURE = 'FETCH_PICKUPBYID_FAILURE';
+export const FETCH_PICKUPBYID_LOADING = 'FETCH_PICKUPBYID_LOADING';
+export const FETCH_PICKUPBYID_SUCCESS = 'FETCH_PICKUPBYID_SUCCESS';
+
 export const CREATE_NEWWASTE_START = 'CREATE_NEWWASTE_START';
 export const CREATE_NEWWASTE_SUCCESS = 'CREATE_NEWWASTE_SUCCESS';
 export const CREATE_NEWWASTE_FAILURE = 'CREATE_NEWWASTE_FAILURE';
@@ -69,7 +73,7 @@ export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
 export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
 export const FETCH_VIEWBYID_SUCCESS = 'FETCH_VIEWBYID_SUCCESS';
 
-const host = 'http://localhost:25060';
+const host = 'http://104.131.164.155:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -197,9 +201,6 @@ export const fetchCanceledByTI = id => dispatch => {
 };
 
 export const fetchAvailById = id => dispatch => {
-
-    let newId = {id}
-    console.log(newId)
     dispatch({ type: FETCH_AVAILBYID_LOADING })
     return(
         axiosWithAuth()
@@ -211,6 +212,21 @@ export const fetchAvailById = id => dispatch => {
                 })
             })
             .catch(err => dispatch({ type: FETCH_AVAILBYID_FAILURE, payload: err }))
+    )
+}
+
+export const fetchPickUpById = id => dispatch => {
+    dispatch({ type: FETCH_PICKUPBYID_LOADING })
+    return(
+        axiosWithAuth()
+            .post(`${host}/organic-waste/search-by/pick-up`, id)
+            .then(response => {
+                dispatch({
+                    type: FETCH_PICKUPBYID_SUCCESS,
+                    payload: response.data
+                })
+            })
+            .catch(err => dispatch({ type: FETCH_PICKUPBYID_FAILURE, payload: err }))
     )
 }
 

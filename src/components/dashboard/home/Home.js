@@ -137,8 +137,14 @@ const Home = () => {
                             <div id="pickup-overview-component">
                                 <NewRequest multiWastes={multiWastes} sort={overviewChoices} />
                                 <div id="overview-pickup-btn">
+                                {userData.userdata.type === 'wt'?
+
                                     <button className="allreq-btn" style={{backgroundColor: "#FF9B64", width: "10%", height: "60%", fontSize: ".15em"}} onClick={handleSchedule}>Schedule Pick Up</button>
+                                    :
+                                    null
+                                }
                                 </div>
+                               
                                 </div>
                         </div>
                     </div>

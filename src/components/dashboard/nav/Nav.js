@@ -121,23 +121,29 @@ const Nav = props => {
 
                             </div>
                             :
-                            <div id="nav-inner-requests" style={{height: "52%"}}>
+                            <div id="nav-inner-requests" style={{height: "39%"}}>
                                 <Link to="/available/add" style={{textDecoration: "none"}}><div className="nav-inner-btns">Add Waste</div></Link>
                                 <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">View Posts</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
-                                <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
 
                             </div>
                     :
                     <div id="nav-inner-home"></div>
                 }
                 {expand.contacts?
-                    <div id="nav-inner-requests" style={{height: "39%"}}>
-                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Produce</div></Link>
-                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Producer</div></Link>
-                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Recents</div></Link>
+                    userData.userdata.type==='wt'?
+                        <div id="nav-inner-requests" style={{height: "39%"}}>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Produce</div></Link>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Producer</div></Link>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Recents</div></Link>
 
-                    </div>
+                        </div>
+                        :
+                        <div id="nav-inner-requests" style={{height: "26%"}}>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Transformer</div></Link>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Recents</div></Link>
+
+                        </div>
                     :
                     <div id="nav-inner-home"></div>
 
