@@ -63,7 +63,7 @@ const Upcoming = props => {
                                     if(props.sort.today){
                                         return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
                                     } else if(props.sort.week){
-                                        return Moment(a.exp).isBetween(Moment().subtract(2,'d'), Moment().add(7, 'd'))
+                                        return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(7, 'd'))
                                     } else if(props.sort.month){
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                     }
