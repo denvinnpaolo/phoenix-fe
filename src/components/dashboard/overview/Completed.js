@@ -20,6 +20,8 @@ const Completed = props => {
 
     const { completed } = useSelector(state => state)
     const {id, type} = useSelector(state => state.users.userData);
+    const [itemInfo, setItemInfo] = useState(completed.completedData.data? completed.completedData.data[0]: null);
+
 
     useEffect(() => {
         if(type === 'wt'){
@@ -69,9 +71,12 @@ const Completed = props => {
                                         return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
                                     }
                                 })
-                                .map(item => 
+                                .map((item, i) => 
                                 <div className="overview-data">
-                                    <div className="overview-inner-div" onDoubleClick={()=> setModalShow(true)}>
+                                    <div className="overview-inner-div"  onDoubleClick={()=> {
+                                        setModalShow(true) 
+                                        setItemInfo(item)
+                                    }}>
                                         <span className="data">
                                             {Moment(item.exp).format('MMM. DD, YYYY')}
                                         </span>
@@ -81,7 +86,7 @@ const Completed = props => {
                                         </span>
                                     </div> 
                                     <DataModal
-                                    item={item}
+                                    item={itemInfo}
                                     show={modalShow}
                                     onHide={()=> setModalShow(false)}
                                     />

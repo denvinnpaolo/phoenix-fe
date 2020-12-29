@@ -5,7 +5,7 @@ import Moment from 'moment';
 import Loading from '../.././../UI/loading/Loading.js'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { BiEdit } from 'react-icons/bi';
-import { fetchAvailable, fetchAvailById, viewPostedById } from '../../../../store/actions/index.js';
+import { fetchAvailable, fetchAvailById, viewPostedById, fetchPickUpById } from '../../../../store/actions/index.js';
 import { useHistory } from 'react-router-dom';
 
 
@@ -23,13 +23,23 @@ const NewRequest = props => {
         dispatch(fetchAvailable())
     },[dispatch, canceled.newCanceled]);
 
-    const handleDBClick = id => {
-        if(users.userData.type==='wt'){
-            dispatch(fetchAvailById({transformer_id: id}))
-        } else if(users.userData.type === 'wp'){
-            dispatch(fetchAvailById({producer_id: id}))
+    const handleDBClick = item => {
+        if(!item.transformer_id){
+            if(users.userData.type==='wt'){
+                dispatch(fetchAvailById({id: item.id}))
+            } else if(users.userData.type === 'wp'){
+                dispatch(fetchAvailById({producer_id: item.id}))
+            }
+            history.push('/available/schedule')
+        } else {
+
+            if(users.userData.type==='wt'){
+                dispatch(fetchPickUpById({id: item.id}))
+            } else if(users.userData.type === 'wp'){
+                dispatch(fetchPickUpById({id: item.id}))
+            }
+            history.push('/pickup/view')
         }
-        history.push('/available/schedule')
     }
 
     const handleCheck = item => {
@@ -88,7 +98,7 @@ const NewRequest = props => {
                                 .map((item,i)=>{
                                     return( 
                                         <div className="overview-datarow" onDoubleClick={()=> {
-                                            handleDBClick(item.id)
+                                            handleDBClick(item)
                                         }}>
                                             <span className="allreq-data">{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
@@ -162,7 +172,7 @@ const NewRequest = props => {
                             .map(item=>{
                             return( 
                                 <div className="overview-datarow" onDoubleClick={()=> {
-                                    handleDBClick(item.id)
+                                    handleDBClick(item)
                                 }}>
                                 <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
