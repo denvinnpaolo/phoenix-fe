@@ -57,8 +57,8 @@ function DataModal(props, type) {
                     <span className="modal-info">{props.item.items}</span>
                 </div>
                 <div className="pickup-info-container">
-                    <span style={{fontSize:".9em", fontWeight:"bold"}}>TYPE</span>
-                    <span className="modal-info" style={{textTransform: 'capitalize'}}>{props.item.description}</span>
+                    <span style={{fontSize:".9em", fontWeight:"bold"}}>PRICE</span>
+                    <span className="modal-info" style={{textTransform: 'capitalize'}}>{props.item.price}</span>
                 </div>
                 <div className="pickup-info-container">
                     <span style={{fontSize:".9em", fontWeight:"bold"}}>ADDRESS</span>

@@ -99,27 +99,58 @@ const Nav = props => {
                 <div id="nav-inner-top">
                 </div>
                 <div id="nav-inner-mid">
-                {expand.home &&
-                    <div style={{textDecoration: "none"}} id="nav-inner-home">
+                {expand.home?
+                    <div style={{textDecoration: "none", height:"52%"}} id="nav-inner-home">
                         <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>
+                        <Link to="/about" style={{textDecoration: "none"}} className="nav-inner-btns">About</Link>
+                        <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact</Link>
+                        <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Archive</Link>
+
                     </div>
+                    :
+                    <div id="nav-inner-home"></div>
                 }
                 {expand.cal?
                     userData.userdata.type==='wt'?
-                            <div id="nav-inner-requests" style={{height: "39%"}}>
+                            <div id="nav-inner-requests" style={{height: "52%"}}>
                                 <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Pick-up Requests</div></Link>
                                 <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">Schedule</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
+                                <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
+
 
                             </div>
                             :
-                            <div id="nav-inner-requests" style={{height: "39%"}}>
+                            <div id="nav-inner-requests" style={{height: "52%"}}>
                                 <Link to="/available/add" style={{textDecoration: "none"}}><div className="nav-inner-btns">Add Waste</div></Link>
                                 <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">View Posts</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
+                                <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
+
                             </div>
                     :
-                    null
+                    <div id="nav-inner-home"></div>
+                }
+                {expand.contacts?
+                    <div id="nav-inner-requests" style={{height: "39%"}}>
+                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Produce</div></Link>
+                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Producer</div></Link>
+                        <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Recents</div></Link>
+
+                    </div>
+                    :
+                    <div id="nav-inner-home"></div>
+
+                }
+                {expand.mail?
+                <div id="nav-inner-requests" style={{height: "39%"}} >
+                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Compose Mail</div></Link>
+                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Inbox</div></Link>
+                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Sent</div></Link>
+                </div>
+                :
+                <div id="nav-inner-home"></div>
+
                 }
 
                     </div>

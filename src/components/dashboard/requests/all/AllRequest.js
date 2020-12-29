@@ -173,7 +173,7 @@ const AllRequest = () => {
                     </div>
                 </div>
                 <div id="allreq-contents-cont">
-                    <div id= "allreq-header-container" style={{width:"15%"}}>
+                    <div id= "allreq-header-container" style={{width:"17%"}}>
                         <span id="allreq-component-header" >Posts</span>
                     </div>
                     <div id="allreq-sort-cont">

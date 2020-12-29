@@ -12,6 +12,7 @@ import Loading from '../../../UI/loading/Loading';
 const PickupBook = props => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [confirm, setConfirm] = useState(false);
     const {availbyid, users} = useSelector(state => state);
 
     const [newPickUp, setNewPickUp] = useState(!availbyid.currentAvail.data? null :{
@@ -28,11 +29,8 @@ const PickupBook = props => {
             "transformer_id": users.userData.id
 
     });
-    const [confirm, setConfirm] = useState(false)
-
 
     const handlePickup = e => {
-
         setNewPickUp(!e? null :{
             "id": e.id,
             "date_posted": e.date_posted,
@@ -45,7 +43,8 @@ const PickupBook = props => {
             "price":e.price,
             "producer_id": e.producer_id,
             "transformer_id": users.userData.id
-        })
+        });
+
         if(newPickUp === null){
             return null
         } else {
@@ -114,10 +113,11 @@ const PickupBook = props => {
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/available/request/all')
                         }}>Back</button>
+
                         {!confirm? <button 
-                        className="pickup-book-btns" 
-                        style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                        onClick={()=>{
+                          className="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=>{
                             handlePickup(availbyid.currentAvail.data[0][0])
                         }}
                         >
@@ -125,13 +125,14 @@ const PickupBook = props => {
                         </button>
                         :
                         <button 
-                        className="pickup-book-btns" 
-                        style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                        onClick={()=> history.push('/available/request/all')}
+                          className="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=> history.push('/available/request/all')}
                         >
                             Add more
-                        </button>}
-                        </div>
+                        </button>
+                        }
+                    </div>
                 </div>
             </div>
         )

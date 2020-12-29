@@ -80,8 +80,8 @@ const MultiPickup = () => {
                                 <span className="book-info">{item[0].items}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TYPE</span>
-                                <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].description}</span>
+                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].price}</span>
                             </div>
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>ADDRESS</span>

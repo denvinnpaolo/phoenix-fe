@@ -79,6 +79,7 @@ const AddWaste = () => {
                             <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
                                 <span style={{fontSize: "1.5em"}}>{userData.company_name}</span>
                             </div>
+                            
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>TIME OF DAY</span>
                                 <select 
@@ -94,6 +95,7 @@ const AddWaste = () => {
                                     <option>Anytime</option>
                                 </select>
                             </div> 
+
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>EXPIRATION</span>
                                 <input type="date"
@@ -123,6 +125,7 @@ const AddWaste = () => {
                                   value={newPickUp.items}
                                 />
                             </div>
+
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>PRICE</span>
                                 <input 
@@ -132,14 +135,12 @@ const AddWaste = () => {
                                   onChange={handleChange}
                                 />
                             </div>
-
                         </div>
                     </div>
                     <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/Home')
                         }}>Home</button>
-
                         {!confirm? 
                         <button 
                           lassName="pickup-book-btns" 
@@ -159,7 +160,7 @@ const AddWaste = () => {
                         >
                             Add more
                         </button>}
-                        </div>
+                    </div>
                 </div>
             </div>
         )
