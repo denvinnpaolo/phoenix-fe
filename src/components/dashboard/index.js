@@ -10,6 +10,7 @@ import Calendar from './calendar/Calendar.js';
 import AddWaste from './requests/add/AddWaste.js';
 import About from '../landing/website/about/About.js';
 import Contact from '../landing/website/contact/Contact.js'
+import ViewPickUp from './requests/view/ViewPickUp.js'
 
 
 
@@ -24,6 +25,7 @@ const Dashboard = props => {
             <Route path="/contact" component={Contact} />
             <Route path="/available/request/all" render={()=><AllRequest />} />
             <Route exact path="/available/schedule" render={()=><PickupBook /> } />
+            <Route exact path="/pickup/view" render={()=><ViewPickUp/> } />
             <Route path="/available/schedule/multi" render={()=><MultiPickup/> } />
             <Route path="/available/calendar" render={()=><Calendar /> } />
             <Route path="/available/add" render={()=><AddWaste />} />

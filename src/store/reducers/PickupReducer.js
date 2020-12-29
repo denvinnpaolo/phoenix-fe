@@ -2,6 +2,9 @@ import {
     FETCH_PICKUP_FAILURE,
     FETCH_PICKUP_LOADING,
     FETCH_PICKUP_SUCCESS,
+    FETCH_PICKUPBYID_FAILURE,
+    FETCH_PICKUPBYID_LOADING,
+    FETCH_PICKUPBYID_SUCCESS,
     CREATE_PICKUP_FAILURE,
     CREATE_PICKUP_START,
     CREATE_PICKUP_SUCCESS,
@@ -14,6 +17,7 @@ const initalState ={
     mutliData: {},
     pickupData : {},
     newData: {},
+    currentPickUp: {},
     error: null,
     isFetching: false
 };
@@ -33,6 +37,23 @@ function PickupReducer(state = initalState, action) {
                 pickupData: action.payload,
             }
         case FETCH_PICKUP_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        case FETCH_PICKUPBYID_LOADING:
+            return {
+                ...state,
+                isFetching: true,
+            }
+        case FETCH_PICKUPBYID_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                currentPickUp: action.payload,
+            }
+        case FETCH_PICKUPBYID_FAILURE:
             return {
                 ...state,
                 isFetching: false,

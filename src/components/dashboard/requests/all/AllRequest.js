@@ -8,7 +8,7 @@ import { RiArrowUpDownFill } from 'react-icons/ri';
 import { BiEdit } from 'react-icons/bi';
 
 
-import { fetchAvailable, fetchAvailById, fetchMultiAvail, viewPostedById } from '../../../../store/actions/index.js';
+import { fetchAvailable, fetchAvailById, fetchMultiAvail, viewPostedById, fetchPickUpById } from '../../../../store/actions/index.js';
 import Loading from '../.././../UI/loading/Loading.js'
 import { useHistory } from 'react-router-dom';
 
@@ -28,15 +28,23 @@ const AllRequest = () => {
         dispatch(viewPostedById({id:users.userData.id}))
     },[dispatch]);
 
-    const handleDBClick = id => {
-        console.log(id)
+    const handleDBClick = item => {
+        if(!item.transformer_id){
+            if(users.userData.type==='wt'){
+                dispatch(fetchAvailById({id: item.id}))
+            } else if(users.userData.type === 'wp'){
+                dispatch(fetchAvailById({producer_id: item.id}))
+            }
+            history.push('/available/schedule')
+        } else {
 
-        if(users.userData.type==='wt'){
-            dispatch(fetchAvailById({id: id}))
-        } else if(users.userData.type === 'wp'){
-            dispatch(fetchAvailById({producer_id: id}))
+            if(users.userData.type==='wt'){
+                dispatch(fetchPickUpById({id: item.id}))
+            } else if(users.userData.type === 'wp'){
+                dispatch(fetchPickUpById({id: item.id}))
+            }
+            history.push('/pickup/view')
         }
-        history.push('/available/schedule')
     }
 
     const handleCheck = item => {
@@ -121,7 +129,7 @@ const AllRequest = () => {
                                             .map(item=>{
                                             return( 
                                                 <div id="allreq-data-row" onDoubleClick={()=> {
-                                                    handleDBClick(item.id)
+                                                    handleDBClick(item)
                                                 }}>
                                                     <span className="allreq-data">{Moment(item.exp).format('MMMM DD, YYYY')}</span>
                                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
@@ -227,7 +235,7 @@ const AllRequest = () => {
                                         .map(item=>{
                                         return( 
                                             <div id="allreq-data-row" onDoubleClick={()=> {
-                                                handleDBClick(item.id)
+                                                handleDBClick(item)
                                             }}>
                                             <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Loading from '../../UI/loading/Loading.js'
-import { fetchPickupByTI, fetchAvailById } from'../../../store/actions/index.js';
+import { fetchPickupByTI, fetchAvailById, fetchPickUpById } from'../../../store/actions/index.js';
 import DataModal from '../modal/Modal.js'
 
 
@@ -66,11 +66,11 @@ const Calendar = () => {
         console.log(result)
         if (result.value) {
           if(type==='wt'){
-            dispatch(fetchAvailById({transformer_id: e.event.extendedProps.data.id}))
+            dispatch(fetchPickUpById({id: e.event.extendedProps.data.id}))
         } else if(type === 'wp'){
-            dispatch(fetchAvailById({producer_id:{id: e.event.extendedProps.data.id}}))
+            dispatch(fetchPickUpById({id: e.event.extendedProps.data.id}))
         }
-          history.push(`/available/schedule`);
+          history.push(`/pickup/view`);
         }
       });
     };

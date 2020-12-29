@@ -213,7 +213,7 @@ export const fetchAvailById = id => dispatch => {
             })
             .catch(err => dispatch({ type: FETCH_AVAILBYID_FAILURE, payload: err }))
     )
-}
+};
 
 export const fetchPickUpById = id => dispatch => {
     dispatch({ type: FETCH_PICKUPBYID_LOADING })
@@ -228,7 +228,7 @@ export const fetchPickUpById = id => dispatch => {
             })
             .catch(err => dispatch({ type: FETCH_PICKUPBYID_FAILURE, payload: err }))
     )
-}
+};
 
 
 export const fetchMultiAvail = list => dispatch => {
@@ -244,7 +244,7 @@ export const fetchMultiAvail = list => dispatch => {
             })
             .catch(err => dispatch({ type: FETCH_MULTIAVAIL_FAILURE, payload: err }))
     )
-}
+};
 
 export const createNewWaste = waste => dispatch => {
     dispatch({ type: CREATE_NEWWASTE_START })
@@ -259,7 +259,7 @@ export const createNewWaste = waste => dispatch => {
             })
             .catch(err => dispatch({ type: CREATE_NEWWASTE_FAILURE, payload: err }))
     )
-}
+};
 
 export const createPickup = waste => dispatch => {
     dispatch({ type: CREATE_PICKUP_START })
@@ -274,7 +274,7 @@ export const createPickup = waste => dispatch => {
             })
             .catch(err => dispatch({ type: CREATE_PICKUP_FAILURE, payload: err }))
     )
-}
+};
 
 export const createMultiPickup = (wastes, TI) => dispatch => {
     dispatch({ type: CREATE_MULTIPICKUP_START })
@@ -289,7 +289,7 @@ export const createMultiPickup = (wastes, TI) => dispatch => {
             })
             .catch(err => dispatch({ type: CREATE_MULTIPICKUP_FAILURE, payload: err }))
     )
-}
+};
 
 export const createCompleted = waste => dispatch => {
     dispatch({ type: CREATE_COMPLETED_START })
@@ -304,7 +304,7 @@ export const createCompleted = waste => dispatch => {
             })
             .catch(err => dispatch({ type: CREATE_COMPLETED_FAILURE, payload: err }))
     )
-}
+};
 
 export const createCanceled = waste => dispatch => {
     dispatch({ type: CREATE_CANCELED_START })
@@ -319,7 +319,7 @@ export const createCanceled = waste => dispatch => {
             })
             .catch(err => dispatch({ type: CREATE_CANCELED_FAILURE, payload: err }))
     )
-}
+};
 
 // WASTE PRODUCER 
 export const viewPostedById = id => dispatch => {
@@ -336,4 +336,4 @@ export const viewPostedById = id => dispatch => {
         })
         .catch(err => dispatch({ type: FETCH_VIEWBYID_FAILURE, payload: err }))
     )
-}
+};
