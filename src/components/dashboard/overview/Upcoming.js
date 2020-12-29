@@ -26,7 +26,12 @@ const Upcoming = props => {
 
 
     useEffect(() => {
-        dispatch(fetchPickupByTI({transformer_id: id}))
+        if(type === 'wt'){
+            dispatch(fetchPickupByTI({transformer_id: id}))
+        } else if(type === 'wp'){
+            dispatch(fetchPickupByTI({producer_id: id}))
+
+        }
     },[dispatch, completed.newCompleted, canceled.newCanceled]);
 
     if(!pickup.pickupData.data){

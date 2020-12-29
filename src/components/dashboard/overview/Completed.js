@@ -19,11 +19,15 @@ const Completed = props => {
     const dispatch = useDispatch();
 
     const { completed } = useSelector(state => state)
-    const {id} = useSelector(state => state.users.userData);
+    const {id, type} = useSelector(state => state.users.userData);
 
     useEffect(() => {
-        console.log("completed", id)
-        dispatch(fetchCompletedByTI({transformer_id: id}))
+        if(type === 'wt'){
+            dispatch(fetchCompletedByTI({transformer_id: id}))
+        } else if(type === 'wp'){
+            dispatch(fetchCompletedByTI({producer_id: id}))
+
+        }
     },[dispatch, completed.newCompleted])
 
 

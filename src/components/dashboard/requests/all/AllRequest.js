@@ -173,7 +173,11 @@ const AllRequest = () => {
                     <div id="allreq-sort-cont">
                         <div id="allreq-sort-btns">
                             <BsFunnelFill size="1.6em"/>
-                            <RiArrowUpDownFill size="1.5em" />
+                            <RiArrowUpDownFill
+                             size="1.5em" 
+                             onClick={()=>{setOrder(!order)}} 
+                            className="clickable"
+                            />
                         </div>
                         <div id="allreq-sort-search">
                             <BsSearch size="1.4em" />
@@ -212,7 +216,9 @@ const AllRequest = () => {
                                     style={{width: "100%", height: "100%"}}
                                     scrollableTarget="allreq-tbl"
                                 >
-                                    {view.postedById.data.map(item=>{
+                                    {view.postedById.data
+                                        .sort((a,b) => order? Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp)))
+                                        .map(item=>{
                                         return( 
                                             <div id="allreq-data-row" onDoubleClick={()=> {
                                                 handleDBClick(item.id)
