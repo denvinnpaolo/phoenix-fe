@@ -149,10 +149,9 @@ const Nav = props => {
 
                 }
                 {expand.mail?
-                <div id="nav-inner-requests" style={{height: "39%"}} >
-                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Compose Mail</div></Link>
+                <div id="nav-inner-requests" style={{height: "26%"}} >
                     <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Inbox</div></Link>
-                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Sent</div></Link>
+                    <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Trash</div></Link>
                 </div>
                 :
                 <div id="nav-inner-home"></div>

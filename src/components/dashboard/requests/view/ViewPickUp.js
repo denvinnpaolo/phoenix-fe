@@ -78,8 +78,8 @@ const ViewPickUp = props => {
                     </div>
                     <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
-                            history.push('/')
-                        }}>Cancel</button>
+                            history.push('/available/calendar')
+                        }}>Back</button>
 
                         <button 
                           className="pickup-book-btns" 

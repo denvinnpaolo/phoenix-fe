@@ -59,9 +59,9 @@ const Calendar = () => {
         title: e.event.title.toUpperCase(),
         text:`${Moment(e.event.extendedProps.data.exp).format('MMM. DD,YYYY')} : ${e.event.extendedProps.data.time_available.toUpperCase()}`,
         icon: 'info',
-        showCancelButton: true,
-        cancelButtonText: 'Close',
-        confirmButtonText: 'View'
+        showCloseButton:true,
+        confirmButtonText: 'View',
+        confirmButtonColor:"#FF9B64"
       }).then(result => {
         console.log(result)
         if (result.value) {

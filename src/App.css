@@ -3,10 +3,11 @@
 
 }
 
-.sweet-alert .sa-icon{
-  height: 10% !important;
-  width: 10% !important;
+.swal2-icon.swal2-info {
+  border-color: #FF9B64 !important;
+  color: #FF9B64 !important;
 }
+
 
 .clickable:hover{
   cursor: pointer;
