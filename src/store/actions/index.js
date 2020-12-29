@@ -197,11 +197,13 @@ export const fetchCanceledByTI = id => dispatch => {
 };
 
 export const fetchAvailById = id => dispatch => {
+
     let newId = {id}
+    console.log(newId)
     dispatch({ type: FETCH_AVAILBYID_LOADING })
     return(
         axiosWithAuth()
-            .post(`${host}/organic-waste/search-by/available`, newId)
+            .post(`${host}/organic-waste/search-by/available`, id)
             .then(response => {
                 dispatch({
                     type: FETCH_AVAILBYID_SUCCESS,

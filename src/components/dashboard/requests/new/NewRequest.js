@@ -24,7 +24,11 @@ const NewRequest = props => {
     },[dispatch, canceled.newCanceled]);
 
     const handleDBClick = id => {
-        dispatch(fetchAvailById({id: id}))
+        if(users.userData.type==='wt'){
+            dispatch(fetchAvailById({transformer_id: id}))
+        } else if(users.userData.type === 'wp'){
+            dispatch(fetchAvailById({producer_id: id}))
+        }
         history.push('/available/schedule')
     }
 
@@ -75,9 +79,9 @@ const NewRequest = props => {
                                     if(props.sort.today){
                                         return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
                                     } else if(props.sort.week){
-                                        return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
+                                        return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(7, 'd'))
                                     } else if(props.sort.month){
-                                        return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
+                                        return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                     }
                                 })
                                 .map(item=>{
@@ -149,9 +153,9 @@ const NewRequest = props => {
                                 if(props.sort.today){
                                     return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
                                 } else if(props.sort.week){
-                                    return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
+                                    return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(7, 'd'))
                                 } else if(props.sort.month){
-                                    return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
+                                    return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                 }
                             })
                             .map(item=>{

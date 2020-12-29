@@ -29,7 +29,13 @@ const AllRequest = () => {
     },[dispatch]);
 
     const handleDBClick = id => {
-        dispatch(fetchAvailById({id: id}))
+        console.log(id)
+
+        if(users.userData.type==='wt'){
+            dispatch(fetchAvailById({id: id}))
+        } else if(users.userData.type === 'wp'){
+            dispatch(fetchAvailById({producer_id: id}))
+        }
         history.push('/available/schedule')
     }
 

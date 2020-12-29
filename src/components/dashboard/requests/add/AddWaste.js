@@ -38,19 +38,19 @@ const AddWaste = () => {
         setNewPickUp(
             !userData.company_address? 
             null: 
-            {
+            {...newPickUp,
             "date_posted": date,
-            "price":e.price,
-            "exp": e.exp,
-            "time_available": e.time_available,
-            "type": e.type,
-            "items": e.items,
             "address":userData.company_address,
             "producer_id":userData.id
             }
         );
     
-        dispatch(createNewWaste(newPickUp))
+        if(newPickUp === null){
+            return null
+        } else {
+            dispatch(createNewWaste(newPickUp))
+            setConfirm(!confirm)
+        }    
     };
 
     if(!userData.id){
@@ -137,22 +137,25 @@ const AddWaste = () => {
                     </div>
                     <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
-                            history.push('/available/request/all')
-                        }}>Back</button>
-                        {!confirm? <button 
-                        className="pickup-book-btns" 
-                        style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                        onClick={()=>{
+                            history.push('/Home')
+                        }}>Home</button>
+
+                        {!confirm? 
+                        <button 
+                          lassName="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=>{
                             handleAdd()
-                        }}
+                          }}
                         >
+
                             Add Waste
                         </button>
                         :
                         <button 
-                        className="pickup-book-btns" 
-                        style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                        onClick={()=> history.push('/available/add')}
+                          className="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=> history.push('/available/add')}
                         >
                             Add more
                         </button>}

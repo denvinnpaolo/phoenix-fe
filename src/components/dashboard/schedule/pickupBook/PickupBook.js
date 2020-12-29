@@ -47,7 +47,7 @@ const PickupBook = props => {
             "transformer_id": users.userData.id
         })
         if(newPickUp === null){
-            return
+            return null
         } else {
             dispatch(createPickup(newPickUp))
             setConfirm(!confirm)
