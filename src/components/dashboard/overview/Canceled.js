@@ -14,7 +14,11 @@ const Canceled = props => {
     const {type, id}= useSelector(state => state.users.userData);
 
     useEffect(() => {
-        dispatch(fetchCanceledByTI({transformer_id: id}))
+        if(type === 'wt'){
+            dispatch(fetchCanceledByTI({transformer_id: id}))
+        } else if(type === 'wp'){
+            dispatch(fetchCanceledByTI({producer_id: id}))
+        }
     },[dispatch, canceled.newCanceled])
 
 
