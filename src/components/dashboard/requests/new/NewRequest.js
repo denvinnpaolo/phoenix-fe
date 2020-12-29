@@ -81,34 +81,32 @@ const NewRequest = props => {
                                     }
                                 })
                                 .map(item=>{
-                                return( 
-                                    <div className="overview-datarow" onDoubleClick={()=> {
-                                        handleDBClick(item.id)
-                                    }}>
-                                        <span className="allreq-data">{Moment(item.exp).format('MMM. DD, YYYY')}</span>
-                                        <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                        
-                                        <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
-                                        <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                        
-                                        <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
-                                        <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                        
-                                        <span className="allreq-data">{item.items}</span>
-                                        <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
-                                        
-                                        <span className="allreq-data">Waste</span>
-                                        <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
-                                        
-                                        <span className="allreq-data" >{<input  type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
-
-
-                                    </div>
-                                )
-                            })
-                        }
+                                    return( 
+                                        <div className="overview-datarow" onDoubleClick={()=> {
+                                            handleDBClick(item.id)
+                                        }}>
+                                            <span className="allreq-data">{Moment(item.exp).format('MMM. DD, YYYY')}</span>
+                                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                            
+                                            <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.time_available}</span>
+                                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                            
+                                            <span className="allreq-data">{`${item.address.split(",")[1]} ${item.address.split(",")[2]}`}</span>
+                                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                            
+                                            <span className="allreq-data">{item.items}</span>
+                                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
+                                            
+                                            <span className="allreq-data">Waste</span>
+                                            <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
+                                            
+                                            <span className="allreq-data" >{<input  type="checkbox" onClick={()=> handleCheck({id: item.id})}/>} </span>
+                                        </div>
+                                    )
+                                })
+                            }
                         </InfiniteScroll>
-                        }
+                    }
                 </div>
             )
     } else {
@@ -145,7 +143,18 @@ const NewRequest = props => {
                         style={{width: "100%", height: "100%"}}
                         scrollableTarget="pickup-overview-tbl"
                     >
-                        {view.postedById.data.map(item=>{
+                        {view.postedById.data
+                            .sort((a,b) => Moment(b.exp).diff(Moment(a.exp)))
+                            .filter(a => {
+                                if(props.sort.today){
+                                    return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
+                                } else if(props.sort.week){
+                                    return Moment(a.exp).isBetween(Moment(), Moment().add(7, 'd'))
+                                } else if(props.sort.month){
+                                    return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
+                                }
+                            })
+                            .map(item=>{
                             return( 
                                 <div className="overview-datarow" onDoubleClick={()=> {
                                     handleDBClick(item.id)

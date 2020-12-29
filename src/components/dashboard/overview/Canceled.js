@@ -1,21 +1,17 @@
 import { BiCalendarMinus } from 'react-icons/bi';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
-
- 
 import {fetchCanceledByTI} from'../../../store/actions/index.js';
 
-import Loading from '../../UI/loading/Loading.js'
+import Loading from '../../UI/loading/Loading.js';
 
-
-
- const Canceled = props => {
+const Canceled = props => {
     const dispatch = useDispatch();
 
     const { canceled } = useSelector(state => state);
-    const id = useSelector(state => state.users.userData.id);
+    const {type, id}= useSelector(state => state.users.userData);
 
     useEffect(() => {
         dispatch(fetchCanceledByTI({transformer_id: id}))
