@@ -1,3 +1,4 @@
+import { CommentAction } from 'semantic-ui-react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth.js';
 
 export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
@@ -73,7 +74,12 @@ export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
 export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
 export const FETCH_VIEWBYID_SUCCESS = 'FETCH_VIEWBYID_SUCCESS';
 
-const host = 'http://104.131.164.155:25060';
+export const UPDATE_POST_START = 'UPDATE_POST_START';
+export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
+export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
+
+
+const host = 'http://localhost:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -328,7 +334,6 @@ export const viewPostedById = id => dispatch => {
         axiosWithAuth()
         .post(`${host}/organic-waste/search-by/id`,id)
         .then(response => {
-            console.log(response)
             dispatch({
                 type: FETCH_VIEWBYID_SUCCESS,
                 payload: response.data
@@ -337,3 +342,18 @@ export const viewPostedById = id => dispatch => {
         .catch(err => dispatch({ type: FETCH_VIEWBYID_FAILURE, payload: err }))
     )
 };
+
+export const updatePost = changeObject => dispatch => {
+    dispatch({ type: UPDATE_POST_START })
+    return(
+        axiosWithAuth()
+        .put(`${host}/organic-waste/post/edit`, changeObject)
+        .then(response => {
+            dispatch({
+                type: UPDATE_POST_SUCCESS,
+                payload: response.data
+            })
+        })
+        .catch(err => dispatch({ type: UPDATE_POST_FAILURE, payload: err }))
+    )
+}

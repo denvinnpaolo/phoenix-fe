@@ -10,14 +10,18 @@ import {
     CREATE_PICKUP_SUCCESS,
     CREATE_MULTIPICKUP_FAILURE,
     CREATE_MULTIPICKUP_START,
-    CREATE_MULTIPICKUP_SUCCESS
+    CREATE_MULTIPICKUP_SUCCESS,
+    UPDATE_POST_FAILURE,
+    UPDATE_POST_START,
+    UPDATE_POST_SUCCESS
 } from '../actions/index.js';
 
 const initalState ={
-    mutliData: {},
-    pickupData : {},
-    newData: {},
     currentPickUp: {},
+    mutliData: {},
+    newData: {},
+    pickupData : {},
+    updatedData: {},
     error: null,
     isFetching: false
 };
@@ -88,6 +92,23 @@ function PickupReducer(state = initalState, action) {
                 multiData: action.payload
             }
         case CREATE_MULTIPICKUP_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        case UPDATE_POST_START:
+            return {
+                ...state,
+                isFetching: true
+            }
+        case UPDATE_POST_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                updatedData: action.payload
+            }
+        case UPDATE_POST_FAILURE:
             return {
                 ...state,
                 isFetching: false,

@@ -11,11 +11,12 @@ import AddWaste from './requests/add/AddWaste.js';
 import About from '../landing/website/about/About.js';
 import Contact from '../landing/website/contact/Contact.js'
 import ViewPickUp from './requests/view/ViewPickUp.js'
+import EditWaste from './requests/edit/EditWaste.js';
 
 
 
 
-const Dashboard = props => {
+const Dashboard = () => {
  
     return(
         <div id='dashboard-container'>
@@ -29,7 +30,8 @@ const Dashboard = props => {
             <Route path="/available/schedule/multi" render={()=><MultiPickup/> } />
             <Route path="/available/calendar" render={()=><Calendar /> } />
             <Route path="/available/add" render={()=><AddWaste />} />
-
+            <Route path="/post/edit/pickup" render={()=><EditWaste />}/>
+            <Route path="/post/edit/available" render={()=><EditWaste />}/>
 
         </div>
     )

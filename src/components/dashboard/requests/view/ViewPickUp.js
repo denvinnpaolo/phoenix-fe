@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Route } from 'react-router-dom';
 import Moment from 'moment';
 
 import {BsPerson, BsBell} from 'react-icons/bs';
@@ -8,17 +8,11 @@ import { FcCheckmark } from 'react-icons/fc'
 
 import { createPickup } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/loading/Loading';
+import EditWaste from '../edit/EditWaste.js'
 
 const ViewPickUp = props => {
-    const dispatch = useDispatch();
     const history = useHistory();
-    const [confirm, setConfirm] = useState(false);
-    const {pickup, users} = useSelector(state => state);
-
-
-    const handlePickup = e => {
-
-    }
+    const {pickup} = useSelector(state => state);
 
 
     if(!pickup.currentPickUp.data){
@@ -40,7 +34,6 @@ const ViewPickUp = props => {
 
                 <div id="pickup-content-cont">
                     <div id="pickup-book-confirm">
-                        {confirm? <span id="check"><FcCheckmark size="2.2em" />  Your pick-up has been successfully booked</span> : null }
                     </div>
                     <div id="pickup-book-tbl">
                         <div id="pickup-info-tbl">
@@ -78,17 +71,19 @@ const ViewPickUp = props => {
                     </div>
                     <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
-                            history.push('/available/calendar')
+                            history.push('/')
                         }}>Back</button>
 
                         <button 
                           className="pickup-book-btns" 
                           style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                    
+                          onClick={()=> {
+                              history.push('/post/edit/pickup')
+                          }}
                         >
                             Edit
                         </button>
-                
+
                     </div>
                 </div>
             </div>

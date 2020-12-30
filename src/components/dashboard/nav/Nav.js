@@ -19,7 +19,7 @@ const Nav = props => {
     const history = useHistory();
     let userData =useSelector(state => state.users.userData)
 
-    const [darkMode, setDarkMode] = useDarkMode(false);
+    const [darkMode, setDarkMode] = useDarkMode(true);
     
 
     if(userData.userdata === undefined) {

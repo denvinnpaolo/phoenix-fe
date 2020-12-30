@@ -51,8 +51,7 @@ const PickupBook = props => {
             dispatch(createPickup(newPickUp))
             setConfirm(!confirm)
         }
-    }
-
+    };
 
     if(!availbyid.currentAvail.data){
         return <Loading />
@@ -109,7 +108,8 @@ const PickupBook = props => {
                             </div>
                         </div>
                     </div>
-                    <div id="pickup-book-btns">
+                    {users.userData.type ==='wt'?
+                        <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/available/request/all')
                         }}>Back</button>
@@ -133,6 +133,24 @@ const PickupBook = props => {
                         </button>
                         }
                     </div>
+                    :
+                    <div id="pickup-book-btns">
+                        <button className="pickup-book-btns" onClick={()=>{
+                            history.push('/available/request/all')
+                        }}>Back</button>
+
+                        <button 
+                          className="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=>{
+                            history.push('/post/edit/available')
+                        }}
+                        >
+                            Edit Post
+                        </button>
+                        
+                    </div>
+                    }
                 </div>
             </div>
         )
