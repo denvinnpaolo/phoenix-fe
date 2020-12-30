@@ -1,6 +1,13 @@
 * {
   font-family: 'Nunito Sans';
+}
 
+.dark-mode .dark-mode__toggle {
+  background: #292929 !important;
+}
+
+.dark-mode .toggle {
+  background-image: linear-gradient(315deg, #1F2022 0%, white 250%)!important;
 }
 
 .swal2-icon.swal2-info {

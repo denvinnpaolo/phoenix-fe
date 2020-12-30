@@ -8,6 +8,7 @@ import { FiSettings, FiMail } from 'react-icons/fi';
 import { FaRegAddressBook } from 'react-icons/fa'
 import { BsQuestionDiamond } from 'react-icons/bs';
 
+import { useDarkMode } from '../../../hooks/DarkMode.js'
 import { unfetchUser } from '../../../store/actions/index.js'
 import Loading from '../../UI/loading/Loading.js'
 
@@ -16,9 +17,9 @@ import Ouro from '../../../assets/img/Ouro.png'
 const Nav = props => {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const {userdata} = useSelector(state => state.users.userData)
     let userData =useSelector(state => state.users.userData)
 
+    const [darkMode, setDarkMode] = useDarkMode(false);
     
 
     if(userData.userdata === undefined) {
@@ -28,6 +29,10 @@ const Nav = props => {
         };
     }
 
+    const toggleMode = e => {
+        // e.preventDefault();
+        setDarkMode(!darkMode);
+      };
 
     const [expand, setExpand] = useState({
         state: false,
@@ -159,7 +164,11 @@ const Nav = props => {
                 }
 
                     </div>
-                    <div id="nav-inner-btm"></div>
+                    <div id="nav-inner-btm">
+                        <div className="dark-mode__toggle">
+                            <div onClick={toggleMode} className={darkMode ? 'toggle toggled' : 'toggle'}/>  
+                        </div>
+                    </div>
                 </div>
             </div>
         )
