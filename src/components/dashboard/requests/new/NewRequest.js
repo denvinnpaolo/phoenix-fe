@@ -137,7 +137,7 @@ const NewRequest = props => {
                         <span className="allreq-data-overview" >Items</span>
                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
     
-                        <span className="allreq-data-overview" >Confirmed</span>
+                        <span className="allreq-data-overview" >Type</span>
                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
     
                         <span className="allreq-data-overview" >Company</span>
@@ -147,7 +147,7 @@ const NewRequest = props => {
                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
     
     
-                        <span className="allreq-data-overview"></span>
+                        <span className="allreq-data-overview">Confirmed</span>
                 </div>
     
                 {!view.postedById.data? 
@@ -183,7 +183,7 @@ const NewRequest = props => {
                                 <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
-                                <span className="allreq-data">{item.transformer_id? "Y": "" }</span>
+                                <span className="allreq-data">{item.type}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
                                 <span className="allreq-data">{item.transformer_id? item.company_name: ""}</span>
@@ -193,7 +193,7 @@ const NewRequest = props => {
                                 <span className="allreq-data">{item.transformer_id? item.phone: ""}</span>
                                 
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
-                                <span className="allreq-data"><BiEdit /> Edit  </span>
+                                <span className="allreq-data">{item.transformer_id? "Y": "" }</span>
     
                                 </div>
                             )

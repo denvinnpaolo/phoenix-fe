@@ -56,8 +56,8 @@ const ViewPickUp = props => {
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{pickup.currentPickUp.data[0].price}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ADDRESS</span>
-                                <span className="book-info">{pickup.currentPickUp.data[0].address}</span>
+                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <span className="book-info">{pickup.currentPickUp.data[0].type}</span>
                             </div>
                             <div className="pickup-info-container">
                                 <span style={{fontSize:".7em"}}>PHONE NUMBER</span>

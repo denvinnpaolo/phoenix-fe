@@ -75,14 +75,23 @@ const EditWaste = props => {
         if(type.type === 'pick_up'){
             const id = {id :pickup.currentPickUp.data[0].id}
             dispatch(updatePost({...id, ...type, editPickUp}))
-            dispatch(fetchPickUpById({id: pickup.currentPickUp.data[0].id}))
-            history.push('/pickup/view')
+            .then(()=>{
+                dispatch(fetchPickUpById({id: pickup.currentPickUp.data[0].id}))
+
+            })
+            .then(()=>{
+                history.push('/pickup/view')
+            })
         } else if(type.type === 'available'){
             const id = {id :availbyid.currentAvail.data[0][0].id}
 
             dispatch(updatePost({...id, ...type, editAvail}))
-            dispatch(fetchAvailById({producer_id: id.id}))
-            history.push('/available/schedule')
+            .then(()=>{
+                dispatch(fetchAvailById({producer_id: id.id}))
+            })
+            .then(()=> {
+                history.push('/available/schedule')
+            })
 
 
         }    
@@ -106,7 +115,7 @@ const EditWaste = props => {
                             </div>
                         </div>
                         <div id="pickup-header-cont">
-                            <span id="pickup-book-header">Add Waste</span>
+                            <span id="pickup-book-header">Edit Post</span>
                         </div>
 
                         <div id="pickup-content-cont">

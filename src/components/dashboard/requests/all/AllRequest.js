@@ -97,7 +97,7 @@ const AllRequest = () => {
                         <div id="allreq-tbl-cont" >
                             <div id="allreq-tbl-div">
                                 <div id="allreq-tbl">
-                                    <div id="allreq-data-labels">
+                                    <div id="allreq-data-labels" className="clickable">
                                         <span className="allreq-data" style={{fontSize: ".9em", fontWeight: "bold"}}>Pick-up Date</span>
                                         <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
@@ -210,7 +210,7 @@ const AllRequest = () => {
                                         <span className="allreq-data-overview" >Items</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
-                                        <span className="allreq-data-overview" >Confirmed</span>
+                                        <span className="allreq-data-overview" >Type</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
                                         <span className="allreq-data-overview" >Company</span>
@@ -220,7 +220,7 @@ const AllRequest = () => {
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
                     
-                                        <span className="allreq-data-overview"></span>
+                                        <span className="allreq-data-overview">Confirmed</span>
                                 </div>
                                 {!view.postedById.data? 
                                 <Loading />
@@ -234,7 +234,9 @@ const AllRequest = () => {
                                         .sort((a,b) => order? Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp)))
                                         .map(item=>{
                                         return( 
-                                            <div id="allreq-data-row" onDoubleClick={()=> {
+                                            <div id="allreq-data-row" 
+                                              className="clickable"
+                                              onDoubleClick={()=> {
                                                 handleDBClick(item)
                                             }}>
                                             <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
@@ -246,7 +248,7 @@ const AllRequest = () => {
                                             <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
         
-                                            <span className="allreq-data">{item.transformer_id? "Y": "" }</span>
+                                            <span className="allreq-data">{item.type}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             
                                             <span className="allreq-data">{item.transformer_id? item.company_name: ""}</span>
@@ -256,7 +258,7 @@ const AllRequest = () => {
                                             <span className="allreq-data">{item.transformer_id? item.phone: ""}</span>
                                             
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5) ", height: "100%"}}></div>
-                                            <span className="allreq-data"><BiEdit /> Edit  </span>
+                                            <span className="allreq-data">{item.transformer_id? "Y": "" }</span>
 
                                             </div>
                                         )
