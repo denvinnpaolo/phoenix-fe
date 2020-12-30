@@ -91,7 +91,7 @@ const EditWaste = props => {
     if(!users.userData){
         return <Loading />
     } else {
-        if(type.type === 'pick up'){
+        if(type.type === 'pick_up'){
             if(!pickup.currentPickUp.data){
                 <Loading/>
             } else {
