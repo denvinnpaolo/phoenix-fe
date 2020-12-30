@@ -5,7 +5,7 @@ import Loading from '../../../UI/loading/Loading.js';
 
 import {FcCheckmark} from 'react-icons/fc';
 import { BsBell, BsPerson } from 'react-icons/bs';
-import { fetchPickUpById, updatePost } from '../../../../store/actions/index.js';
+import { fetchPickUpById, updatePost, fetchAvailById } from '../../../../store/actions/index.js';
 
 const EditWaste = props => {
     const {users, availbyid, pickup} = useSelector(state => state);
@@ -23,7 +23,7 @@ const EditWaste = props => {
 
 
 
-    const [editPickUp, setEditPickUp] = useState(!pickup.currentPickUp.data[0]? null :
+    const [editPickUp, setEditPickUp] = useState(!pickup.currentPickUp.data? null :
         {
             "address": pickup.currentPickUp.data[0].address,
             "date_posted": pickup.currentPickUp.data[0].date_posted,
@@ -40,17 +40,17 @@ const EditWaste = props => {
 
     );
 
-    const [editAvail, setEditAvail] = useState(!availbyid.currentAvail.data? null :
+    const [editAvail, setEditAvail] = useState(!availbyid.currentAvail.data[0][0]? null :
         {
-            "address":availbyid.currentAvail.data.address,
-            "date_posted": availbyid.currentAvail.data.date_posted,
-            "exp": availbyid.currentAvail.data.exp,
-            "id": availbyid.currentAvail.data.id,
-            "items":availbyid.currentAvail.data.items,
-            "price":availbyid.currentAvail.data.price,
-            "producer_id":availbyid.currentAvail.data.producer_id,
-            "time_available": availbyid.currentAvail.data.time_available,
-            "type": availbyid.currentAvail.data.type,
+            "address":availbyid.currentAvail.data[0][0].address,
+            "date_posted": availbyid.currentAvail.data[0][0].date_posted,
+            "exp": availbyid.currentAvail.data[0][0].exp,
+            "id": availbyid.currentAvail.data[0][0].id,
+            "items":availbyid.currentAvail.data[0][0].items,
+            "price":availbyid.currentAvail.data[0][0].price,
+            "producer_id":availbyid.currentAvail.data[0][0].producer_id,
+            "time_available": availbyid.currentAvail.data[0][0].time_available,
+            "type": availbyid.currentAvail.data[0][0].type,
         }
     )
 
@@ -71,137 +71,230 @@ const EditWaste = props => {
         }
     };
 
-    const handleEdit = e => {
-        console.log(type)
-        // setEditPickUp(availbyid.currentAvail.data? 
-            // {
-            //     "address":availbyid.currentAvail.data.address,
-            //     "date_posted": availbyid.currentAvail.data.date_posted,
-            //     "exp": availbyid.currentAvail.data.exp,
-            //     "id": availbyid.currentAvail.data.id,
-            //     "items":availbyid.currentAvail.data.items,
-            //     "price":availbyid.currentAvail.data.price,
-            //     "producer_id":availbyid.currentAvail.data.producer_id,
-            //     "time_available": availbyid.currentAvail.data.time_available,
-            //     "type": availbyid.currentAvail.data.type,
-            // }
-        //     : 
-
-        
-    
+    const handleEdit = e => {    
         if(type.type === 'pick_up'){
             const id = {id :pickup.currentPickUp.data[0].id}
             dispatch(updatePost({...id, ...type, editPickUp}))
             dispatch(fetchPickUpById({id: pickup.currentPickUp.data[0].id}))
             history.push('/pickup/view')
         } else if(type.type === 'available'){
-            dispatch()
+            const id = {id :availbyid.currentAvail.data[0][0].id}
+
+            dispatch(updatePost({...id, ...type, editAvail}))
+            dispatch(fetchAvailById({producer_id: id.id}))
+            history.push('/available/schedule')
+
+
         }    
     };
 
     if(!users.userData){
         return <Loading />
     } else {
-        if(!pickup.currentPickUp.data){
-            <Loading/>
-        } else{
-            return(
-                <div id="pickup-book-cont">
-                    <div id="welcome-header-container">
-                        <div id="welcome-header-text">
-                        </div>
-                        <div id="welcome-header-alerts">
-                            <BsBell className="clickable" size="1.1em" />
-                            <BsPerson className="clickable" size="1.7em"  />
-                        </div>
-                    </div>
-                    <div id="pickup-header-cont">
-                        <span id="pickup-book-header">Add Waste</span>
-                    </div>
-
-                    <div id="pickup-content-cont">
-                        <div id="pickup-book-confirm">
-                        </div>
-                        <div id="pickup-book-tbl">
-                            <div id="pickup-info-tbl">
-                                <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                                    <span style={{fontSize: "1.5em"}}>{users.userData.company_name}</span>
-                                </div>
-                                
-                                <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>TIME OF DAY</span>
-                                    <select 
-                                    className="add-waste-form" 
-                                    name="time_available" 
-                                    value={editPickUp.time_available} 
-                                    onChange={handleChange}
-                                    >
-                                        <option></option>
-                                        <option>Morning</option>
-                                        <option>Afternoon</option>
-                                        <option>Evening</option>
-                                        <option>Anytime</option>
-                                    </select>
-                                </div> 
-
-                                <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>EXPIRATION</span>
-                                    <input type="date"
-                                    name="exp"
-                                    className="add-waste-form" 
-                                    value={editPickUp.exp}
-                                    onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>TYPE</span>
-                                    <input 
-                                    name="type"
-                                    className="add-waste-form" 
-                                    onChange={handleChange}
-                                    value={editPickUp.type}
-                                    />
-                                </div>
-                        
-                                <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>ITEMS</span>
-                                    <input 
-                                    className="add-waste-form"
-                                    name="items"
-                                    onChange={handleChange}
-                                    value={editPickUp.items}
-                                    />
-                                </div>
-
-                                <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>PRICE</span>
-                                    <input 
-                                    className="add-waste-form"
-                                    name="price"
-                                    value={editPickUp.price}
-                                    onChange={handleChange}
-                                    />
-                                </div>
+        if(type.type === 'pick up'){
+            if(!pickup.currentPickUp.data){
+                <Loading/>
+            } else {
+                return(
+                    <div id="pickup-book-cont">
+                        <div id="welcome-header-container">
+                            <div id="welcome-header-text">
+                            </div>
+                            <div id="welcome-header-alerts">
+                                <BsBell className="clickable" size="1.1em" />
+                                <BsPerson className="clickable" size="1.7em"  />
                             </div>
                         </div>
-                        <div id="pickup-book-btns">
-                            <button className="pickup-book-btns" onClick={()=>{
-                                history.push('/home')
-                            }}>Cancel Edit</button>
-                            <button 
-                            className="pickup-book-btns" 
-                            style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
-                            onClick={()=>{
-                                handleEdit()
-                            }}
-                            >
-                            Confirm Edit
-                            </button>
+                        <div id="pickup-header-cont">
+                            <span id="pickup-book-header">Add Waste</span>
+                        </div>
+
+                        <div id="pickup-content-cont">
+                            <div id="pickup-book-confirm">
+                            </div>
+                            <div id="pickup-book-tbl">
+                                <div id="pickup-info-tbl">
+                                    <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
+                                        <span style={{fontSize: "1.5em"}}>{users.userData.company_name}</span>
+                                    </div>
+                                    
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                        <select 
+                                        className="add-waste-form" 
+                                        name="time_available" 
+                                        value={editPickUp.time_available} 
+                                        onChange={handleChange}
+                                        >
+                                            <option></option>
+                                            <option>Morning</option>
+                                            <option>Afternoon</option>
+                                            <option>Evening</option>
+                                            <option>Anytime</option>
+                                        </select>
+                                    </div> 
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>EXPIRATION</span>
+                                        <input type="date"
+                                        name="exp"
+                                        className="add-waste-form" 
+                                        value={editPickUp.exp}
+                                        onChange={handleChange}
+                                        />
+                                    </div>
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>TYPE</span>
+                                        <input 
+                                        name="type"
+                                        className="add-waste-form" 
+                                        onChange={handleChange}
+                                        value={editPickUp.type}
+                                        />
+                                    </div>
+                            
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>ITEMS</span>
+                                        <input 
+                                        className="add-waste-form"
+                                        name="items"
+                                        onChange={handleChange}
+                                        value={editPickUp.items}
+                                        />
+                                    </div>
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>PRICE</span>
+                                        <input 
+                                        className="add-waste-form"
+                                        name="price"
+                                        value={editPickUp.price}
+                                        onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="pickup-book-btns">
+                                <button className="pickup-book-btns" onClick={()=>{
+                                    history.push('/home')
+                                }}>Cancel Edit</button>
+                                <button 
+                                className="pickup-book-btns" 
+                                style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                                onClick={()=>{
+                                    handleEdit()
+                                }}
+                                >
+                                Confirm Edit
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                )
+            }
+        } else if(type.type === 'available'){
+            if(!availbyid.currentAvail.data){
+                <Loading/>
+            } else {
+                return(
+                    <div id="pickup-book-cont">
+                        <div id="welcome-header-container">
+                            <div id="welcome-header-text">
+                            </div>
+                            <div id="welcome-header-alerts">
+                                <BsBell className="clickable" size="1.1em" />
+                                <BsPerson className="clickable" size="1.7em"  />
+                            </div>
+                        </div>
+                        <div id="pickup-header-cont">
+                            <span id="pickup-book-header">Add Waste</span>
+                        </div>
+
+                        <div id="pickup-content-cont">
+                            <div id="pickup-book-confirm">
+                            </div>
+                            <div id="pickup-book-tbl">
+                                <div id="pickup-info-tbl">
+                                    <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
+                                        <span style={{fontSize: "1.5em"}}>{users.userData.company_name}</span>
+                                    </div>
+                                    
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                        <select 
+                                        className="add-waste-form" 
+                                        name="time_available" 
+                                        value={editAvail.time_available} 
+                                        onChange={handleChange}
+                                        >
+                                            <option></option>
+                                            <option>Morning</option>
+                                            <option>Afternoon</option>
+                                            <option>Evening</option>
+                                            <option>Anytime</option>
+                                        </select>
+                                    </div> 
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>EXPIRATION</span>
+                                        <input type="date"
+                                        name="exp"
+                                        className="add-waste-form" 
+                                        value={editAvail.exp}
+                                        onChange={handleChange}
+                                        />
+                                    </div>
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>TYPE</span>
+                                        <input 
+                                        name="type"
+                                        className="add-waste-form" 
+                                        onChange={handleChange}
+                                        value={editAvail.type}
+                                        />
+                                    </div>
+                            
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>ITEMS</span>
+                                        <input 
+                                        className="add-waste-form"
+                                        name="items"
+                                        onChange={handleChange}
+                                        value={editAvail.items}
+                                        />
+                                    </div>
+
+                                    <div className="pickup-info-container">
+                                        <span style={{fontSize:".7em"}}>PRICE</span>
+                                        <input 
+                                        className="add-waste-form"
+                                        name="price"
+                                        value={editAvail.price}
+                                        onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="pickup-book-btns">
+                                <button className="pickup-book-btns" onClick={()=>{
+                                    history.push('/home')
+                                }}>Cancel Edit</button>
+                                <button 
+                                className="pickup-book-btns" 
+                                style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                                onClick={()=>{
+                                    handleEdit()
+                                }}
+                                >
+                                Confirm Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         }
     }
 };
