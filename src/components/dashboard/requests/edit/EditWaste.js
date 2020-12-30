@@ -40,7 +40,7 @@ const EditWaste = props => {
 
     );
 
-    const [editAvail, setEditAvail] = useState(!availbyid.currentAvail.data[0][0]? null :
+    const [editAvail, setEditAvail] = useState(!availbyid.currentAvail.data? null :
         {
             "address":availbyid.currentAvail.data[0][0].address,
             "date_posted": availbyid.currentAvail.data[0][0].date_posted,
