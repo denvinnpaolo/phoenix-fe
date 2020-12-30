@@ -183,7 +183,7 @@ const NewRequest = props => {
                                 <span className="allreq-data">{item.items.length < 15? item.items : `${item.items.split(",")[0]}, ...` }</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
-                                <span className="allreq-data">{item.type}</span>
+                                <span className="allreq-data">{item.type.length < 15? item.type : `${item.type.split(",")[0]}, ...` }</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 
                                 <span className="allreq-data">{item.transformer_id? item.company_name: ""}</span>
