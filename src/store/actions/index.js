@@ -217,7 +217,7 @@ export const fetchArchive = id => dispatch => {
     dispatch({ type: FETCH_ARCHIVED_LOADING })
     return(
         axiosWithAuth()
-        .post(`${host}/organic-waste/search-by/archive`, id)
+        .post(`${host}/organic-waste/to-archive`, id)
         .then(response => {
             dispatch({
                 type: FETCH_ARCHIVED_SUCCESS,
