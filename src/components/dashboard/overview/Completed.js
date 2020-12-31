@@ -71,12 +71,16 @@ const Completed = props => {
                                         return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
                                     }
                                 })
-                                .map((item, i) => 
-                                <div className="overview-data">
-                                    <div className="overview-inner-div"  onDoubleClick={()=> {
-                                        setModalShow(true) 
-                                        setItemInfo(item)
-                                    }}>
+                                .map((item, i)=> 
+                                <div 
+                                  className="overview-data" 
+                                  key={i}
+                                  onDoubleClick={()=> {
+                                    setModalShow(true) 
+                                    setItemInfo(item)
+                                  }}
+                                >
+                                    <div className="overview-inner-div">
                                         <span className="data">
                                             {Moment(item.exp).format('MMM. DD, YYYY')}
                                         </span>
@@ -88,6 +92,8 @@ const Completed = props => {
                                     <DataModal
                                     item={itemInfo}
                                     show={modalShow}
+                                    status={'completed'}
+                                    upcoming={false}
                                     onHide={()=> setModalShow(false)}
                                     />
                                 </div>

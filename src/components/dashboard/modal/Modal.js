@@ -1,13 +1,17 @@
 import { Modal, Button } from 'react-bootstrap'
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 
-import { createCompleted, createCanceled, createNewWaste } from '../../../store/actions/index.js';
+import { createCompleted, createCanceled, createNewWaste, fetchPickUpById, createArchive } from '../../../store/actions/index.js';
 import Loading from '../../UI/loading/Loading.js';
+import { useHistory } from 'react-router-dom';
 
 
-function DataModal(props, type) {
+function DataModal(props) {
+    console.log(props)
+    const history = useHistory()
+    const {users} = useSelector(state => state)
     const dispatch = useDispatch();
 
     const handleCancel = () => {
@@ -23,6 +27,26 @@ function DataModal(props, type) {
             date_posted: props.item.date_posted
         }
         dispatch(createNewWaste(newPickup))
+    }
+
+    const handleArchive = () => {
+        let archiveObj = {
+            id: props.item.id,
+            date_posted: props.item.date_posted,
+            items: props.item.items,
+            pick_up_date: props.item.pick_up_date,
+            price: props.item.price,
+            producer_id: props.item.producer_id,
+            status: props.status,
+            transformer_id: props.item.transformer_id,
+            type: props.item.type,
+            userType: users.userData.type === 'wt'? 'transformer_id' : 'producer_id'
+        }
+
+        dispatch(createArchive(archiveObj))
+        .then(()=>{
+            history.push('/')
+        })
     }
 
     const handleComplete = () => {
@@ -95,13 +119,28 @@ function DataModal(props, type) {
             <button className="modal-button-style" onClick={() => {
                 props.onHide()
             }}>close</button>
+            {!props.upcoming?
             <button 
               className="modal-button-style" 
               style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} 
-              onClick={props.onHide}
+              onClick={handleArchive}
             >
                 archive
             </button>
+            :
+            <button 
+              className="modal-button-style" 
+              style={{backgroundColor: "#FF9B64", border: "1px solid #FF9B64"}} 
+              onClick={()=> {
+                dispatch(fetchPickUpById({id: props.item.id}))
+                .then(()=> {
+                    history.push('/pickup/view')
+                })
+              }}
+            >
+                view
+            </button>
+            }
         </div>
         }
         </Modal.Footer>

@@ -6,13 +6,33 @@ import Moment from 'moment';
 import {BsPerson, BsBell} from 'react-icons/bs';
 import { FcCheckmark } from 'react-icons/fc'
 
-import { createPickup } from '../../../../store/actions/index.js'
+import { createCanceled ,createPickup, createNewWaste,  } from '../../../../store/actions/index.js'
 import Loading from '../../../UI/loading/Loading';
 import EditWaste from '../edit/EditWaste.js'
 
 const ViewPickUp = props => {
     const history = useHistory();
+    const dispatch = useDispatch();
     const {pickup, users} = useSelector(state => state);
+
+    const handleCancel = item => {
+        dispatch(createCanceled(item))
+        let newPickup = {
+            type: item.type,
+            producer_id: item.producer_id,
+            address: item.address,
+            price: item.price,
+            items: item.items,
+            time_available: item.time_available,
+            exp: item.exp,
+            date_posted: item.date_posted
+        }
+        dispatch(createNewWaste(newPickup))
+        .then(()=> {
+            history.push('/')
+
+        })
+    }
 
 
     if(!pickup.currentPickUp.data){
@@ -86,7 +106,17 @@ const ViewPickUp = props => {
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/')
                         }}>Back</button>
-
+                        {users.userData.type === 'wt'?
+                        <button 
+                          className="pickup-book-btns" 
+                          style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                          onClick={()=> {
+                              handleCancel(pickup.currentPickUp.data[0])
+                          }}
+                        >
+                            Cancel Pick Up
+                        </button>
+                        :
                         <button 
                           className="pickup-book-btns" 
                           style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
@@ -96,7 +126,7 @@ const ViewPickUp = props => {
                         >
                             Edit
                         </button>
-
+                        }
                     </div>
                 </div>
             </div>

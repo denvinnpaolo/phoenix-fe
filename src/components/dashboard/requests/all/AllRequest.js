@@ -16,7 +16,7 @@ const AllRequest = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { available, users, view } = useSelector(state => state);
-    const [order, setOrder] = useState(true)
+    const [order, setOrder] = useState(true);
 
     let multiWastes = {}
 
@@ -232,13 +232,16 @@ const AllRequest = () => {
                                 >
                                     {view.postedById.data
                                         .sort((a,b) => order? Moment(a.exp).diff(Moment(b.exp)): Moment(b.exp).diff(Moment(a.exp)))
-                                        .map(item=>{
+                                        .map((item, i)=>{
                                         return( 
-                                            <div id="allreq-data-row" 
+                                            <div 
+                                              id="allreq-data-row" 
                                               className="clickable"
                                               onDoubleClick={()=> {
                                                 handleDBClick(item)
-                                            }}>
+                                              }}
+                                              key={i}
+                                            >
                                             <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             

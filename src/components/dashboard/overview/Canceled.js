@@ -1,17 +1,23 @@
-import { BiCalendarMinus } from 'react-icons/bi';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
-import {fetchCanceledByTI} from'../../../store/actions/index.js';
+import { BiCalendarMinus } from 'react-icons/bi';
 
+import {fetchCanceledByTI} from'../../../store/actions/index.js';
 import Loading from '../../UI/loading/Loading.js';
+import DataModal from '../modal/Modal.js'
 
 const Canceled = props => {
+    const [modalShow, setModalShow] = useState(false);
+
     const dispatch = useDispatch();
 
     const { canceled } = useSelector(state => state);
     const {type, id}= useSelector(state => state.users.userData);
+
+    const [itemInfo, setItemInfo] = useState(canceled.canceledData.data? canceled.canceledData.data[0]: null);
+
 
     useEffect(() => {
         if(type === 'wt'){
@@ -19,7 +25,7 @@ const Canceled = props => {
         } else if(type === 'wp'){
             dispatch(fetchCanceledByTI({producer_id: id}))
         }
-    },[dispatch, canceled.newCanceled])
+    },[dispatch, canceled.newCanceled ])
 
 
     if(!canceled.canceledData.data){
@@ -56,8 +62,14 @@ const Canceled = props => {
                                         return Moment(a.exp).isBetween(Moment(), Moment().add(30, 'd'))
                                     }
                                 })
-                                .map(item => 
-                                <div className="overview-data">
+                                .map((item, i)=> 
+                                <div className="overview-data"
+                                  onDoubleClick={()=> {
+                                      setModalShow(true) 
+                                      setItemInfo(item)
+                                  }}
+                                  key={i}
+                                >
                                     <div className="overview-inner-div">
                                         <span className="data">
                                             {Moment(item.exp).format('MMM. DD, YYYY')}
@@ -67,6 +79,13 @@ const Canceled = props => {
                                             {item.time_available}
                                         </span>
                                     </div> 
+                                    <DataModal
+                                    item={itemInfo}
+                                    show={modalShow}
+                                    status={'canceled'}
+                                    onHide={()=> setModalShow(false)}
+                                    upcoming={false}
+                                    />
                                 </div>
                                 )
                         }

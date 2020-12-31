@@ -121,7 +121,7 @@ const Home = () => {
                             <div id="pickup-header-container">
                             <div id="pickup-header-left">
                                 <div id="pickup-inner-left">
-                                    <span id="pickup-header-text">Recent Post</span>
+                                    <span id="pickup-header-text">Recent Posts</span>
                                     <Link to="/available/request/all" id="pickup-content-button" style={{textDecoration: "none", fontSize:'.6em', color: "black", textAlign: "center"}}>View All Requests</Link>
                                     <div id="pickup-map-link" onClick={ToMap}>
                                         

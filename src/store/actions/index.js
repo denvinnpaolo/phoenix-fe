@@ -61,7 +61,6 @@ export const CREATE_MULTIPICKUP_START = 'CREATE_MULTIPICKUP_START';
 export const CREATE_MULTIPICKUP_SUCCESS = 'CREATE_MULTIPICKUP_SUCCESS';
 export const CREATE_MULTIPICKUP_FAILURE = 'CREATE_MULTIPICKUP_FAILURE';
 
-
 export const CREATE_COMPLETED_START = 'CREATE_COMPLETED_START';
 export const CREATE_COMPLETED_SUCCESS = 'CREATE_COMPLETED_SUCCESS';
 export const CREATE_COMPLETED_FAILURE = 'CREATE_COMPLETED_FAILURE';
@@ -69,6 +68,14 @@ export const CREATE_COMPLETED_FAILURE = 'CREATE_COMPLETED_FAILURE';
 export const CREATE_CANCELED_START = 'CREATE_CANCELED_START';
 export const CREATE_CANCELED_SUCCESS = 'CREATE_CANCELED_SUCCESS';
 export const CREATE_CANCELED_FAILURE = 'CREATE_CANCELED_FAILURE';
+
+export const CREATE_ARCHIVED_START = 'CREATE_ARCHIVED_START';
+export const CREATE_ARCHIVED_SUCCESS = 'CREATE_ARCHIVED_SUCCESS';
+export const CREATE_ARCHIVED_FAILURE = 'CREATE_ARCHIVED_FAILURE';
+
+export const FETCH_ARCHIVED_FAILURE = 'FETCH_ARCHIVED_FAILURE';
+export const FETCH_ARCHIVED_LOADING = 'FETCH_ARCHIVED_LOADING';
+export const FETCH_ARCHIVED_SUCCESS = 'FETCH_ARCHIVED_SUCCESS';
 
 export const FETCH_VIEWBYID_FAILURE = 'FETCH_VIEWBYID_FAILURE';
 export const FETCH_VIEWBYID_LOADING = 'FETCH_VIEWBYID_LOADING';
@@ -79,7 +86,7 @@ export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
 
 
-const host = 'http://localhost:25060';
+const host = 'http://104.131.164.155:25060';
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -206,6 +213,21 @@ export const fetchCanceledByTI = id => dispatch => {
     )
 };
 
+export const fetchArchive = id => dispatch => {
+    dispatch({ type: FETCH_ARCHIVED_LOADING })
+    return(
+        axiosWithAuth()
+        .post(`${host}/organic-waste/search-by/archive`, id)
+        .then(response => {
+            dispatch({
+                type: FETCH_ARCHIVED_SUCCESS,
+                payload: response.data
+            })
+        })
+        .catch(err => dispatch({ type: FETCH_ARCHIVED_FAILURE, payload: err}))
+    )
+}
+
 export const fetchAvailById = id => dispatch => {
     dispatch({ type: FETCH_AVAILBYID_LOADING })
     return(
@@ -327,7 +349,22 @@ export const createCanceled = waste => dispatch => {
     )
 };
 
-// WASTE PRODUCER 
+export const createArchive = archiveObj => dispatch => {
+    dispatch({ type: CREATE_ARCHIVED_START })
+    return(
+        axiosWithAuth()
+        .post(`${host}/organic-waste/to-archive`, archiveObj)
+        .then(response => {
+            dispatch({
+                type: CREATE_ARCHIVED_SUCCESS,
+                payload: response.data
+            })
+        })
+        .catch(err => dispatch({ type: CREATE_ARCHIVED_FAILURE, payload: err}))
+    )
+}
+
+// WASTE PRODUCER ONLY
 export const viewPostedById = id => dispatch => {
     dispatch({ type: FETCH_VIEWBYID_LOADING })
     return(

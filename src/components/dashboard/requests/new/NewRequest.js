@@ -97,9 +97,12 @@ const NewRequest = props => {
                                 .slice(0,6)
                                 .map((item,i)=>{
                                     return( 
-                                        <div className="overview-datarow" onDoubleClick={()=> {
+                                        <div className="overview-datarow" 
+                                          onDoubleClick={()=> {
                                             handleDBClick(item)
-                                        }}>
+                                          }}
+                                          key={i}
+                                        >
                                             <span className="allreq-data">{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             
@@ -169,11 +172,14 @@ const NewRequest = props => {
                                     return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                 }
                             })
-                            .map(item=>{
+                            .map((item, i)=>{
                             return( 
-                                <div className="overview-datarow" onDoubleClick={()=> {
+                                <div className="overview-datarow" 
+                                  onDoubleClick={()=> {
                                     handleDBClick(item)
-                                }}>
+                                  }}
+                                  key={i}
+                                >
                                 <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.exp).format('MMM. DD, YYYY')}</span>
                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                 

@@ -71,13 +71,15 @@ const Upcoming = props => {
                                     }
                                 })
                                 .slice(0,15)
-                                .map(item => 
-                                  <div className="overview-data" 
+                                .map((item, i)=> 
+                                  <div 
+                                    className="overview-data" 
                                     onDoubleClick={()=> {
                                         setModalShow(true) 
                                         setItemInfo(item)
-                                    }
-                                  }>
+                                    }}
+                                    key={i}
+                                  >
                                     <div className="overview-inner-div">
                                         <span className="data">
                                             {Moment(item.exp).format('MMM. DD, YYYY')}
@@ -92,6 +94,7 @@ const Upcoming = props => {
                                         item={itemInfo}
                                         type={type}
                                         show={modalShow}
+                                        upcoming={true}
                                         onHide={()=> setModalShow(false)}
                                         />
                                     </div>
