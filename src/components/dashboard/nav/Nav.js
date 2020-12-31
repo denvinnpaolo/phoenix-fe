@@ -107,7 +107,7 @@ const Nav = props => {
                 {expand.home?
                     <div style={{textDecoration: "none", height:"52%"}} id="nav-inner-home">
                         <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>
-                        <Link to="/about" style={{textDecoration: "none"}} className="nav-inner-btns">About</Link>
+                        <Link to="/dashboard/about" style={{textDecoration: "none"}} className="nav-inner-btns">About</Link>
                         <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact</Link>
                         <Link to="/archives" style={{textDecoration: "none"}} className="nav-inner-btns">Archive</Link>
 

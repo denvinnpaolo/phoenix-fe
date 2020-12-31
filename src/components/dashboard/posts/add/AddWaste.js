@@ -16,7 +16,7 @@ const AddWaste = () => {
 
     const {userData} = useSelector(state => state.users)
 
-    const [newPickUp, setNewPickUp] = useState(!userData.company_address? null: {
+    const [newPickUp, setNewPickUp] = useState(!userData? null: {
         "date_posted": date,
         "price":"",
         "exp": "",
@@ -53,7 +53,7 @@ const AddWaste = () => {
         }    
     };
 
-    if(!userData.id){
+    if(!userData){
         return <Loading />
     } else {
         return(

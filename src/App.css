@@ -1213,6 +1213,119 @@ option {
   background-position: -100% 100%;
 }
 
+
+/* DASHBOARD ABOUT */
+
+#about-page-dash {
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 100%;
+}
+
+#about-dashcontent-container {
+  height:100%;
+}
+#about-content-start {
+
+  display: flex;
+  height: 55%;
+}
+
+#about-dashcontent-texts{
+  display: flex;
+  align-items: flex-end;
+
+  height: 100%;
+  width: 50%;
+}
+
+#about-dashcontent-innertexts{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 90%;
+  width: 95%;
+}
+#about-content-txt{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+}
+
+#about-content-img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* border: 1px solid green; */
+  height: 100%;
+  width: 50%;
+}
+
+.about-dashstart-txt {
+  font-size: 1em;
+  letter-spacing: .06em;
+}
+
+#about-subheader-container{
+  width: 100%;
+  height: 8%;
+}
+
+#about-subheader-texts{
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 15%;
+  height: 100%;
+}
+
+#about-icons-dash {
+  height: 37%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#about-content-icons{
+  display: flex;
+  justify-content: space-between;
+
+  height: 90%;
+  width: 90%;
+}
+
+.about-icons-headers{
+  display: flex;
+  flex-direction:column ;
+  height: 30%;
+}
+
+.about-icons-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 80%;
+  height: 65%;
+}
+
+.about-content-icon {
+  box-shadow: 0px 5px 17px 0px rgb(255, 207, 184);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 32%;
+  height: 100%;
+}
+
+
 /* UPCOMING/COMPLETE/CANCELED COMPONENTS */
 
 #overview-circular-iconbg {

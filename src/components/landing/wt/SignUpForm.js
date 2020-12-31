@@ -27,7 +27,7 @@ const SignUpForm = props => {
         type: type,
         company_name:'',
         company_size: '',
-        company_type: "transformer",
+        company_type: '',
         website: '',
         company_address: '',
         company_phone:'',

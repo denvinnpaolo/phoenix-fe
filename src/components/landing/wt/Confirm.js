@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Confirm = props => {
+    console.log(props)
 
 
     return(
@@ -10,10 +11,14 @@ const Confirm = props => {
                 <div className="confirm-label">COMPANY NAME:</div>
                 <div className="confirm-value">{props.values.company_name}</div>
             </div>
+            {props.company_type === ''?
+            null
+            :
             <div className="confirm-field">
                 <div className="confirm-label">COMPANY TYPE:</div>
                 <div className="confirm-value">{props.values.category}</div>
             </div>
+            }
             <div className="confirm-field">
                 <div className="confirm-label">COMPANY SIZE:</div>
                 <div className="confirm-value">{props.values.company_size}</div>

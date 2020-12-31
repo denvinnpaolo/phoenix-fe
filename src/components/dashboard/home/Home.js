@@ -129,7 +129,11 @@ const Home = () => {
                                 </div>
                             </div>
                             <div id="pickup-header-right" style={{display:'flex'}}>
-                            <BsPlus className="clickable" size={'1.5em'} onClick={()=>{history.push('/available/add')}}/>
+                            <BsPlus className="clickable" size={'1.5em'} 
+                                onClick={()=>{
+                                    history.push('/available/add')}
+                                }
+                            />
                             </div>
                         </div>
                         }

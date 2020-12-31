@@ -94,7 +94,7 @@ const NewRequest = props => {
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                     }
                                 })
-                                .slice(0,6)
+                                .slice(0,10)
                                 .map((item,i)=>{
                                     return( 
                                         <div className="overview-datarow" 
