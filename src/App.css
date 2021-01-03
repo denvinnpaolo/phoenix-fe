@@ -505,6 +505,42 @@
 }
 
 
+/* MAIN PAGE CONTACT */
+
+#main-contact-container{
+  height: 100vh;
+}
+
+#contact-texts-cont{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  height: 30%;
+}
+
+#contact-header-cont{
+  border: 1px solid red;
+  height: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+#contact-header-text{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border: 1px solid purple;
+  height:71%;
+  width: 17.6%;
+}
+
+#contact-header{
+  display: flex;
+  /* justify-content: center; */
+  border: 1px solid green;
+}
+
 /* LANDING PAGE ROOT */
 
 #register-container {
@@ -749,10 +785,6 @@ option {
   justify-content: flex-start;
   border-bottom: 1px solid gray;
 }
-
-
-
-
 
 /* LOGIN */
 

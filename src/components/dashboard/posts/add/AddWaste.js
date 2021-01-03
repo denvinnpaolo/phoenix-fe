@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+
 import Loading from '../../../UI/loading/Loading.js';
 
 import {FcCheckmark} from 'react-icons/fc';
 import { BsBell, BsPerson } from 'react-icons/bs';
-import { createNewWaste } from '../../../../store/actions/index.js';
+import { createNewWaste, fetchUser } from '../../../../store/actions/index.js';
 
 const AddWaste = () => {
     const history = useHistory();
@@ -14,7 +16,13 @@ const AddWaste = () => {
     const today = new Date
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-    const {userData} = useSelector(state => state.users)
+    let {userData} = useSelector(state => state);
+
+
+    if(userData === undefined) {
+        let token = window.localStorage.getItem('token');
+        userData= jwt_decode(token)
+    }
 
     const [newPickUp, setNewPickUp] = useState(!userData? null: {
         "date_posted": date,
@@ -45,12 +53,14 @@ const AddWaste = () => {
             }
         );
     
-        if(newPickUp === null){
-            return null
-        } else {
-            dispatch(createNewWaste(newPickUp))
-            setConfirm(!confirm)
-        }    
+        console.log(userData)
+        console.log(newPickUp)
+        // if(newPickUp === null){
+        //     return null
+        // } else {
+        //     dispatch(createNewWaste(newPickUp))
+        //     setConfirm(!confirm)
+        // }    
     };
 
     if(!userData){
