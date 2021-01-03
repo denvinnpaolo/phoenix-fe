@@ -6,10 +6,11 @@ const CompanyInfo = props => {
     const [company, setCompany] = useState({
         company_name: props.values.company_name,
         company_size: props.values.company_size,
-        category: type === 'wp'?  props.values.category : null,
         website: props.values.website,
-        company_address: props.values.company_address,
-        company_phone: props.values.company_phone
+        address: props.values.address,
+        city: props.values.city,
+        state: props.values.state,
+        country: props.values.country
     });
 
     const handleChange = e => {
@@ -40,21 +41,6 @@ const CompanyInfo = props => {
                         onChange={handleChange}
                     />
                 </div>
-                {type === 'wp'? <div className="companyinfo-inputs-cont">
-                <span>COMPANY TYPE</span>
-                <select  
-                    className="register-inputs"
-                    name="category"
-                    value={company.category}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                >
-                    <option></option>
-                    <option className="registration-form-option" value="restaurant">Restaurant</option>
-                    <option value="hospital">Hospital</option>
-                    <option value="business">Business</option>
-                </select>
-                </div> : null}
                 <div className="companyinfo-inputs-cont">
                     <span>COMPANY SIZE</span>
                     <input 
@@ -77,21 +63,42 @@ const CompanyInfo = props => {
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">
-                    <span>COMPANY ADDRESS</span>
+                    <span>ADDRESS</span>
                     <input 
                         className="register-inputs"
-                        name="company_address"
-                        value={company.company_address}
+                        name="address"
+                        value={company.address}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                </div>
+                
+                <div className="companyinfo-inputs-cont">
+                    <span>CITY</span>
+                    <input 
+                        className="register-inputs"
+                        name="city"
+                        value={company.city}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
                 </div>
                 <div className="companyinfo-inputs-cont">
-                    <span>COMPANY PHONE</span>
+                    <span>STATE</span>
                     <input 
                         className="register-inputs"
-                        name="company_phone"
-                        value={company.company_phone}
+                        name="state"
+                        value={company.state}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                    />
+                </div>
+                <div className="companyinfo-inputs-cont">
+                    <span>COUNTRY</span>
+                    <input 
+                        className="register-inputs"
+                        name="country"
+                        value={company.country}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />

@@ -29,11 +29,7 @@ const Confirm = props => {
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">COMPANY ADDRESS:</div>
-                <div className="confirm-value">{props.values.company_address}</div>
-            </div>
-            <div className="confirm-field">
-                <div className="confirm-label">COMPANY PHONE:</div>
-                <div className="confirm-value">{props.values.phone}</div>
+                <div className="confirm-value">{`${props.values.address}, ${props.values.city}, ${props.values.state}, ${props.values.country}`}</div>
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">NAME:</div>
@@ -49,7 +45,7 @@ const Confirm = props => {
             </div>
             <div className="confirm-field">
                 <div className="confirm-label">PASSWORD</div>
-                <div className="confirm-value">●●●●●●●●</div>
+                <div className="confirm-value">{"●".repeat(props.values.password.length)}</div>
             </div>
             </div>
         </div>
