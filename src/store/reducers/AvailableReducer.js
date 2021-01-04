@@ -7,7 +7,8 @@ import {
     FETCH_MULTIAVAIL_LOADING,
     CREATE_NEWWASTE_FAILURE,
     CREATE_NEWWASTE_START,
-    CREATE_NEWWASTE_SUCCESS
+    CREATE_NEWWASTE_SUCCESS,
+    UNFETCH_USER_SUCCESS
 } from '../actions/index.js'
 
 
@@ -21,6 +22,8 @@ const initalState ={
 
 function AvailableReducer(state = initalState, action) {
     switch(action.type) {
+        case UNFETCH_USER_SUCCESS:
+            return initalState
         case FETCH_AVAILABLE_LOADING:
             return {
                 ...state,
@@ -72,6 +75,7 @@ function AvailableReducer(state = initalState, action) {
                 error: action.payload,
                 isFetching: false
             }
+
         default:
             return state
     }

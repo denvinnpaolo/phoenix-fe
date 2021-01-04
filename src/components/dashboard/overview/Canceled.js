@@ -14,7 +14,7 @@ const Canceled = props => {
     const dispatch = useDispatch();
 
     const { canceled } = useSelector(state => state);
-    const {type, id}= useSelector(state => state.users.userData);
+    const {type, id}= useSelector(state => state.users.userData.userdata);
 
     const [itemInfo, setItemInfo] = useState(canceled.canceledData.data? canceled.canceledData.data[0]: null);
 

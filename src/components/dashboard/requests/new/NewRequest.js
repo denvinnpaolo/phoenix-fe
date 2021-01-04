@@ -84,7 +84,7 @@ const NewRequest = props => {
                             scrollableTarget="pickup-overview-tbl"
                         >
                             {available.availableData.data
-                                .sort((a,b) => Moment(b.exp).diff(Moment(a.exp)))
+                                .sort((a,b) => Moment(b.id).diff(Moment(a.id)))
                                 .filter(a => {
                                     if(props.sort.today){
                                         return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
@@ -162,7 +162,7 @@ const NewRequest = props => {
                         scrollableTarget="pickup-overview-tbl"
                     >
                         {view.postedById.data
-                            .sort((a,b) => Moment(b.exp).diff(Moment(a.exp)))
+                            .sort((a,b) => Moment(b.id).diff(Moment(a.id)))
                             .filter(a => {
                                 if(props.sort.today){
                                     return new Date(Moment()).setHours(0,0,0,0) - new Date(Moment(a.exp)).setHours(0,0,0,0) == 0
@@ -172,6 +172,7 @@ const NewRequest = props => {
                                     return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
                                 }
                             })
+                            .slice(0,8)
                             .map((item, i)=>{
                             return( 
                                 <div className="overview-datarow" 

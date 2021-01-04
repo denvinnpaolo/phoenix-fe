@@ -13,7 +13,8 @@ import {
     CREATE_MULTIPICKUP_SUCCESS,
     UPDATE_POST_FAILURE,
     UPDATE_POST_START,
-    UPDATE_POST_SUCCESS
+    UPDATE_POST_SUCCESS,
+    UNFETCH_USER_SUCCESS
 } from '../actions/index.js';
 
 const initalState ={
@@ -29,6 +30,8 @@ const initalState ={
 
 function PickupReducer(state = initalState, action) {
     switch(action.type) {
+        case UNFETCH_USER_SUCCESS:
+            return initalState
         case FETCH_PICKUP_LOADING:
             return {
                 ...state,

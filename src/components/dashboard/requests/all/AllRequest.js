@@ -24,28 +24,30 @@ const AllRequest = () => {
         dispatch(fetchAvailable())
     },[dispatch]);
 
-    useEffect(()=> {
-        dispatch(viewPostedById({id:users.userData.id}))
-    },[dispatch]);
+   
 
     const handleDBClick = item => {
         if(!item.transformer_id){
-            if(users.userData.type==='wt'){
+            if(users.userData.userdata.type==='wt'){
                 dispatch(fetchAvailById({id: item.id}))
-            } else if(users.userData.type === 'wp'){
+            } else if(users.userData.userdata.type === 'wp'){
                 dispatch(fetchAvailById({producer_id: item.id}))
             }
             history.push('/available/schedule')
         } else {
 
-            if(users.userData.type==='wt'){
+            if(users.userData.userdata.type==='wt'){
                 dispatch(fetchPickUpById({id: item.id}))
-            } else if(users.userData.type === 'wp'){
+            } else if(users.userData.userdata.type === 'wp'){
                 dispatch(fetchPickUpById({id: item.id}))
             }
             history.push('/pickup/view')
         }
-    }
+    };
+
+    useEffect(()=> {
+        dispatch(viewPostedById({id:users.userData.userdata.id}))
+    },[dispatch, users]);
 
     const handleCheck = item => {
         if(multiWastes[item.id.toString()]){
@@ -65,12 +67,12 @@ const AllRequest = () => {
     if(!view.postedById.data  && !available.availableData.data ){
         return <Loading />
     } else {
-        if(users.userData.type==='wt'){
+        if(users.userData.userdata.type==='wt'){
             return(
                 <div id="all-req-container">
                     <div id="welcome-header-container">
                         <div id="welcome-header-text">
-                            <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
+                            <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
                         </div>
                         <div id="welcome-header-alerts">
                             <BsBell className="clickable clickable-icons-res" size="1.1em" />
@@ -173,7 +175,7 @@ const AllRequest = () => {
             <div id="all-req-container">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
+                        <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
                     </div>
                     <div id="welcome-header-alerts">
                         <BsBell className="clickable clickable-icons-res" size="1.1em" />

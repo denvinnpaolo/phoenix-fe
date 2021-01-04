@@ -27,11 +27,11 @@ const Home = () => {
         active: "week"
     })
 
-    let  userData = useSelector(state => state.users.userData);
+    let  {userData} = useSelector(state => state.users);
 
     let multiWastes ={}
 
-    if(userData.userdata === undefined) {
+    if(userData === undefined) {
         let token = window.localStorage.getItem('token');
         userData={
             userdata:jwt_decode(token)

@@ -19,7 +19,7 @@ const Completed = props => {
     const dispatch = useDispatch();
 
     const { completed } = useSelector(state => state)
-    const {id, type} = useSelector(state => state.users.userData);
+    const {id, type} = useSelector(state => state.users.userData.userdata );
     const [itemInfo, setItemInfo] = useState(completed.completedData.data? completed.completedData.data[0]: null);
 
 

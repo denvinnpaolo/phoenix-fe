@@ -19,7 +19,7 @@ const Upcoming = props => {
 
     const {pickup, completed, canceled} = useSelector(state => state);
 
-    const { id, type }= useSelector(state => state.users.userData);
+    const { id, type }= useSelector(state => state.users.userData.userdata);
 
     const [itemInfo, setItemInfo] = useState(pickup.pickupData.data? pickup.pickupData.data[0]: null);
 
