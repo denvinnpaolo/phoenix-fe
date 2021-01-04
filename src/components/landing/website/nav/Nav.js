@@ -9,7 +9,7 @@ const Nav = () => {
     return(
         <div id="main-nav-container">
             <div id="main-logo-container">
-                <img src={OuroLogo} onClick={()=> {history.push('/')}} style={{maxWidth:"100%",height:"3em", objectFit: "contain"}} />
+                <img id="website-nav-appname" src={OuroLogo} onClick={()=> {history.push('/')}} style={{maxWidth:"100%",height:"3em", objectFit: "contain"}} />
             </div>
         
         <div id="main-nav-btns">

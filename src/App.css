@@ -1817,19 +1817,89 @@ option {
 
 @media screen and (max-width: 1200px) and (min-width: 800px){
 
-
-  .nav-inner-btns {
-
-    font-size: .7em;
+  .clickable-icons-res{
+    height: 1.3em !important;
   }
 
-  #nav-inner-searchTI {
+  /* WEBSITE */
 
+  #website-nav-appname{
+    height: 2.3em !important;
+  }
+
+  .main-nav-btn{
+    font-size: 0.5em;
+  }
+
+  .main-join-btn{
     font-size: .6em;
   }
 
-  .clickable-icons-res{
-    height: 1.3em !important;
+
+  #main-top-img{
+    height: 18em !important;
+    padding-left: 5%;
+  }
+
+  #main-top-header{
+    font-size: 2em !important;
+  }
+
+  #main-content1-div{
+    height: 65%;
+  }
+
+  .main-content1-regtxt {
+    /* letter-spacing: 0em; */
+    font-size: .95em;
+  }
+
+  .main-join-btn{
+    height: 45% !;
+  }
+
+  .main-content2-regtxt{
+    font-size: .95em;
+  }
+
+  .main-content2-btmheader{
+    font-size: 1.2em !important;
+  }
+
+  #main-content2-btm{
+    align-items: flex-end;
+  }
+
+  .main-content2-scrnshots{
+    display: flex;
+    align-items: flex-end;
+    height: 80%;
+  }
+
+  .main-content2-scrnshots2{
+    height: 80%;
+    font-size: .9em;
+  }
+
+  #main-join-btnres{
+    height: 20% !important;
+    font-size: .9em !important;
+  }
+
+  #main-content3-topjoin{
+    height: 25vh;
+  }
+  
+  .main-content4-regtxt{
+    font-size: .95em !important;
+  }
+
+  .main-content4-icon{
+    height: 80%;
+  }
+
+  .main-content4-headerres{
+    font-size: .8em !important;
   }
 
   /*REGISTER*/
@@ -1891,6 +1961,18 @@ option {
 
   #dash-component-header{
     font-size: 1.5em;
+  }
+
+  /* DASH NAVIGATION */
+
+  .nav-inner-btns {
+
+    font-size: .7em;
+  }
+
+  #nav-inner-searchTI {
+
+    font-size: .6em;
   }
 
   /* OVERVIEW */

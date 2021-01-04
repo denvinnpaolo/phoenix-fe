@@ -24,12 +24,12 @@ const Main = () => {
 
             <div id="main-content1-container">
                 <div className="main-content1-contents">
-                    <img src={Content1IMG} style={{objectFit: "contain", height: "23em", }}/>
+                    <img id="main-top-img" src={Content1IMG} style={{objectFit: "contain", height: "23em", }}/>
                 </div>
                 <div className="main-content1-contents">
                     <div id="main-content1-texts">
                         <div id="main-content1-div">
-                            <span style={{fontSize: "3em", fontWeight: "bolder", letterSpacing: ".04em"}}>Rethinking Food Waste</span>
+                            <span id="main-top-header" style={{fontSize: "3em", fontWeight: "bolder", letterSpacing: ".04em"}}>Rethinking Food Waste</span>
                             <span className="main-content1-regtxt">Our mission is to help divert food waste from landfills to initiatives coverting food waste in high value products and goods.</span>
                             <span className="main-content1-regtxt">Ouro is a platform that helps businesses reprocessing food waste into new products and good source waste for their operations.</span>
                             <div id="main-content1-btncont">
@@ -44,7 +44,7 @@ const Main = () => {
                     <div id="main-content2-texts">
                         <div id="main-content2-toptxt">
                             <div id="main-content2-innertxt">
-                            <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".04em"}}>Is Your Company A Waste Transfomer?</span>
+                            <span id="main-top-header" style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".04em"}}>Is Your Company A Waste Transfomer?</span>
                             <span className="main-content2-regtxt">
                                 Your operations can scale significantly with increased access to food waste.
                                 That's why we built this platform just for you.
@@ -56,7 +56,7 @@ const Main = () => {
                             </div>
                         </div>
                         <div id="main-content2-btmtxt">
-                            <span style={{fontSize: "1.5em", fontWeight: "bolder", letterSpacing: ".05em"}}>Get started</span>
+                            <span className="main-content2-btmheader" style={{fontSize: "1.5em", fontWeight: "bolder", letterSpacing: ".05em"}}>Get started</span>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ const Main = () => {
             </div>
 
             <div id="main-content3-topjoin">
-                <button className="main-join-btn" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wt-register')}>JOIN OURO</button>
+                <button className="main-join-btn" id="main-join-btnres" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wt-register')}>JOIN OURO</button>
             </div>
 
             <div id="main-content4-container">
@@ -81,14 +81,14 @@ const Main = () => {
                     <div id="main-content4-texts">
                         <div id="main-content4-toptxt">
                             <div id="main-content4-innertxt">
-                                <span style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".05em"}}>Are You A Waste Producer?</span>
+                                <span id="main-top-header" style={{fontSize: "3em", fontWeight: "bold", letterSpacing: ".05em"}}>Are You A Waste Producer?</span>
                                 <span className="main-content4-regtxt">
                                     Ouro Offers avenues where food waste can be diverted towards, to be repurposed into new products and goods, which reduces your costs and benefits the environment.
                                 </span>
                             </div>
                         </div>
                         <div id="main-content4-btmtxt">
-                            <span style={{fontSize: "1.5em", fontWeight: "bolder", letterSpacing: ".05em"}}>Benefits</span>
+                            <span className="main-content2-btmheader" style={{fontSize: "1.5em", fontWeight: "bolder", letterSpacing: ".05em"}}>Benefits</span>
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@ const Main = () => {
                             <img src={PRODUCER1} style={{height: "100%", width:"100%"}} />
                         </div>
                         <div className="main-content4-textcont">
-                            <span style={{fontWeight: "bold", fontSize: "1.4em"}}>FOOD WASTE DIVERSION</span>
-                            <span className="main-content4-icontext2">53% of all food produced in Canada ends up in landFills</span>
+                            <span className="main-content4-headerres" style={{fontWeight: "bold", fontSize: "1.4em"}}>FOOD WASTE DIVERSION</span>
+                            <span className="main-content4-icontext2 main-content4-headerres">53% of all food produced in Canada ends up in landFills</span>
                         </div>
                         </div>
                     <div className="main-content4-icon">
@@ -108,8 +108,8 @@ const Main = () => {
                             <img src={PRODUCER2} style={{height: "100%", width:"100%"}} />
                         </div>
                         <div className="main-content4-textcont">
-                            <span style={{fontWeight: "bold", fontSize: "1.4em"}}>WASTE SAVINGS</span>
-                            <span className="main-content4-icontext2">Save on waste collection cost</span>
+                            <span className="main-content4-headerres" style={{fontWeight: "bold", fontSize: "1.4em"}}>WASTE SAVINGS</span>
+                            <span className="main-content4-icontext2 main-content4-headerres">Save on waste collection cost</span>
                         </div>
                     </div>
                     <div className="main-content4-icon">
@@ -117,14 +117,14 @@ const Main = () => {
                             <img src={PRODUCER3} style={{height: "100%", width:"100%"}} />
                         </div>
                         <div className="main-content4-textcont">
-                            <span style={{fontWeight: "bold", fontSize: "1.4em"}}>SUSTAINABILITY</span>
-                            <span className="main-content4-icontext2">Reduce CO2 emissions from landfills</span>
+                            <span className="main-content4-headerres" style={{fontWeight: "bold", fontSize: "1.4em"}}>SUSTAINABILITY</span>
+                            <span className="main-content4-icontext2 main-content4-headerres">Reduce CO2 emissions from landfills</span>
                         </div>
                     </div>
                 </div>
 
                 <div id="main-content3-topjoin">
-                    <button className="main-join-btn" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wp-register')}>JOIN OURO</button>
+                    <button className="main-join-btn" id="main-join-btnres" style={{height: "23%", fontSize:"1.12em", width: "13%", borderRadius: "20px"}} onClick={()=> history.push('/welcome/wp-register')}>JOIN OURO</button>
                 </div>
 
                 <Footer />
