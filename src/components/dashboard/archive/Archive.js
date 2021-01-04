@@ -20,10 +20,10 @@ const Archive = () => {
     const [order, setOrder] = useState(true);
 
     useEffect(()=>{
-        if(users.userData.type==='wp'){
-            dispatch(fetchArchive({producer_id: users.userData.id}))
-        } else if(users.userData.type==='wt'){
-            dispatch(fetchArchive({transformer_id: users.userData.id}))
+        if(users.userData.userdata.type==='wp'){
+            dispatch(fetchArchive({producer_id: users.userData.userdata.id}))
+        } else if(users.userData.userdata.type==='wt'){
+            dispatch(fetchArchive({transformer_id: users.userData.userdata.id}))
         }
     },[dispatch, newArchive])
 
@@ -38,7 +38,7 @@ const Archive = () => {
             <div id="all-req-container">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
+                        <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
                     </div>
                     <div id="welcome-header-alerts">
                         <BsBell size="1.1em" />

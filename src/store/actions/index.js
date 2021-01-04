@@ -86,8 +86,8 @@ export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
 
 
-const host = 'http://104.131.164.155:25060';
-// const host = 'http://localhost:25060'
+// const host = 'http://104.131.164.155:25060';
+const host = 'http://localhost:25060'
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -107,6 +107,7 @@ export const fetchUser = user => dispatch => {
 
 export const unfetchUser = () => dispatch => {
     dispatch({ type: UNFETCH_USER_LOADING });
+    dispatch({ type: "RESET"})
     return(
         axiosWithAuth()
             .get(`${host}`)
@@ -370,7 +371,7 @@ export const viewPostedById = id => dispatch => {
     dispatch({ type: FETCH_VIEWBYID_LOADING })
     return(
         axiosWithAuth()
-        .post(`${host}/organic-waste/search-by/id`,id)
+        .post(`${host}/organic-waste/search-by/id`,{id: 2})
         .then(response => {
             dispatch({
                 type: FETCH_VIEWBYID_SUCCESS,

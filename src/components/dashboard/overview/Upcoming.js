@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Moment from 'moment';
 import InfiniteScroll from "react-infinite-scroll-component";
+import jwt_decode from 'jwt-decode';
 
 
 import { BiCalendarExclamation } from 'react-icons/bi';
@@ -16,6 +17,16 @@ const Upcoming = props => {
     const [modalShow, setModalShow] = useState(false);
 
     const dispatch = useDispatch();
+
+    // let  {userData} = useSelector(state => state.users);
+
+    
+    // if(userData.name === undefined) {
+    //     let token = window.localStorage.getItem('token');
+
+    //     userData=jwt_decode(token)
+    
+    // }
 
     const {pickup, completed, canceled} = useSelector(state => state);
 

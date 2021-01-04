@@ -19,8 +19,10 @@ const Login = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(fetchUser(user));
-        history.push('/home')
+        dispatch(fetchUser(user))
+        .then(()=> {
+            history.push('/home')
+        })
     };
 
     return (

@@ -9,7 +9,6 @@ import { useHistory } from 'react-router-dom';
 
 
 function DataModal(props) {
-    console.log(props)
     const history = useHistory()
     const {users} = useSelector(state => state)
     const dispatch = useDispatch();

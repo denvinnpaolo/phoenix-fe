@@ -42,7 +42,7 @@ const ViewPickUp = props => {
             <div id="pickup-book-cont">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
+                        <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
 
                     </div>
                     <div id="welcome-header-alerts">

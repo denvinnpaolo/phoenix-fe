@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import jwt_decode from 'jwt-decode';
 
 import Nav from './nav/Nav.js'
 import Home from './home/Home.js'
@@ -17,6 +19,15 @@ import About from './about/About.js'
 
 
 const Dashboard = () => {
+    // let  {userData} = useSelector(state => state.users);
+
+    
+    // if(userData.name === undefined) {
+    //     let token = window.localStorage.getItem('token');
+
+    //     userData=jwt_decode(token)
+    
+    // }
  
     return(
         <div id='dashboard-container'>

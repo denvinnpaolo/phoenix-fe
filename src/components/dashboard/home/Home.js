@@ -19,6 +19,16 @@ const Home = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    let  {userData} = useSelector(state => state.users);
+
+    
+    // if(userData.userdata.name === undefined) {
+    //     let token = window.localStorage.getItem('token');
+
+    //     userData=jwt_decode(token)
+    
+    // }
+
 
     const [overviewChoices, setOverviewChoices] = useState({
         today: false,
@@ -27,16 +37,9 @@ const Home = () => {
         active: "week"
     })
 
-    let  {userData} = useSelector(state => state.users);
-
     let multiWastes ={}
 
-    if(userData === undefined) {
-        let token = window.localStorage.getItem('token');
-        userData={
-            userdata:jwt_decode(token)
-        };
-    }
+    
     
 
     const activeCat = e => {

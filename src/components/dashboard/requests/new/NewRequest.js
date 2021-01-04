@@ -19,23 +19,25 @@ const NewRequest = props => {
 
 
     useEffect(() => {
-        dispatch(viewPostedById({id:users.userData.id}))
-        dispatch(fetchAvailable())
-    },[dispatch, canceled.newCanceled]);
+        if(users.userData.userdata.type==='wp'){
+            dispatch(viewPostedById({id:users.userData.userdata.id}))
+        } else if (users.userData.userdata.type==='wt'){
+            dispatch(fetchAvailable())
+        }
+    },[dispatch, canceled.newCanceled, users]);
 
     const handleDBClick = item => {
         if(!item.transformer_id){
-            if(users.userData.type==='wt'){
+            if(users.userData.userdata.type==='wt'){
                 dispatch(fetchAvailById({id: item.id}))
-            } else if(users.userData.type === 'wp'){
+            } else if(users.userData.userdata.type === 'wp'){
                 dispatch(fetchAvailById({producer_id: item.id}))
             }
             history.push('/available/schedule')
         } else {
-
-            if(users.userData.type==='wt'){
+            if(users.userData.userdata.type==='wt'){
                 dispatch(fetchPickUpById({id: item.id}))
-            } else if(users.userData.type === 'wp'){
+            } else if(users.userData.userdata.type === 'wp'){
                 dispatch(fetchPickUpById({id: item.id}))
             }
             history.push('/pickup/view')
@@ -50,10 +52,10 @@ const NewRequest = props => {
         }
     }
 
-    if(!available.availableData.data && !users.userData.type && !view.postedById ){
+    if(!available.availableData.data && !users.userData.userdata && !view.postedById ){
         return <Loading />
     } else {
-        if(users.userData.type === 'wt'){
+        if(users.userData.userdata.type === 'wt'){
             return(
                 <div id="pickup-overview-tbl">
                     <div id="allreq-data-labels">

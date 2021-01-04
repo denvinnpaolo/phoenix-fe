@@ -26,7 +26,7 @@ const PickupBook = props => {
             "address": availbyid.currentAvail.data[0][0].address,
             "price": availbyid.currentAvail.data[0][0].price,
             "producer_id": availbyid.currentAvail.data[0][0].producer_id,
-            "transformer_id": users.userData.id
+            "transformer_id": users.userData.userdata.id
 
     });
 
@@ -42,7 +42,7 @@ const PickupBook = props => {
             "address": e.address,
             "price":e.price,
             "producer_id": e.producer_id,
-            "transformer_id": users.userData.id
+            "transformer_id": users.userData.userdata.id
         });
 
         if(newPickUp === null){
@@ -99,7 +99,7 @@ const PickupBook = props => {
                                 <span className="book-field-res" style={{fontSize:".7em"}}>PRICE</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].price}</span>
                             </div>
-                            {users.userData.type === 'wt'?
+                            {users.userData.userdata.type === 'wt'?
                                 <div className="pickup-info-container">
                                     <span className="book-field-res" style={{fontSize:".7em"}}>CONTACT</span>
                                     <span className="book-info" style={{textTransform: 'capitalize'}}>{`${availbyid.currentAvail.data[0][0].name}`}</span>
@@ -107,7 +107,7 @@ const PickupBook = props => {
                                 :
                                 null
                             }
-                            {users.userData.type === 'wt'?
+                            {users.userData.userdata.type === 'wt'?
                                 <div className="pickup-info-container">
                                     <span className="book-field-res" style={{fontSize:".7em"}}>ADDRESS</span>
                                     <span className="book-info">{availbyid.currentAvail.data[0][0].address}</span>
@@ -115,7 +115,7 @@ const PickupBook = props => {
                                 : 
                                 null
                             }
-                            {users.userData.type === 'wt'?
+                            {users.userData.userdata.type === 'wt'?
                                 <div className="pickup-info-container">
                                     <span className="book-field-res" style={{fontSize:".7em"}}>PHONE NUMBER</span>
                                     <span className="book-info">{availbyid.currentAvail.data[0][0].phone}</span>
@@ -126,7 +126,7 @@ const PickupBook = props => {
                             
                         </div>
                     </div>
-                    {users.userData.type ==='wt'?
+                    {users.userData.userdata.type ==='wt'?
                         <div id="pickup-book-btns">
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/available/request/all')

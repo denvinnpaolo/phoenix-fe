@@ -15,7 +15,7 @@ const MultiPickup = () => {
     const history = useHistory();
     const {available, users} = useSelector(state => state);
 
-    let userInfo = users.userData
+    let userInfo = users.userData.userdata
 
     const [confirm, setConfirm] = useState(false)
 

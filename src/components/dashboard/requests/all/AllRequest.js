@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Moment from 'moment';
+import jwt_decode from 'jwt-decode';
+
 
 import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
 import { RiArrowUpDownFill } from 'react-icons/ri';
@@ -20,13 +22,22 @@ const AllRequest = () => {
 
     let multiWastes = {}
 
-    useEffect(() => {
-        dispatch(fetchAvailable())
-    },[dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchAvailable())
+    // },[]);
+
+    useEffect(()=> {
+        if(users.userData.userdata.type==='wp'){
+            dispatch(viewPostedById({id:users.userData.id}))
+        } else if (users.userData.userdata.type==='wt'){
+            dispatch(fetchAvailable())
+        }
+    },[]);
 
    
 
     const handleDBClick = item => {
+        console.log(item)
         if(!item.transformer_id){
             if(users.userData.userdata.type==='wt'){
                 dispatch(fetchAvailById({id: item.id}))
@@ -44,10 +55,9 @@ const AllRequest = () => {
             history.push('/pickup/view')
         }
     };
+    
 
-    useEffect(()=> {
-        dispatch(viewPostedById({id:users.userData.userdata.id}))
-    },[dispatch, users]);
+    
 
     const handleCheck = item => {
         if(multiWastes[item.id.toString()]){

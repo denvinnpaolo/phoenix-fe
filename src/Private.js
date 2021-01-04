@@ -12,6 +12,8 @@ const Private = ({ component: Component, ...rest}) => {
             token = window.localStorage.getItem('token')
         }
     }
+
+    
     return(
         <Route
             {...rest}
