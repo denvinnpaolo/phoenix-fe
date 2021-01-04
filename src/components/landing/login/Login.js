@@ -23,6 +23,7 @@ const Login = props => {
         .then(()=> {
             history.push('/home')
         })
+        
     };
 
     return (
