@@ -31,7 +31,7 @@ const Archive = () => {
 
     }
 
-    if(!archive.archiveData.data){
+    if(!archive.archiveData.data && !users){
         return <Loading />
     } else {
         return(

@@ -105,10 +105,9 @@ const Nav = props => {
                 </div>
                 <div id="nav-inner-mid">
                 {expand.home?
-                    <div style={{textDecoration: "none", height:"52%"}} id="nav-inner-home">
+                    <div style={{textDecoration: "none", height:"39%"}} id="nav-inner-home">
                         <Link to="/home" style={{textDecoration: "none"}} className="nav-inner-btns">Home</Link>
                         <Link to="/dashboard/about" style={{textDecoration: "none"}} className="nav-inner-btns">About</Link>
-                        <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact</Link>
                         <Link to="/archives" style={{textDecoration: "none"}} className="nav-inner-btns">Archive</Link>
 
                     </div>
@@ -165,9 +164,20 @@ const Nav = props => {
 
                     </div>
                     <div id="nav-inner-btm">
-                        <div className="dark-mode__toggle">
-                            <div onClick={toggleMode} className={darkMode ? 'toggle toggled' : 'toggle'}/>  
-                        </div>
+                        {expand.questions? 
+                            <div style={{textDecoration: "none", height:"37%"}} id="nav-inner-home">
+                                <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact</Link>
+                            </div>
+                            :
+                            <div id="nav-inner-home" style={{textDecoration: "none", height:"37%"}}></div>
+                        }
+                        {expand.settings? 
+                            <div style={{textDecoration: "none", height:"28%"}} id="nav-inner-home">
+                                <Link to="/settings" style={{textDecoration: "none"}} className="nav-inner-btns">Settings</Link>
+                            </div>
+                            :
+                            <div id="nav-inner-home"></div>
+                        }
                     </div>
                 </div>
             </div>
