@@ -17,7 +17,7 @@ const Nav = () => {
         <div id="nav-container">
             <div id="logo-container">
                 <Link to="/" style={{ textDecoration: 'none',color: 'white'}}>
-                    <img src={OuroLogo} style={{maxWidth:"100%",height:"3em", objectFit: "contain"}} />
+                    <img id="website-nav-appname" src={OuroLogo} style={{maxWidth:"100%",height:"3em", objectFit: "contain"}} />
                 </Link>
             </div>
             
