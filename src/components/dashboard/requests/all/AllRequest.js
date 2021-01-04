@@ -5,7 +5,7 @@ import Moment from 'moment';
 
 import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
 import { RiArrowUpDownFill } from 'react-icons/ri';
-import { BiEdit } from 'react-icons/bi';
+import { BsPlus } from 'react-icons/bs';
 
 
 import { fetchAvailable, fetchAvailById, fetchMultiAvail, viewPostedById, fetchPickUpById } from '../../../../store/actions/index.js';
@@ -70,11 +70,11 @@ const AllRequest = () => {
                 <div id="all-req-container">
                     <div id="welcome-header-container">
                         <div id="welcome-header-text">
-
+                            <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
                         </div>
                         <div id="welcome-header-alerts">
-                            <BsBell size="1.1em" />
-                            <BsPerson size="1.7em"  />
+                            <BsBell className="clickable clickable-icons-res" size="1.1em" />
+                            <BsPerson className="clickable clickable-icons-res" size="1.7em"  />
                         </div>
                     </div>
                     <div id="allreq-contents-cont">
@@ -173,11 +173,11 @@ const AllRequest = () => {
             <div id="all-req-container">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-
+                        <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
                     </div>
                     <div id="welcome-header-alerts">
-                        <BsBell size="1.1em" />
-                        <BsPerson size="1.7em"  />
+                        <BsBell className="clickable clickable-icons-res" size="1.1em" />
+                        <BsPerson className="clickable clickable-icons-res" size="1.7em"  />
                     </div>
                 </div>
                 <div id="allreq-contents-cont">
@@ -186,15 +186,19 @@ const AllRequest = () => {
                     </div>
                     <div id="allreq-sort-cont">
                         <div id="allreq-sort-btns">
-                            <BsFunnelFill size="1.6em"/>
+                            <BsFunnelFill className="clickable clickable-icons-res" size="1.6em"/>
                             <RiArrowUpDownFill
                              size="1.5em" 
                              onClick={()=>{setOrder(!order)}} 
-                            className="clickable"
+                             className="clickable clickable-icons-res"
                             />
                         </div>
                         <div id="allreq-sort-search">
-                            <BsSearch size="1.4em" />
+                            <BsPlus className="clickable" size={'1.5em'} 
+                            onClick={()=>{
+                                history.push('/available/add')}
+                            }
+                            />
                         </div>
                     </div>
                     <div id="allreq-tbl-cont" >

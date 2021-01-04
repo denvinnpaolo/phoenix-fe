@@ -70,14 +70,16 @@ const AddWaste = () => {
             <div id="pickup-book-cont">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
+                        <span id="welcome-header">{userData.name.toUpperCase()}</span>
+
                     </div>
                     <div id="welcome-header-alerts">
-                        <BsBell className="clickable" size="1.1em" />
-                        <BsPerson className="clickable" size="1.7em"  />
+                        <BsBell className="clickable clickable-icons-res" size="1.1em" />
+                        <BsPerson className="clickable clickable-icons-res" size="1.7em"  />
                     </div>
                 </div>
                 <div id="pickup-header-cont">
-                    <span id="pickup-book-header">Add Waste</span>
+                    <span id="pickup-book-header">Add Post</span>
                 </div>
 
                 <div id="pickup-content-cont">
@@ -86,12 +88,12 @@ const AddWaste = () => {
                     </div>
                     <div id="pickup-book-tbl">
                         <div id="pickup-info-tbl">
-                            <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                                <span style={{fontSize: "1.5em"}}>{userData.company_name}</span>
+                            <div  style={{display:'flex', width: "100%", justifyContent: "center"}}>
+                                <span  style={{fontSize: "1.5em"}}>{userData.company_name}</span>
                             </div>
                             
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>TIME OF DAY</span>
                                 <select 
                                   className="add-waste-form" 
                                   name="time_available" 
@@ -107,7 +109,7 @@ const AddWaste = () => {
                             </div> 
 
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>EXPIRATION</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>EXPIRATION</span>
                                 <input type="date"
                                  name="exp"
                                  className="add-waste-form" 
@@ -117,7 +119,7 @@ const AddWaste = () => {
                             </div>
 
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>TYPE</span>
                                 <input 
                                   name="type"
                                   className="add-waste-form" 
@@ -127,7 +129,7 @@ const AddWaste = () => {
                             </div>
                        
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ITEMS</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ITEMS</span>
                                 <input 
                                   className="add-waste-form"
                                   name="items"
@@ -137,7 +139,7 @@ const AddWaste = () => {
                             </div>
 
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>PRICE</span>
                                 <input 
                                   className="add-waste-form"
                                   name="price"

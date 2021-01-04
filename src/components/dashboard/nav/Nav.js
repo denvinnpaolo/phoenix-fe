@@ -145,7 +145,7 @@ const Nav = props => {
                         </div>
                         :
                         <div id="nav-inner-requests" style={{height: "26%"}}>
-                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Search Transformer</div></Link>
+                            <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns" id="nav-inner-searchTI">Search Transformer</div></Link>
                             <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Recents</div></Link>
 
                         </div>

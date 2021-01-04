@@ -42,6 +42,8 @@ const ViewPickUp = props => {
             <div id="pickup-book-cont">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
+                        <span id="welcome-header">{users.userData.name.toUpperCase()}</span>
+
                     </div>
                     <div id="welcome-header-alerts">
                         <BsBell size="1.1em" />

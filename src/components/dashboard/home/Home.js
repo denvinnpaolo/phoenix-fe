@@ -70,8 +70,8 @@ const Home = () => {
                             <span id="welcome-header">{`Welcome back, ${userData.userdata.name.toUpperCase()}`}</span>
                         </div>
                         <div id="welcome-header-alerts">
-                            <BsBell className="clickable" size="1.1em" />
-                            <BsPerson className="clickable" size="1.7em"  />
+                            <BsBell className="clickable clickable-icons-res" size="1.1em" />
+                            <BsPerson className="clickable clickable-icons-res" size="1.7em"  />
                         </div>
                     </div>
                     <div id="overview-container">

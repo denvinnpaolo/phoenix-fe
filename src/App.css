@@ -1819,9 +1819,17 @@ option {
 
 
   .nav-inner-btns {
-    letter-spacing: .05em;
 
     font-size: .7em;
+  }
+
+  #nav-inner-searchTI {
+
+    font-size: .6em;
+  }
+
+  .clickable-icons-res{
+    height: 1.3em !important;
   }
 
   /*REGISTER*/
@@ -1973,6 +1981,49 @@ option {
   .book-multiinfo-res{
     font-size: .6em !important;
   }
+
+  /* ADD WASTE */
+  .add-waste-form{
+    font-size: .8em;
+  }
+
+
+  /* DASHBOARD ABOUT */
+
+  #about-img-res{
+    height: 70% !important;
+  }
+
+  #about-dash-header{
+    font-size: 1.8em !important; 
+  }
+
+  .about-dashstart-txt{
+    font-size: 0.8em;
+  }
+
+  #about-subheader-res{
+    font-size: 1em !important;
+  }
+
+  .about-content-icon{
+    align-items: flex-start;
+    padding-top: 3%;
+  }
+
+  .creator-header-res{
+    font-size: 0.7em !important;
+  }
+
+  .creator-name-res{
+    font-size: 1em !important;
+  }
+
+  .creator-text-res{
+    font-size: .68em !important;
+  }
+
+
 }
 
 
