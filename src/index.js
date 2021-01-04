@@ -4,22 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import returnStoreAndPersistor from './store/ConfigureStore.js'
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import { applyMiddleware, compose, createStore } from "redux";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
-import rootReducer from "./store/reducers";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const {store} = returnStoreAndPersistor()
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={createStore(rootReducer ,composeEnhancer(applyMiddleware(thunk, logger)))}>
+    <Provider store={store}>
       <Router>
         <App id="app"/>
       </Router>

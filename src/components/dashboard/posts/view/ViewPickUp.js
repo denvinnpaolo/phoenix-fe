@@ -86,7 +86,7 @@ const ViewPickUp = props => {
                                     <span className="book-multiinfo-res" style={{fontSize:".7em"}}>CONTACT</span>
                                     <span className="book-info" style={{textTransform: 'capitalize'}}>{`${pickup.currentPickUp.data[0].name}`}</span>
                                 </div>
-                            {users.userData.type === 'wt'?
+                            {users.userData.userdata.type === 'wt'?
                                 <div className="pickup-info-container">
                                     <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ADDRESS</span>
                                     <span className="book-info">{pickup.currentPickUp.data[0].address}</span>
@@ -108,7 +108,7 @@ const ViewPickUp = props => {
                         <button className="pickup-book-btns" onClick={()=>{
                             history.push('/')
                         }}>Back</button>
-                        {users.userData.type === 'wt'?
+                        {users.userData.userdata.type === 'wt'?
                         <button 
                           className="pickup-book-btns" 
                           style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
