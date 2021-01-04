@@ -47,7 +47,7 @@ const Completed = props => {
                         <div id="overview-circular-iconbg"><BiCalendarCheck  size="80%" color="#288B50"/></div>
                     </div>
                     <div className="overview-header-info">
-                        <span style={{fontSize:"1.5em"}}>Completed</span>
+                        <span >Completed</span>
                         <div style={{display:"flex", justifyContent: "center", width: "50%", fontSize:"2em", fontWeight: "bold"}}>{completed.completedData.data.length}</div>
                     </div>
                 </div>

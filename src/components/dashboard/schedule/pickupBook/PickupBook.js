@@ -80,28 +80,28 @@ const PickupBook = props => {
                                 <span style={{fontSize: "1.5em"}}>{availbyid.currentAvail.data[0][0].company_name}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                <span className="book-field-res" style={{fontSize:".7em"}}>TIME OF DAY</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].time_available}</span>
                             </div>  
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>DATE</span>
+                                <span className="book-field-res" style={{fontSize:".7em"}}>DATE</span>
                                 <span className="book-info">{Moment(availbyid.currentAvail.data[0][0].exp).format("MMMM DD, YYYY")}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <span className="book-field-res" style={{fontSize:".7em"}}>TYPE</span>
                                 <span className="book-info">{availbyid.currentAvail.data[0][0].type}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ITEMS</span>
+                                <span className="book-field-res" style={{fontSize:".7em"}}>ITEMS</span>
                                 <span className="book-info">{availbyid.currentAvail.data[0][0].items}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <span className="book-field-res" style={{fontSize:".7em"}}>PRICE</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{availbyid.currentAvail.data[0][0].price}</span>
                             </div>
                             {users.userData.type === 'wt'?
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>CONTACT</span>
+                                    <span className="book-field-res" style={{fontSize:".7em"}}>CONTACT</span>
                                     <span className="book-info" style={{textTransform: 'capitalize'}}>{`${availbyid.currentAvail.data[0][0].name}`}</span>
                                 </div>
                                 :
@@ -109,7 +109,7 @@ const PickupBook = props => {
                             }
                             {users.userData.type === 'wt'?
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>ADDRESS</span>
+                                    <span className="book-field-res" style={{fontSize:".7em"}}>ADDRESS</span>
                                     <span className="book-info">{availbyid.currentAvail.data[0][0].address}</span>
                                 </div>
                                 : 
@@ -117,7 +117,7 @@ const PickupBook = props => {
                             }
                             {users.userData.type === 'wt'?
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
+                                    <span className="book-field-res" style={{fontSize:".7em"}}>PHONE NUMBER</span>
                                     <span className="book-info">{availbyid.currentAvail.data[0][0].phone}</span>
                                 </div>
                                 :

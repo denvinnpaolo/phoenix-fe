@@ -682,7 +682,7 @@
 }
 
 #wt-form{
-  height: 80%;
+  height: 100%;
   width: 100%;
 }
 
@@ -918,6 +918,10 @@ option {
   width: 100%;
 }
 
+.nav-ouro-img{
+  height: 120%;
+}
+
 /* DASHBOARD INNER NAVIGATION */
 
 #nav-inner-top{
@@ -1007,7 +1011,7 @@ option {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; 
 }
 
 #welcome-header-container {
@@ -1019,9 +1023,10 @@ option {
 
 #welcome-header-text {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 30%;
+  padding-left: 3%;
 }
 
 #welcome-header {
@@ -1401,6 +1406,8 @@ option {
   justify-content: center;
   height: 100%;
   width:50%;
+  font-size :1.5em;
+
 }
 
 .overview-data-container {
@@ -1808,12 +1815,163 @@ option {
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) and (min-width: 800px){
+
+
   .nav-inner-btns {
     letter-spacing: .05em;
-    color: white ;
+
+    font-size: .7em;
+  }
+
+  /*REGISTER*/
+
+  #landing-header{
+    font-size: 2em;
+  }
+
+  .register-btn {
+    font-size: .75em;
+  }
+
+  #wt-btns-inner{
+    width: 70%;
+  }
+
+  .wt-register-btn{
+    height: 50px;
+    width: 100px;
+  }
+
+  .companyinfo-inputs-cont{
+    font-size: .6em;
+  }
+
+  .confirm-label{
+    font-size: .6em;
+  }
+
+  /* LOGIN */
+  #login-button{
+    width: 70%;
+  }
+
+  .wt-register-btn{
+    height: 50px;
+    width: 100px;
+    font-size: .9em;
+  }
+
+  /* DASHBOARD NAV */
+
+  .nav-ouro-img{
+    height: 100%;
+  }
+
+  .icons{
+    height: 12.5%;
+  }
+
+  .nav-icons{
+    height: 1.3em !important;
+  }
+
+  /* DASHBOARD */
+  #welcome-header{
     font-size: .8em;
-    font-weight: bold;
+  }
+
+  #dash-component-header{
+    font-size: 1.5em;
+  }
+
+  /* OVERVIEW */
+
+  #overview-header-container{
+    width:21%;
+    padding-left: 1%;
+  }
+
+  #overview-sort-container{
+    padding-left: 2%;
+    width:38%;
+  }
+
+  .overview-category-choices{
+    font-size: .9em;
+  }
+
+  #overview-circular-iconbg{
+    height: 50%;
+  }
+
+  .overview-header-info{
+    font-size: 1.2em;
+  }
+
+  .data{
+    font-size: .9em;
+  }
+
+  /* OVERVIEW PICKUP REQUEST */
+
+  #pickup-header-left{
+    width: 60%;
+  }
+
+  #pickup-header-text{
+    font-size: .8em;
+  }
+
+  #pickup-map-link{
+    width:20%;
+  }
+
+  .allreq-data-overview{
+    font-size: .7em;
+  }
+  
+  .allreq-data{
+    font-size: .6em !important;
+  }
+
+  .allreq-btn{
+    width: 17% !important;
+  }
+
+  #allreq-component-header{
+    font-size: 1.4em;
+
+  }
+  
+  .allreq-btn-res{
+    width: 35% !important;
+    font-size: .6em;
+  }
+
+  /* PICKUP BOOK */
+  #pickup-book-header{
+    font-size: 1.4em;
+  }
+
+  .book-field-res{
+    font-size: .6em !important;
+  }
+
+  .book-info{
+    font-size: .7em;
+  }
+
+  .pickup-book-btns{
+    height: 40px;
+    width: 107px !important;
+    font-size: .8em;
+  }
+
+  /* MULTI PICKUP BOOK */
+  
+  .book-multiinfo-res{
+    font-size: .6em !important;
   }
 }
 

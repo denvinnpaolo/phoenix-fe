@@ -38,7 +38,7 @@ const Canceled = props => {
                         <div id="overview-circular-iconbg"><BiCalendarMinus  size="80%" color="#288B50"/></div>
                     </div>
                     <div className="overview-header-info">
-                        <span style={{fontSize:"1.5em"}}>Canceled</span>
+                        <span >Canceled</span>
                         <div style={{display:"flex", justifyContent: "center", width: "50%", fontSize:"2em", fontWeight: "bold"}}>{canceled.canceledData.data? canceled.canceledData.data.length: 0}</div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ const Confirm = props => {
                 <div className="confirm-value">{props.values.website}</div>
             </div>
             <div className="confirm-field">
-                <div className="confirm-label">COMPANY ADDRESS:</div>
+                <div className="confirm-label">ADDRESS:</div>
                 <div className="confirm-value">{`${props.values.address}, ${props.values.city}, ${props.values.state}, ${props.values.country}`}</div>
             </div>
             <div className="confirm-field">

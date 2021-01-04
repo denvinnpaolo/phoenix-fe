@@ -69,30 +69,30 @@ const MultiPickup = () => {
                                 <span style={{fontSize: "1.5em"}}>Company Name</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>DATE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>DATE</span>
                                 <span className="book-info">{Moment(item[0].exp).format("MMMM DD, YYYY")}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>TIME</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].time_available}</span>
                             </div>                        <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ITEMS</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ITEMS</span>
                                 <span className="book-info">{item[0].items}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>PRICE</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{item[0].price}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ADDRESS</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ADDRESS</span>
                                 <span className="book-info">{item[0].address}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>PHONE</span>
                                 <span className="book-info">{item[0].phone}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>CONTACT</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>CONTACT</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{`${item[0].name}`}</span>
                             </div>
                         </div>

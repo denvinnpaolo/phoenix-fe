@@ -31,7 +31,7 @@ const AddWaste = () => {
         "time_available": "",
         "type": "",
         "items": "",
-        "address":userData.company_address,
+        "address":`${userData.address}, ${userData.city}, ${userData.state}, ${userData.country}`,
         "producer_id":userData.id
     });
 
@@ -44,23 +44,23 @@ const AddWaste = () => {
 
     const handleAdd = e => {
         setNewPickUp(
-            !userData.company_address? 
+            !userData.address? 
             null: 
             {...newPickUp,
             "date_posted": date,
-            "address":userData.company_address,
+            "address":`${userData.address}, ${userData.city}, ${userData.state}, ${userData.country}`,
             "producer_id":userData.id
             }
         );
     
         console.log(userData)
         console.log(newPickUp)
-        // if(newPickUp === null){
-        //     return null
-        // } else {
-        //     dispatch(createNewWaste(newPickUp))
-        //     setConfirm(!confirm)
-        // }    
+        if(newPickUp === null){
+            return null
+        } else {
+            dispatch(createNewWaste(newPickUp))
+            setConfirm(!confirm)
+        }    
     };
 
     if(!userData){

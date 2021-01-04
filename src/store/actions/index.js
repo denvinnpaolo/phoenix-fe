@@ -87,6 +87,7 @@ export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
 
 
 const host = 'http://104.131.164.155:25060';
+// const host = 'http://localhost:25060'
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });

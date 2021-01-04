@@ -61,43 +61,43 @@ const ViewPickUp = props => {
                                 <span style={{fontSize: "1.5em"}}>{pickup.currentPickUp.data[0].company_name}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TIME OF DAY</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>TIME OF DAY</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{pickup.currentPickUp.data[0].time_available}</span>
                             </div>  
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>DATE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>DATE</span>
                                 <span className="book-info">{Moment(pickup.currentPickUp.data[0].exp).format("MMMM DD, YYYY")}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>TYPE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>TYPE</span>
                                 <span className="book-info">{pickup.currentPickUp.data[0].type}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>ITEMS</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ITEMS</span>
                                 <span className="book-info">{pickup.currentPickUp.data[0].items}</span>
                             </div>
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PRICE</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>PRICE</span>
                                 <span className="book-info" style={{textTransform: 'capitalize'}}>{pickup.currentPickUp.data[0].price}</span>
                             </div>
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>CONTACT</span>
+                                    <span className="book-multiinfo-res" style={{fontSize:".7em"}}>CONTACT</span>
                                     <span className="book-info" style={{textTransform: 'capitalize'}}>{`${pickup.currentPickUp.data[0].name}`}</span>
                                 </div>
                             {users.userData.type === 'wt'?
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>ADDRESS</span>
+                                    <span className="book-multiinfo-res" style={{fontSize:".7em"}}>ADDRESS</span>
                                     <span className="book-info">{pickup.currentPickUp.data[0].address}</span>
                                 </div>
                                 : 
                                 <div className="pickup-info-container">
-                                    <span style={{fontSize:".7em"}}>COMPANY</span>
+                                    <span className="book-multiinfo-res" style={{fontSize:".7em"}}>COMPANY</span>
                                     <span className="book-info">{pickup.currentPickUp.data[0].company_name}</span>
                                 </div>
                             }
 
                             <div className="pickup-info-container">
-                                <span style={{fontSize:".7em"}}>PHONE NUMBER</span>
+                                <span className="book-multiinfo-res" style={{fontSize:".7em"}}>PHONE</span>
                                 <span className="book-info">{pickup.currentPickUp.data[0].phone}</span>
                             </div>
                         </div>
