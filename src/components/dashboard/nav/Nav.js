@@ -166,7 +166,7 @@ const Nav = props => {
                     <div id="nav-inner-btm">
                         {expand.questions? 
                             <div style={{textDecoration: "none", height:"37%"}} id="nav-inner-home">
-                                <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact Support</Link>
+                                <Link to="/contact" style={{textDecoration: "none"}} className="nav-inner-btns">Contact</Link>
                             </div>
                             :
                             <div id="nav-inner-home" style={{textDecoration: "none", height:"37%"}}></div>
