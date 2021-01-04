@@ -17,7 +17,7 @@ const Calendar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const {pickup, completed} = useSelector(state => state)
-  const {id, type} = useSelector(state => state.users.userData);
+  const {id, type} = useSelector(state => state.users.userData.userdata);
 
   useEffect(() => {
     if(type ==='wt'){
@@ -65,11 +65,8 @@ const Calendar = () => {
       }).then(result => {
         console.log(result)
         if (result.value) {
-          if(type==='wt'){
-            dispatch(fetchPickUpById({id: e.event.extendedProps.data.id}))
-        } else if(type === 'wp'){
-            dispatch(fetchPickUpById({id: e.event.extendedProps.data.id}))
-        }
+          dispatch(fetchPickUpById({id: e.event.extendedProps.data.id}))
+        
           history.push(`/pickup/view`);
         }
       });
