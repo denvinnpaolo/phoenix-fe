@@ -7,9 +7,8 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const {loggedIn} = useSelector(state => state.users)
   return (
-        <Private path="/" component={Dashboard} />
+    <Private path="/" component={Dashboard} />
   );
 }
 
