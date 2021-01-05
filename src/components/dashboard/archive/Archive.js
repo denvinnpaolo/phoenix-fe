@@ -69,10 +69,10 @@ const Archive = () => {
                                     <span className="allreq-data-overview">Date Posted</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
-                                        <span className="allreq-data-overview">Date Completed</span>
+                                        <span className="allreq-data-overview">Transaction Processed</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
-                                        <span className="allreq-data-overview" >Date Canceled</span>
+                                        <span className="allreq-data-overview" >Transaction Status</span>
                                     <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                     
                                         <span className="allreq-data-overview" >Company</span>
@@ -104,13 +104,13 @@ const Archive = () => {
                                             }}
                                             key={i}
                                             >
-                                            <span className="allreq-data" style={{fontSize: ".8em"}}>{Moment(item.pick_up_date).format('MMM. DD, YYYY')}</span>
+                                            <span className="allreq-data" >{Moment(item.date_posted).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                             
-                                            <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.status=== 'completed'? item.pick_up_date:null}</span>
+                                            <span className="allreq-data" >{Moment(item.pick_up_date).format('MMM. DD, YYYY')}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
-                                            <span className="allreq-data">{item.status=== 'canceled'? item.pick_up_date:null}</span>
+                                            <span className="allreq-data" style={{textTransform: 'capitalize'}}>{item.status}</span>
                                             <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
 
                                             <span className="allreq-data">{item.company_name}</span>
