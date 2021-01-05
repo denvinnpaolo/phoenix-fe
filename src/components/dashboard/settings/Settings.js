@@ -193,7 +193,7 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
-                                          address="address"
+                                          name="address"
                                           onChange={handleChange}
                                           className="settings-input"
                                           value={user.address}

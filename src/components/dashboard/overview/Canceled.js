@@ -13,7 +13,7 @@ const Canceled = props => {
 
     const dispatch = useDispatch();
 
-    const { canceled } = useSelector(state => state);
+    const { canceled, archive } = useSelector(state => state);
     const {type, id}= useSelector(state => state.users.userData.userdata);
 
     const [itemInfo, setItemInfo] = useState(canceled.canceledData.data? canceled.canceledData.data[0]: null);
@@ -25,7 +25,7 @@ const Canceled = props => {
         } else if(type === 'wp'){
             dispatch(fetchCanceledByTI({producer_id: id}))
         }
-    },[dispatch, canceled.newCanceled ])
+    },[dispatch, canceled.newCanceled, archive.archiveData ])
 
 
     if(!canceled.canceledData.data){
