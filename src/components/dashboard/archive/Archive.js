@@ -132,8 +132,6 @@ const Archive = () => {
                             </div>
                             <div id="allreq-tbl-btns">
                                     <div id="allreq-btm-btns">
-                                        <button className="allreq-btn">Map view</button>
-                                        <button className="allreq-btn" style={{backgroundColor: "#FF9B64"}}>Schedule Pick Up</button>
 
                                     </div>
                             </div>
