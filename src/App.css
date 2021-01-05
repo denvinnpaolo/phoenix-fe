@@ -1793,12 +1793,7 @@ option {
 }
 
 /* ADD WASTE */
-/* .add-waste-form{
-  border-bottom: 1px solid rgb(190, 184, 184, 0.5);
-  width: 70%;
-  display: flex;
-  justify-content: center; */
-/* } */
+
 
 .add-waste-form {
   font-family: 'Times New Roman', Times, serif;
@@ -1812,6 +1807,22 @@ option {
 .add-waste-form:focus{
   outline: none;
 
+}
+
+/* SETTINGS */
+
+#dash-settings-cont{
+  height: 100%;
+  width: 100%;
+}
+
+#settings-content-container{
+  height: 93%;
+}
+
+#settings-content-header{
+  border: 1px solid red;
+  height:10%;
 }
 
 

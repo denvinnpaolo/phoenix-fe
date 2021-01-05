@@ -173,7 +173,7 @@ const Nav = props => {
                         }
                         {expand.settings? 
                             <div style={{textDecoration: "none", height:"28%"}} id="nav-inner-home">
-                                <Link to="/settings" style={{textDecoration: "none"}} className="nav-inner-btns">Settings</Link>
+                                <Link to="/user/settings" style={{textDecoration: "none"}} className="nav-inner-btns">Settings</Link>
                             </div>
                             :
                             <div id="nav-inner-home"></div>

@@ -16,6 +16,7 @@ import About from './about/About.js'
 
 import Loading from '../UI/loading/Loading.js';
 import Private from '../../Private.js';
+import Settings from './settings/Settings.js';
 
 
 
@@ -35,6 +36,8 @@ const Dashboard = () => {
                 <Route path="/post/edit/pickup" render={()=><EditWaste />}/>
                 <Route path="/post/edit/available" render={()=><EditWaste />}/>
                 <Route path="/archives" render={()=> <Archive />}/>
+                <Route path="/user/settings" render={()=> <Settings />}/>
+
             </div>
         )
 }
