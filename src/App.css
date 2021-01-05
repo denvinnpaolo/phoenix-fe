@@ -1821,9 +1821,59 @@ option {
 }
 
 #settings-content-header{
-  border: 1px solid red;
-  height:10%;
+  display: flex;
+  justify-content: flex-start;
+  height:9%;
 }
+
+#settings-header-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width:20%;
+}
+
+#settings-content-main{
+  height:91%;
+}
+
+.settings-content-rows{
+  /* border: 1px solid red; */
+  display: flex;
+  height: 12%;
+}
+
+.settings-content-labels{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+  /* border: 1px solid green; */
+  height: 100%;
+  width:20%
+}
+
+.settings-content-inputs{
+  /* border: 1px solid blue; */
+  height: 100%;
+  width: 66.7%;
+
+}
+
+.settings-input-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  width:80%;
+  height: 100%
+}
+
+.settings-input{
+  width: 100%;
+}
+
 
 
 @media screen and (max-width: 1200px) and (min-width: 800px){
