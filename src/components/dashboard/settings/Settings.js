@@ -10,7 +10,7 @@ const Settings = () => {
 
     const userData  = useSelector(state => state.users.userData)
 
-    const [user, setUser] = useState(!userData.userdata? null :
+    const [user, setUser] = useState(!userData.userdata.address? null :
             {
                 address: userData.userdata.address,
                 city: userData.userdata.city,
@@ -18,12 +18,26 @@ const Settings = () => {
                 company_size: userData.userdata.company_size,
                 country: userData.userdata.country,
                 email: userData.userdata.email,
+                id: userData.userdata.id,
                 name: userData.userdata.name,
                 phone: userData.userdata.phone,
                 state: userData.userdata.state,
+                type: userData.userdata.type,
                 website: userData.userdata.website
             }
     );
+
+    const handleChange = e => {
+        setUser({
+            ...setUser,
+            [e.currentTarget.name]: e.currentTarget.value
+        })
+    }
+
+
+    const handleSubmit = e => {
+
+    }
 
     if(!userData.userdata){
         return <Loading />
@@ -58,6 +72,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="company_name"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.company_name}
                                         />
@@ -71,6 +87,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="company_size"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.company_size}
                                         />
@@ -84,6 +102,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="website"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.website}
                                         />
@@ -97,6 +117,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="name"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.name}
                                         />
@@ -110,6 +132,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="email"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.email}
                                         />
@@ -133,6 +157,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="phone"
+                                        onChange={handleChange}
                                         className="settings-input"
                                         value={user.phone}
                                         />
@@ -146,8 +172,10 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                        name="country"
+                                        onChange={handleChange}
                                         className="settings-input"
-                                        value={getName(user.country)}
+                                        value={user.country}
                                         />
                                     </div>
                                 </div>
@@ -159,6 +187,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                          address="address"
+                                          onChange={handleChange}
                                           className="settings-input"
                                           value={user.address}
                                         />
@@ -173,6 +203,8 @@ const Settings = () => {
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                          name="city"
+                                          onChange={handleChange}
                                           className="settings-input"
                                           value={user.city}
                                         />
@@ -181,17 +213,32 @@ const Settings = () => {
                             </div>
                             <div className="settings-content-rows">
                                 <div className="settings-content-labels">
-                                    <span>State:</span>
+                                    <span>State/Province:</span>
                                 </div>
                                 <div className="settings-content-inputs">
                                     <div className="settings-input-cont">
                                         <input
+                                          name="state"
+                                          onChange={handleChange}
                                           className="settings-input"
                                           value={user.state}
                                         />
                                     </div>
                                 </div>
                             </div>
+                            <div className="settings-content-rows" style={{height: "20%"}}>
+                                
+                                <div id="settings-btns-cont">
+                                    <div id="settings-content-btns">
+                                    <button className="pickup-book-btns">Back</button>
+                                    <button 
+                                      className="pickup-book-btns"
+                                      style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
+                                    >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
 
 
                         </InfiniteScroll>

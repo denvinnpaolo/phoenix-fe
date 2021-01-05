@@ -1874,6 +1874,21 @@ option {
   width: 100%;
 }
 
+#settings-btns-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+#settings-content-btns{
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 
 @media screen and (max-width: 1200px) and (min-width: 800px){

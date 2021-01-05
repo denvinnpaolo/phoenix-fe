@@ -116,9 +116,8 @@ const Nav = props => {
                 }
                 {expand.cal?
                     userData.userdata.type==='wt'?
-                            <div id="nav-inner-requests" style={{height: "52%"}}>
+                            <div id="nav-inner-requests" style={{height: "39%"}}>
                                 <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Requests</div></Link>
-                                <Link to="/available/schedule/" style={{textDecoration: "none"}}><div className="nav-inner-btns">Schedule</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
 
