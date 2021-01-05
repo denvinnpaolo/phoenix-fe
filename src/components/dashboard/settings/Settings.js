@@ -3,14 +3,19 @@ import { BsBell, BsPerson } from 'react-icons/bs';
 import InfiniteScroll from "react-infinite-scroll-component";
 import {getCode, getName} from 'country-list';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../UI/loading/Loading';
+import { useHistory } from 'react-router-dom';
+
+import {updateUser} from '../../../store/actions/index.js';
 
 const Settings = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
 
-    const userData  = useSelector(state => state.users.userData)
+    const {userData} = useSelector(state => state.users)
 
-    const [user, setUser] = useState(!userData.userdata.address? null :
+    const [user, setUser] = useState(!userData.userdata? null :
             {
                 address: userData.userdata.address,
                 city: userData.userdata.city,
@@ -29,17 +34,18 @@ const Settings = () => {
 
     const handleChange = e => {
         setUser({
-            ...setUser,
+            ...user,
             [e.currentTarget.name]: e.currentTarget.value
         })
     }
 
 
     const handleSubmit = e => {
-
+        dispatch(updateUser(user))
+        .then(()=> history.push('/'))
     }
 
-    if(!userData.userdata){
+    if(!userData.userdata && !user){
         return <Loading />
     } else {
         return(
@@ -230,8 +236,16 @@ const Settings = () => {
                                 
                                 <div id="settings-btns-cont">
                                     <div id="settings-content-btns">
-                                    <button className="pickup-book-btns">Back</button>
                                     <button 
+                                      className="pickup-book-btns"
+                                      onClick={()=>{
+                                          history.push('/')
+                                      }}
+                                    >
+                                        Back
+                                    </button>
+                                    <button 
+                                      onClick={handleSubmit}
                                       className="pickup-book-btns"
                                       style={{width: "220px", backgroundColor: "#FF9B64", border: "1px solid #FF9B64" }}
                                     >Submit</button>

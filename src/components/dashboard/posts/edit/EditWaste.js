@@ -97,7 +97,7 @@ const EditWaste = props => {
         }    
     };
 
-    if(!users.userData){
+    if(!users.userData.userdata){
         return <Loading />
     } else {
         if(type.type === 'pick_up'){
@@ -124,7 +124,7 @@ const EditWaste = props => {
                             <div id="pickup-book-tbl">
                                 <div id="pickup-info-tbl">
                                     <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                                        <span style={{fontSize: "1.5em"}}>{users.userData.company_name}</span>
+                                        <span style={{fontSize: "1.5em"}}>{users.userData.userdata.company_name}</span>
                                     </div>
                                     
                                     <div className="pickup-info-container">
@@ -217,7 +217,7 @@ const EditWaste = props => {
                             </div>
                         </div>
                         <div id="pickup-header-cont">
-                            <span id="pickup-book-header">Add Waste</span>
+                            <span id="pickup-book-header">Edit Post</span>
                         </div>
 
                         <div id="pickup-content-cont">
@@ -226,7 +226,7 @@ const EditWaste = props => {
                             <div id="pickup-book-tbl">
                                 <div id="pickup-info-tbl">
                                     <div style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                                        <span style={{fontSize: "1.5em"}}>{users.userData.company_name}</span>
+                                        <span style={{fontSize: "1.5em"}}>{users.userData.userdata.company_name}</span>
                                     </div>
                                     
                                     <div className="pickup-info-container">

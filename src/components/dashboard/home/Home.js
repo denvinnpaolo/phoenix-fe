@@ -65,7 +65,7 @@ const Home = () => {
                     <div id="home-contents-container">
                         <div id="welcome-header-container">
                             <div id="welcome-header-text">
-                                <span id="welcome-header">{`Welcome back, ${userData.userdata.name.toUpperCase()}`}</span>
+                                <span id="welcome-header">{`${userData.userdata.company_name.toUpperCase()}`}</span>
                             </div>
                             <div id="welcome-header-alerts">
                                 <BsBell className="clickable clickable-icons-res" size="1.1em" />

@@ -82,7 +82,7 @@ const AllRequest = () => {
                 <div id="all-req-container">
                     <div id="welcome-header-container">
                         <div id="welcome-header-text">
-                            <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
+                            <span id="welcome-header">{users.userData.userdata.company_name.toUpperCase()}</span>
                         </div>
                         <div id="welcome-header-alerts">
                             <BsBell className="clickable clickable-icons-res" size="1.1em" />
@@ -185,7 +185,7 @@ const AllRequest = () => {
             <div id="all-req-container">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{users.userData.userdata.name.toUpperCase()}</span>
+                        <span id="welcome-header">{users.userData.userdata.company_name.toUpperCase()}</span>
                     </div>
                     <div id="welcome-header-alerts">
                         <BsBell className="clickable clickable-icons-res" size="1.1em" />

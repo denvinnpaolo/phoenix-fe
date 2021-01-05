@@ -16,23 +16,18 @@ const AddWaste = () => {
     const today = new Date
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-    let {userData} = useSelector(state => state);
+    const userData = useSelector(state => state.users.userData);
 
 
-    if(userData === undefined) {
-        let token = window.localStorage.getItem('token');
-        userData= jwt_decode(token)
-    }
-
-    const [newPickUp, setNewPickUp] = useState(!userData? null: {
-        "date_posted": date,
+    const [newPickUp, setNewPickUp] = useState(!userData.userdata? null: {
+        "date_posted": "",
         "price":"",
         "exp": "",
         "time_available": "",
         "type": "",
         "items": "",
-        "address":`${userData.address}, ${userData.city}, ${userData.state}, ${userData.country}`,
-        "producer_id":userData.id
+        "address":"",
+        "producer_id":''
     });
 
     const handleChange = e => {
@@ -44,12 +39,12 @@ const AddWaste = () => {
 
     const handleAdd = e => {
         setNewPickUp(
-            !userData.address? 
+            !userData.userdata.address? 
             null: 
             {...newPickUp,
             "date_posted": date,
-            "address":`${userData.address}, ${userData.city}, ${userData.state}, ${userData.country}`,
-            "producer_id":userData.id
+            "address":`${userData.userdata.address}, ${userData.userdata.city}, ${userData.userdata.state}, ${userData.userdata.country}`,
+            "producer_id":userData.userdata.id
             }
         );
     
@@ -63,14 +58,14 @@ const AddWaste = () => {
         }    
     };
 
-    if(!userData){
+    if(!userData.userdata){
         return <Loading />
     } else {
         return(
             <div id="pickup-book-cont">
                 <div id="welcome-header-container">
                     <div id="welcome-header-text">
-                        <span id="welcome-header">{userData.name.toUpperCase()}</span>
+                        <span id="welcome-header">{userData.userdata.company_name.toUpperCase()}</span>
 
                     </div>
                     <div id="welcome-header-alerts">
@@ -89,7 +84,7 @@ const AddWaste = () => {
                     <div id="pickup-book-tbl">
                         <div id="pickup-info-tbl">
                             <div  style={{display:'flex', width: "100%", justifyContent: "center"}}>
-                                <span  style={{fontSize: "1.5em"}}>{userData.company_name}</span>
+                                <span  style={{fontSize: "1.5em"}}>{userData.userdata.company_name}</span>
                             </div>
                             
                             <div className="pickup-info-container">

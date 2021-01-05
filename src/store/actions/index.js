@@ -86,8 +86,8 @@ export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
 
 
-const host = 'http://104.131.164.155:25060';
-// const host = 'http://localhost:25060'
+// const host = 'http://104.131.164.155:25060';
+const host = 'http://localhost:25060'
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
@@ -138,11 +138,12 @@ export const createUser = newUser => dispatch => {
     )
 };
 
-export const updateUser = (updatedUser, id) => dispatch => {
+export const updateUser = updatedUser => dispatch => {
+    console.log(updatedUser)
     dispatch({ type: UPDATE_USER_START });
     return(
         axiosWithAuth()
-            .put(`${host}`, updateUser)
+            .put(`${host}/update`,updatedUser)
             .then(response => {
                 dispatch({
                     type: UPDATE_USER_SUCCESS,
