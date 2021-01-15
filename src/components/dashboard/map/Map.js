@@ -6,7 +6,7 @@ const MapComponent = () => {
     Geocode.setLanguage("en");
     Geocode.enableDebug();
     return(
-        <div id="map-container"></div>
+        <div id="map-page-container">Hi</div>
     )
 };
 

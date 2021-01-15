@@ -119,7 +119,7 @@ const Nav = props => {
                             <div id="nav-inner-requests" style={{height: "39%"}}>
                                 <Link to="/available/request/all" style={{textDecoration: "none"}}><div className="nav-inner-btns">Requests</div></Link>
                                 <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Calendar</div></Link>
-                                <Link to="/available/calendar" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
+                                <Link to="/map" style={{textDecoration: "none"}}><div className="nav-inner-btns">Map</div></Link>
 
 
                             </div>
