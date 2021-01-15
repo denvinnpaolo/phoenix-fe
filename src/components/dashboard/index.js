@@ -17,6 +17,7 @@ import About from './about/About.js'
 import Loading from '../UI/loading/Loading.js';
 import Private from '../../Private.js';
 import Settings from './settings/Settings.js';
+import MapComponent from './map/Map.js'
 
 
 
@@ -37,6 +38,7 @@ const Dashboard = () => {
                 <Route path="/post/edit/available" render={()=><EditWaste />}/>
                 <Route path="/archives" render={()=> <Archive />}/>
                 <Route path="/user/settings" render={()=> <Settings />}/>
+                <Route path="/map" render={()=> <MapComponent />}/>
 
             </div>
         )
