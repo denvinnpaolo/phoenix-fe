@@ -1889,6 +1889,11 @@ option {
   justify-content: space-evenly;
 }
 
+#map-conatiner{
+  height: 100%;
+  width: 100%;
+}
+
 
 
 @media screen and (max-width: 1200px) and (min-width: 800px){
