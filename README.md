@@ -72,7 +72,7 @@ Create a `.env.development` and `.env.production` file so you don't have to hard
 
 ## Styling
 
-This project uses [Theme UI](https://theme-ui.com/getting-started) and [Bootstrap], 
+This project uses [Theme UI](https://theme-ui.com/getting-started), [Bootstrap],  [Semantic-UI]
 
 In any component where you want to have any styling from the `theme` file needs to have the following imported at the very top of the file (including the comment):
 
