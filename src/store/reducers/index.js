@@ -24,7 +24,6 @@ const combineReducer = combineReducers({
 
 const rootReducer = (state, action) => {
     if(action.type === UNFETCH_USER_SUCCESS){
-
         state = undefined
     }
 

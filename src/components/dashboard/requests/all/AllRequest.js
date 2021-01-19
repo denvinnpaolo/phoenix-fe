@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Moment from 'moment';
-import jwt_decode from 'jwt-decode';
 
 
 import { BsBell,BsFunnelFill, BsPerson, BsSearch } from 'react-icons/bs';
@@ -37,7 +36,6 @@ const AllRequest = () => {
    
 
     const handleDBClick = item => {
-        console.log(item)
         if(!item.transformer_id){
             if(users.userData.userdata.type==='wt'){
                 dispatch(fetchAvailById({id: item.id}))
