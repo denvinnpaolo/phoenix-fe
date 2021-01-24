@@ -1060,7 +1060,8 @@ option {
   justify-content: space-evenly;
   align-items: center;
   height: 10%;
-  width: 32%;
+  width: 35%;
+  padding-left: 2%;
 }
 
 #dash-component-header {
