@@ -23,6 +23,7 @@ const Home = () => {
 
 
     const [overviewChoices, setOverviewChoices] = useState({
+        all: false,
         today: false,
         week: true,
         month: false,
@@ -35,6 +36,7 @@ const Home = () => {
     
 
     const activeCat = e => {
+        console.log(e)
         setOverviewChoices({
             ...overviewChoices,
             [e.currentTarget.id]: true,
@@ -77,6 +79,7 @@ const Home = () => {
                                 <span id="dash-component-header">Overview</span>
                             </div>
                             <div id="overview-sort-container">
+                                <span  id={"all"} className={`overview-category-choices clickable  ${overviewChoices.all? "active-overview" : null}`}  onClick={activeCat}>All</span>
                                 <span  id={"today"} className={`overview-category-choices clickable  ${overviewChoices.today? "active-overview" : null}`}  onClick={activeCat}>Today</span>
                                 <span id={"week"} className={`overview-category-choices clickable ${overviewChoices.week? "active-overview" : null}`}  onClick={activeCat}>This week</span>
                                 <span id={"month"} className={`overview-category-choices clickable ${overviewChoices.month? "active-overview" : null}`}  onClick={activeCat}>This month</span>

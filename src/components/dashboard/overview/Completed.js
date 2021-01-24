@@ -69,6 +69,8 @@ const Completed = props => {
                                         return new Date(a.exp) - new Date(Moment().subtract(7, 'days')) > 0
                                     } else if(props.sort.month){
                                         return new Date(Moment(a.exp).add(15, 'days')) - new Date(Moment().subtract(15, 'days')) > 0
+                                    } else if(props.sort.all) {
+                                        return a
                                     }
                                 })
                                 .map((item, i)=> 
