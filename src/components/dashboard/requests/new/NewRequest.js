@@ -94,6 +94,8 @@ const NewRequest = props => {
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(7, 'd'))
                                     } else if(props.sort.month){
                                         return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
+                                    } else if(props.sort.all){
+                                        return a
                                     }
                                 })
                                 .slice(0,10)
@@ -172,6 +174,8 @@ const NewRequest = props => {
                                     return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(7, 'd'))
                                 } else if(props.sort.month){
                                     return Moment(a.exp).isBetween(Moment().subtract(1,'d'), Moment().add(30, 'd'))
+                                } else if(props.sort.all) {
+                                    return a
                                 }
                             })
                             .slice(0,8)
