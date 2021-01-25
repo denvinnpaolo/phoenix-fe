@@ -520,7 +520,22 @@
 }
 
 #contacts-texts{
-  padding-left: 5%;
+  padding-left: 4.8%;
+}
+
+#contacts-form-container{
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+  height: 70%;
+}
+
+#contacts-forms{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  border: 1px solid blue;
 
 }
 
