@@ -47,7 +47,6 @@ const Home = () => {
     }
 
     const handleSchedule = () => {
- 
         dispatch(fetchMultiAvail(multiWastes))
         .then(()=> history.push('/available/schedule/multi'))
     }
