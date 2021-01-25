@@ -533,7 +533,8 @@
 #contacts-forms{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  justify-content: space-evenly;
+  width: 45%;
   height: 100%;
   border: 1px solid blue;
 

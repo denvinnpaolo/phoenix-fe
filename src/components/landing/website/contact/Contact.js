@@ -13,15 +13,18 @@ const Contact = () => {
             <div id="contacts-form-container">
                 <div id='contacts-forms'>
                     <div>
-                    <span>NAME</span>
-                    <input />
+                        <span>NAME</span>
+                        <input />
                     </div>
-                    
-                    <span>EMAIL</span>
-                    <input />
-                    <span>MESSAGE</span>
-                    <input />
-                    <button> Submit</button>
+                    <div>
+                        <span>EMAIL</span>
+                        <input />
+                    </div>
+                        <div>
+                        <span>MESSAGE</span>
+                        <input />
+                    </div>
+                    <button>Submit</button>
                 </div>
             </div>
             <Footer />
