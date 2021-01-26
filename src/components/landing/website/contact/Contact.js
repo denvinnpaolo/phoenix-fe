@@ -12,13 +12,13 @@ const Contact = () => {
             </div>
             <div id="contacts-form-container">
                 <div id='contacts-forms'>
-                    <div>
+                    <div style={{width: "50%"}}>
                         <span>NAME</span>
-                        <input />
+                        <input style={{width: " 100%"}} />
                     </div>
-                    <div>
+                    <div style={{width: "50%"}}>
                         <span>EMAIL</span>
-                        <input />
+                        <input style={{width: " 100%"}} />
                     </div>
                     <div style={{height: "40%", width: "100%"}}>
                         <span>MESSAGE</span>
