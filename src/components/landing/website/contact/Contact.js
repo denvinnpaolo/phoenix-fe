@@ -22,7 +22,7 @@ const Contact = () => {
                     </div>
                     <div style={{height: "40%", width: "100%"}}>
                         <span className="contacts-field-texts">MESSAGE</span>
-                        <input style={{height: "100%", width: " 100%"}} />
+                        <input className="contacts-inputs" style={{height: "100%", width: " 100%"}} />
                     </div>
                     <button>Submit</button>
                 </div>
