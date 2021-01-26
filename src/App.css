@@ -526,7 +526,6 @@
 #contacts-form-container{
   display: flex;
   justify-content: center;
-  border: 1px solid red;
   height: 70%;
 }
 
@@ -537,8 +536,12 @@
   justify-content: space-evenly;
   width: 45%;
   height: 100%;
-  border: 1px solid blue;
 
+}
+
+.contacts-field-texts{
+  font-size: .7em;
+  font-weight: bold;
 }
 
 /* LANDING PAGE ROOT */

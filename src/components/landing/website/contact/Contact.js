@@ -13,15 +13,15 @@ const Contact = () => {
             <div id="contacts-form-container">
                 <div id='contacts-forms'>
                     <div style={{width: "50%"}}>
-                        <span>NAME</span>
+                        <span className="contacts-field-texts">NAME</span>
                         <input style={{width: " 100%"}} />
                     </div>
                     <div style={{width: "50%"}}>
-                        <span>EMAIL</span>
+                        <span className="contacts-field-texts">EMAIL</span>
                         <input style={{width: " 100%"}} />
                     </div>
                     <div style={{height: "40%", width: "100%"}}>
-                        <span>MESSAGE</span>
+                        <span className="contacts-field-texts">MESSAGE</span>
                         <input style={{height: "100%", width: " 100%"}} />
                     </div>
                     <button>Submit</button>
