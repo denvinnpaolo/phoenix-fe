@@ -544,6 +544,11 @@
   font-weight: bold;
 }
 
+.contacts-inputs{
+  border-radius: 5px;
+  border: .01em solid black;
+}
+
 /* LANDING PAGE ROOT */
 
 #register-container {
