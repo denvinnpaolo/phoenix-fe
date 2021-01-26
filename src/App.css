@@ -513,14 +513,14 @@
 
 
 #contact-header{
-  height: 14.5%;
-  padding-left: 4.3%;
+  height: 14.6%;
+  padding-left: 4.5%;
   display: flex;
   align-items: flex-end;
 }
 
 #contacts-texts{
-  padding-left: 4.8%;
+  padding-left: 5%;
 }
 
 #contacts-form-container{

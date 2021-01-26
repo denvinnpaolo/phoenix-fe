@@ -20,9 +20,9 @@ const Contact = () => {
                         <span>EMAIL</span>
                         <input />
                     </div>
-                        <div>
+                    <div style={{height: "40%", width: "100%"}}>
                         <span>MESSAGE</span>
-                        <input />
+                        <input style={{height: "100%", width: " 100%"}} />
                     </div>
                     <button>Submit</button>
                 </div>
