@@ -22,9 +22,9 @@ const Contact = () => {
                     </div>
                     <div style={{height: "40%", width: "100%"}}>
                         <span className="contacts-field-texts">MESSAGE</span>
-                        <input className="contacts-inputs" style={{height: "100%", width: " 100%"}} />
+                        <textarea className="contacts-inputs" style={{height: "100%", width: " 100%"}} type="text" />
                     </div>
-                    <button>Submit</button>
+                    <button id="contacts-submit-btn">Submit</button>
                 </div>
             </div>
             <Footer />
