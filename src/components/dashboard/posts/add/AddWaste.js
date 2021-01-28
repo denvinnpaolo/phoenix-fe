@@ -48,8 +48,8 @@ const AddWaste = () => {
             }
         );
     
-        console.log(userData)
-        console.log(newPickUp)
+        // console.log(userData)
+        // console.log(newPickUp)
         if(newPickUp === null){
             return null
         } else {
