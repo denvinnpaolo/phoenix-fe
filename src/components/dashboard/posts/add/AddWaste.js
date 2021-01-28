@@ -20,14 +20,14 @@ const AddWaste = () => {
 
 
     const [newPickUp, setNewPickUp] = useState(!userData.userdata? null: {
-        "date_posted": "",
+        "date_posted": date,
         "price":"",
         "exp": "",
         "time_available": "",
         "type": "",
         "items": "",
-        "address":"",
-        "producer_id":''
+        "address":`${userData.userdata.address}, ${userData.userdata.city}, ${userData.userdata.state}, ${userData.userdata.country}`,
+        "producer_id":userData.userdata.id
     });
 
     const handleChange = e => {
