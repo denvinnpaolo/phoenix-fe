@@ -55,9 +55,9 @@ const Home = () => {
 
     }
 
-    if(!token && !loggedIn){
-        <Redirect to={'/'} />
-    } else {
+    // if(!token && !loggedIn){
+    //     <Redirect to={'/'} />
+    // } else {
         if(!userData.userdata){
             return <Loading />
         } else {
@@ -156,7 +156,6 @@ const Home = () => {
                 </div>
             )
         }
-    }   
-};
+    }   ;
 
 export default Home;

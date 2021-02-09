@@ -86,8 +86,8 @@ export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
 
 
-const host = 'http://165.22.39.33:25060';
-// const host = 'http://localhost:25060'
+// const host = 'http://165.22.39.33:25060';
+const host = 'http://localhost:25060'
 
 export const fetchUser = user => dispatch => {
     dispatch({ type: FETCH_USER_LOADING });
