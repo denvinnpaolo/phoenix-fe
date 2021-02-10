@@ -88,7 +88,10 @@ const SignUpForm = props => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(createUser(newUser))
-        history.push('/')
+        .then(()=>{
+            history.push('/')
+        })
+
     }
 
     
