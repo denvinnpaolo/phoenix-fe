@@ -624,8 +624,6 @@
 }
 
 
-
-
 /* LANDING PAGE NAVIGATION */
 #nav-container {
   background-color: #288B50;
@@ -1915,6 +1913,26 @@ option {
 #map-page-container{
   height: 100%;
   width: 100%;
+}
+
+#allreq-tbl-map{
+  height: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+#allreq-list-address{
+  width: 30%;
+}
+
+.allreq-data-map{
+  width:50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(190, 184, 184, 0.5);
+  font-size: .9em;
 }
 
 
