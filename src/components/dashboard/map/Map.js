@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Geocode from "react-geocode";
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import Moment from 'moment';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,6 +59,12 @@ const MapComponent = () => {
           defaultCenter = { { lat: 40.756795, lng: -73.954298 } }
           defaultZoom = { 10 }
         >
+            <Marker
+                position={{ lat: 40.756795, lng: -73.954298 }}
+            />
+            <Marker
+                position={{ lat: 41.756795, lng: -73.954298 }}
+            />
         </GoogleMap>
      ));
 

@@ -168,7 +168,7 @@ const AllRequest = () => {
                                 </div>
                                 <div id="allreq-tbl-btns">
                                         <div id="allreq-btm-btns">
-                                            <button className="allreq-btn allreq-btn-res">Map view</button>
+                                            <button className="allreq-btn allreq-btn-res" onClick={()=>{history.push("/map")}}>Map view</button>
                                             <button className="allreq-btn allreq-btn-res" style={{backgroundColor: "#FF9B64"}} onClick={handleSchedule}>Schedule</button>
 
                                         </div>
