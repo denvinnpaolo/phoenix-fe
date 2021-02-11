@@ -26,8 +26,19 @@ const MapComponent = () => {
 
     const [order, setOrder] = useState(true);
 
-    let multiWastes = {}
+    const [address, setAddress] = useState({
+        lat: 0,
+        lng: 0
+    })
 
+    let multiWastes = {}
+    
+    const handleClick = item => {
+        setAddress({
+            lat:0,
+            lng:0
+        })
+    }
 
     const handleDBClick = item => {
         if(!item.transformer_id){
@@ -62,13 +73,7 @@ const MapComponent = () => {
             <Marker
                 position={{ lat: 40.756795, lng: -73.954298 }}
             />
-            <Marker
-                position={{ lat: 41.756795, lng: -73.954298 }}
-            />
-            <Marker
-                position={{ lat: 41.756795, lng: -73.954298 }}
-            />
-            
+
         </GoogleMap>
      ));
 
