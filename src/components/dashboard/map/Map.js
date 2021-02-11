@@ -124,7 +124,7 @@ const MapComponent = () => {
                                                 <span className="allreq-data-map">{item.address.split(',')[0]}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                 
-                                                <span className="allreq-data-map" style={{textTransform: 'capitalize'}}>{Moment(item.exp).format('MMM DD')}</span>
+                                                <span className="allreq-data-map" style={{textTransform: 'capitalize'}}><input type="checkbox" /></span>
 
 
                                             </div>
