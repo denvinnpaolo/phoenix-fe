@@ -68,6 +68,7 @@ const MapComponent = () => {
             <Marker
                 position={{ lat: 41.756795, lng: -73.954298 }}
             />
+            
         </GoogleMap>
      ));
 
