@@ -57,7 +57,7 @@ const MapComponent = () => {
     const GoogleMapExample = withGoogleMap(props => (
         <GoogleMap
           defaultCenter = { { lat: 40.756795, lng: -73.954298 } }
-          defaultZoom = { 13 }
+          defaultZoom = { 10 }
         >
         </GoogleMap>
      ));
@@ -142,7 +142,7 @@ const MapComponent = () => {
                             </div>
                             <div id="allreq-tbl-btns">
                                     <div id="allreq-btm-btns">
-                                        <button className="allreq-btn allreq-btn-res">List view</button>
+                                        <button className="allreq-btn allreq-btn-res" onClick={()=>{history.push("/available/request/all")}}>List view</button>
                                         <button className="allreq-btn allreq-btn-res" style={{backgroundColor: "#FF9B64"}} onClick={handleSchedule}>Schedule</button>
 
                                     </div>
