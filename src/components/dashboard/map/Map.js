@@ -28,25 +28,26 @@ const MapComponent = () => {
     const [order, setOrder] = useState(true);
 
     const [address, setAddress] = useState({
-        lat: 0,
-        lng: 0
+        lat: 40.756795,
+        lng: -73.954298
     })
 
     let multiWastes = {}
     
     const handleClick = item => {
-        Geocode.fromAddress("Eiffel Tower")
+        console.log(item)
+        Geocode.fromAddress(item)
             .then((response) => {
               const coordinates = response.results[0].geometry.location;
               setAddress({
                   lat: coordinates.lat,
                   lng: coordinates.lng
               })
+              console.log(address)
             },
             (error) => {
               console.error(error);
-            });
-        console.log(address)
+            })
     }
 
     const handleDBClick = item => {
@@ -76,11 +77,11 @@ const MapComponent = () => {
 
     const GoogleMapExample = withGoogleMap(props => (
         <GoogleMap
-          defaultCenter = { { lat: 40.756795, lng: -73.954298 } }
-          defaultZoom = { 10 }
+          defaultCenter = { { lat: address.lat, lng: address.lng } }
+          defaultZoom = { 14 }
         >
             <Marker
-                position={{ lat: 40.756795, lng: -73.954298 }}
+                position={{ lat: address.lat, lng: address.lng }}
             />
 
         </GoogleMap>
