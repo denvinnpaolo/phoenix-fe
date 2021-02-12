@@ -18,6 +18,7 @@ import Loading from '../../UI/loading/Loading.js'
 
 
 const MapComponent = () => {
+    Geocode.setApiKey("AIzaSyCY4qx27h0FeRhO4XMUf-OpErdSZF3xuzM")
     Geocode.setLanguage("en");
     Geocode.enableDebug();
     const dispatch = useDispatch();
@@ -34,10 +35,18 @@ const MapComponent = () => {
     let multiWastes = {}
     
     const handleClick = item => {
-        setAddress({
-            lat:0,
-            lng:0
-        })
+        Geocode.fromAddress("Eiffel Tower")
+            .then((response) => {
+              const coordinates = response.results[0].geometry.location;
+              setAddress({
+                  lat: coordinates.lat,
+                  lng: coordinates.lng
+              })
+            },
+            (error) => {
+              console.error(error);
+            });
+        console.log(address)
     }
 
     const handleDBClick = item => {
@@ -136,7 +145,7 @@ const MapComponent = () => {
                                             <div id="allreq-data-row" onDoubleClick={()=> {
                                                 handleDBClick(item)
                                             }}>
-                                                <span className="allreq-data-map">{item.address.split(',')[0]}</span>
+                                                <span className="allreq-data-map" onClick={()=> {handleClick(item.address)}}>{item.address.split(',')[0]}</span>
                                                 <div style={{borderRight: "1px solid rgb(190, 184, 184, 0.5)", height: "100%"}}></div>
                                                 
                                                 <span className="allreq-data-map" style={{textTransform: 'capitalize'}}><input type="checkbox" /></span>
