@@ -78,7 +78,7 @@ const MapComponent = () => {
     const GoogleMapExample = withGoogleMap(props => (
         <GoogleMap
           defaultCenter = { { lat: address.lat, lng: address.lng } }
-          defaultZoom = { 14 }
+          defaultZoom = { 15 }
         >
             <Marker
                 position={{ lat: address.lat, lng: address.lng }}
